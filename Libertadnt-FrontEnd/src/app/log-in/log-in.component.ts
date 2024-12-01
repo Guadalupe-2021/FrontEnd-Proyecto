@@ -1,8 +1,9 @@
 import { Component, OnChanges, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FormsModule } from '@angular/forms'; 
-import { RouterOutlet ,RouterLink} from '@angular/router';
+import { RouterOutlet ,RouterLink, Router} from '@angular/router';
 import { UsuarioService } from './usuario.service.js';
+
 
 @Component({
   selector: 'app-log-in',
@@ -16,9 +17,9 @@ export class LogInComponent implements OnChanges {
     cod_administrador:FormControl;
     contrasenia: FormControl;
     
-bander = false;
-  router: any;
-constructor (private service : UsuarioService ){
+  bander = false;
+
+constructor (private service : UsuarioService , private router:Router){
       this.contrasenia= new FormControl('',[Validators.required])
       this.cod_administrador= new FormControl('',[Validators.required])
       console.log(this.cod_administrador)
@@ -54,6 +55,8 @@ enviarUsuario(){
       if(response.status == 202){
         this.bandUsuario ='encontrado'
         this.bandera = "menu-maestro"
+        this.service.setRutaTipoUsuario("menu-maestro")
+        console.log(this.service.getRutaTipoUsuario())
         console.log("usuario especial")
         this.router.navigateByUrl('/menu-maestro')
       }

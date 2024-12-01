@@ -1,35 +1,31 @@
 
 import { Routes } from '@angular/router';
 import { LogInComponent } from './log-in/log-in.component.js';
-import { MenuComponent } from './menu/menu.component.js';
 import { MenuSentenciaComponent } from './sentencia/menu-sentencia/menu-sentencia.component.js';
 import { AltaSentenciaComponent } from './sentencia/alta-sentencia/alta-sentencia.component.js';
 import { ModSentenciaComponent } from './sentencia/mod-sentencia/mod-sentencia.component.js';
 
-import { MenuGuardiaComponent } from './guardias/menu-guardia/menu-guardia.component.js';
 import { AltaGuardiaComponent } from './guardias/alta-guardia/alta-guardia.component.js';
 import { BuscarGuardiaComponent } from './guardias/buscar-guardia/buscar-guardia.component.js';
 import { ModificarGuardiaComponent } from './guardias/modificar-guardia/modificar-guardia.component.js';
 import { MostrarGuardiaComponent } from './guardias/mostrar-guardia/mostrar-guardia.component.js';
 
-import { MenuReclusosComponent } from './reclusos/menu-reclusos/menu-reclusos.component.js';
 import { AltaReclusosComponent } from './reclusos/alta-reclusos/alta-reclusos.component.js';
 import { BuscarReclusosComponent } from './reclusos/buscar-reclusos/buscar-reclusos.component.js';
 import { MoverReclusoComponent } from './reclusos/mover-recluso/mover-recluso.component.js';
 import { ModificarCondenaComponent } from './reclusos/modificar-condena/modificar-condena.component.js';
-import { MenuActividadComponent } from './actividades/menu-actividad/menu-actividad.component.js';
 import { AltaActividadComponent } from './actividades/alta-actividad/alta-actividad.component.js';
 import { ModificarActividadComponent } from './actividades/modificar-actividad/modificar-actividad.component.js';
 import { MostrarActividadComponent } from './actividades/mostrar-actividad/mostrar-actividad.component.js';
-import { MenuTallerComponent } from './talleres/menu-taller/menu-taller.component.js';
+
+
+
 import { AltaTallerComponent } from './talleres/alta-taller/alta-taller.component.js';
 import { InscripcionTallerComponent } from './talleres/inscripcion-taller/inscripcion-taller.component.js';
 import { ModificarTallerComponent } from './talleres/modificar-taller/modificar-taller.component.js';
 import { MostrarTallerComponent } from './talleres/mostrar-taller/mostrar-taller.component.js';
 import { MenuSectorComponent } from './sector/menu-sector/menu-sector.component.js';
-import { MenuTurnosComponent } from './sector/menu-turnos/menu-turnos.component.js';
 import { MostrarCeldasComponent } from './sector/mostrar-celdas/mostrar-celdas.component.js';
-import { MenuIlegalComponent } from './ilegal/menu-ilegal/menu-ilegal.component.js';
 import { AltaIlegalComponent } from './ilegal/alta-ilegal/alta-ilegal.component.js';
 import { ModificarIlegalComponent } from './ilegal/modificar-ilegal/modificar-ilegal.component.js';
 import { IncribirseIlegalComponent } from './ilegal/incribirse-ilegal/incribirse-ilegal.component.js';
@@ -42,12 +38,21 @@ import { MostrarSenteniasComponent } from './sentencia/mostrar-sentencias/mostra
 import { CrearTurnosComponent } from './sector/crear-turnos/crear-turnos.component.js';
 import { FinalizarTurnosComponent } from './sector/finalizar-turnos/finalizar-turnos.component.js';
 
+// MENU
+import { MenuComponent } from './menu/menu.component.js';
+import { MenuGuardiaComponent } from './guardias/menu-guardia/menu-guardia.component.js';
+import { MenuActividadComponent } from './actividades/menu-actividad/menu-actividad.component.js';
+import { MenuReclusosComponent } from './reclusos/menu-reclusos/menu-reclusos.component.js';
+import { MenuTallerComponent } from './menu/menu-taller/menu-taller.component.js';
+// import { MenuTallerComponent } from './talleres/menu-taller/menu-taller.component.js';
+import { MenuTurnosComponent } from './sector/menu-turnos/menu-turnos.component.js';
+import { MenuIlegalComponent } from './ilegal/menu-ilegal/menu-ilegal.component.js';
 
 export const routes: Routes = [
     //log in
     {path: 'usuario', component: LogInComponent},
     //menu
-    {path: 'usuario/:menu', component: MenuComponent},
+    {path: 'menu', component: MenuComponent},
     {path: '',redirectTo: 'usuario',pathMatch:'full'},
     //usuario
     {path: 'usuario/:menu/ver-usuarios', component: UsuariosComponent},

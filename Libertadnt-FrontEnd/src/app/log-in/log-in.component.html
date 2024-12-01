@@ -21,7 +21,7 @@
     <button [disabled]="usuario.invalid"  >enviar datos</button>
 </form>
 @if (bandUsuario==='encontrado') {
-    <p>usuario valido ingrese al <a [routerLink]="bandera" >menu</a></p>
+    <p>usuario valido ingrese al <a routerLink="../menu" >menu</a></p>
 }@else if (bandUsuario==='no encontrado') {
     <p>usuario invalido</p>
 }@else if (bandUsuario === 'incorrecto') {

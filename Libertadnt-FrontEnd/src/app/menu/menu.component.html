@@ -12,7 +12,7 @@
   <div>
     
       <p>
-        <a href="menu/recluso">Menu de Reclusos</a>
+        <a routerLink="recluso">Menu de Reclusos</a>
       </p>
     
   </div>
@@ -26,7 +26,7 @@
   <div>
     
       <p>
-        <a href="menu/guardia">Menu de Guardias</a>
+        <a routerLink="guardia">Menu de Guardias</a>
       </p>
     
   </div>
@@ -40,7 +40,7 @@
   <div>
     
       <p>
-        <a href="menu/sentencia">Menu de Sentencia</a>
+        <a routerLink="sentencia">Menu de Sentencia</a>
       </p>
     
   </div>
@@ -54,7 +54,7 @@
   <div>
     
       <p>
-        <a href="menu/actividad">Menu de Actividades</a>
+        <a routerLink="actividad">Menu de Actividades</a>
       </p>
     
   </div>
@@ -68,7 +68,7 @@
   <div>
     
       <p>
-        <a href="menu/taller">Menu de Talleres</a>
+        <a routerLink="taller">Menu de Talleres</a>
       </p>
     
   </div>
@@ -96,7 +96,7 @@
   <div>
     
     <p>
-      <a href="usuario/menu/sector">Menu de sectores</a>
+      <a routerLink="sector">Menu de sectores</a>
     </p>
   
   </div>
@@ -109,7 +109,7 @@
   </div>
 
   
-    @if (bandera === true) {
+    @if (usuario_administrador === true) {
     <h2>BIENVENIDO MAESTRO</h2>
     <nav>
       <a href="usuario/menu-maestro/menu">Negocio ILEGAL</a>
