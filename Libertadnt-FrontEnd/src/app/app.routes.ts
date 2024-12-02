@@ -1,7 +1,7 @@
 
 import { Routes } from '@angular/router';
 import { LogInComponent } from './log-in/log-in.component.js';
-import { MenuSentenciaComponent } from './sentencia/menu-sentencia/menu-sentencia.component.js';
+import { MenuSentenciaComponent } from './menu/menu-sentencia/menu-sentencia.component.js';
 import { AltaSentenciaComponent } from './sentencia/alta-sentencia/alta-sentencia.component.js';
 import { ModSentenciaComponent } from './sentencia/mod-sentencia/mod-sentencia.component.js';
 
@@ -24,14 +24,14 @@ import { AltaTallerComponent } from './talleres/alta-taller/alta-taller.componen
 import { InscripcionTallerComponent } from './talleres/inscripcion-taller/inscripcion-taller.component.js';
 import { ModificarTallerComponent } from './talleres/modificar-taller/modificar-taller.component.js';
 import { MostrarTallerComponent } from './talleres/mostrar-taller/mostrar-taller.component.js';
-import { MenuSectorComponent } from './sector/menu-sector/menu-sector.component.js';
+import { MenuSectorComponent } from './menu/menu-sector/menu-sector.component.js';
 import { MostrarCeldasComponent } from './sector/mostrar-celdas/mostrar-celdas.component.js';
 import { AltaIlegalComponent } from './ilegal/alta-ilegal/alta-ilegal.component.js';
 import { ModificarIlegalComponent } from './ilegal/modificar-ilegal/modificar-ilegal.component.js';
 import { IncribirseIlegalComponent } from './ilegal/incribirse-ilegal/incribirse-ilegal.component.js';
 import { MostrarIlegalComponent } from './ilegal/mostrar-ilegal/mostrar-ilegal.component.js';
-import { UsuarioService } from './log-in/usuario.service.js';
-import { UsuariosComponent } from './log-in/administradores/usuarios.component.js';
+import { UsuarioService } from './usuarios/usuario.service.js';
+import { UsuariosComponent } from './usuarios/usuarios.component.js';
 import { LiberarReclusoComponent } from './reclusos/liberar-recluso/liberar-recluso.component.js';
 import { FinalizarGuardiaComponent } from './guardias/finalizar-guardia/finalizar-guardia.component.js';
 import { MostrarSenteniasComponent } from './sentencia/mostrar-sentencias/mostrar-sentenias.component.js';
@@ -40,20 +40,20 @@ import { FinalizarTurnosComponent } from './sector/finalizar-turnos/finalizar-tu
 
 // MENU
 import { MenuComponent } from './menu/menu.component.js';
-import { MenuGuardiaComponent } from './guardias/menu-guardia/menu-guardia.component.js';
-import { MenuActividadComponent } from './actividades/menu-actividad/menu-actividad.component.js';
-import { MenuReclusosComponent } from './reclusos/menu-reclusos/menu-reclusos.component.js';
+import { MenuGuardiaComponent } from './menu/menu-guardia/menu-guardia.component.js';
+import { MenuActividadComponent } from './menu/menu-actividad/menu-actividad.component.js';
+import { MenuReclusosComponent } from './menu/menu-reclusos/menu-reclusos.component.js';
 import { MenuTallerComponent } from './menu/menu-taller/menu-taller.component.js';
 // import { MenuTallerComponent } from './talleres/menu-taller/menu-taller.component.js';
 import { MenuTurnosComponent } from './sector/menu-turnos/menu-turnos.component.js';
-import { MenuIlegalComponent } from './ilegal/menu-ilegal/menu-ilegal.component.js';
+import { MenuIlegalComponent } from './menu/menu-ilegal/menu-ilegal.component.js';
 
 export const routes: Routes = [
     //log in
-    {path: 'usuario', component: LogInComponent},
+    {path: '',redirectTo: 'log-in',pathMatch:'full'},
+    {path: 'log-in', component: LogInComponent},
     //menu
     {path: 'menu', component: MenuComponent},
-    {path: '',redirectTo: 'usuario',pathMatch:'full'},
     //usuario
     {path: 'usuario/:menu/ver-usuarios', component: UsuariosComponent},
     //sentencia
@@ -87,18 +87,18 @@ export const routes: Routes = [
     {path: 'menu/taller/modificar-taller', component: ModificarTallerComponent},
     {path: 'menu/taller/mostrar-taller', component: MostrarTallerComponent},
     //sector
-    {path: 'usuario/menu/sector', component: MenuSectorComponent},
-    {path: 'usuario/menu/sector/t/:sector', component: MenuTurnosComponent},
-    {path: 'usuario/menu/sector/c/:sector', component: MostrarCeldasComponent},
-    {path: 'usuario/menu/sector/t/:sector/crear-turnos', component: CrearTurnosComponent},
-    {path: 'usuario/menu/sector/t/:sector/finalizar-turnos', component: FinalizarTurnosComponent},
+    {path: 'menu/sector', component: MenuSectorComponent},
+    {path: 'menu/sector/:sector', component: MenuTurnosComponent},
+    {path: 'menu/sector/:sector', component: MostrarCeldasComponent},
+    {path: 'menu/sector/:sector/crear-turnos', component: CrearTurnosComponent},
+    {path: 'menu/sector/:sector/finalizar-turnos', component: FinalizarTurnosComponent},
     
     //ilegal
-    {path: 'usuario/menu-maestro/menu', component: MenuIlegalComponent},
-    {path: 'usuario/menu-maestro/menu/alta-actvidad', component: AltaIlegalComponent},
-    {path: 'usuario/menu-maestro/menu/modificar-actividad', component: ModificarIlegalComponent},
-    {path: 'usuario/menu-maestro/menu/inscripcion-actividad', component: IncribirseIlegalComponent},
-    {path: 'usuario/menu-maestro/menu/mostrar-actividad', component: MostrarIlegalComponent},
+    {path: 'menu/ilegal', component: MenuIlegalComponent},
+    {path: 'menu/ilegal/alta-actvidad', component: AltaIlegalComponent},
+    {path: 'menu/ilegal/modificar-actividad', component: ModificarIlegalComponent},
+    {path: 'menu/ilegal/inscripcion-actividad', component: IncribirseIlegalComponent},
+    {path: 'menu/ilegal/mostrar-actividad', component: MostrarIlegalComponent},
 
     
 

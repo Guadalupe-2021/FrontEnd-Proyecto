@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActividadService } from '../../actividades/actividad.service.js';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-alta-ilegal',
   standalone: true,
-  imports: [FormsModule,ReactiveFormsModule],
+  imports: [FormsModule,ReactiveFormsModule,RouterLink],
   templateUrl: './alta-ilegal.component.html',
   styleUrl: './alta-ilegal.component.css'
 })

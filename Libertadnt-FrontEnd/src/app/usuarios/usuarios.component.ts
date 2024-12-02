@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UsuarioService } from '../usuario.service.js';
+import { UsuarioService } from './usuario.service.js';
 
 @Component({
   selector: 'app-usuarios',
@@ -16,6 +16,7 @@ export class UsuariosComponent implements OnInit{
         if(data.status === 201){
           console.log("administradores encontrados ")
           this.service.usuarios=data
+          console.log(data)
           this.bandera=true
         }},
       error:(e)=>{

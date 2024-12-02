@@ -12,14 +12,7 @@ messageService: any;
 usuario:any
 usuarios:any
 usuarioEspecial:any
-ruta_tipo_usuario:any
 
-setRutaTipoUsuario(tipoUsuario:string){
-  this.ruta_tipo_usuario = tipoUsuario
-}
-getRutaTipoUsuario(){
-  return this.ruta_tipo_usuario
-}
 
 constructor(private http: HttpClient) {
   this.usuarios = [],

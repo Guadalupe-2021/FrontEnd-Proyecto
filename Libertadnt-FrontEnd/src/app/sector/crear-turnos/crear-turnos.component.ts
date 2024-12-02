@@ -6,7 +6,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 @Component({
   selector: 'app-crear-turnos',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [FormsModule, ReactiveFormsModule, RouterLink],
   templateUrl: './crear-turnos.component.html',
   styleUrl: './crear-turnos.component.css'
 })

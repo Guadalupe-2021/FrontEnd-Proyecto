@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SentenciasService } from '../sentencias.service.js';
+import { RouterLink } from '@angular/router';
+
 
 @Component({
   selector: 'app-alta-sentencia',
   standalone: true,
-  imports: [FormsModule,ReactiveFormsModule],
+  imports: [FormsModule,ReactiveFormsModule, RouterLink],
   templateUrl: './alta-sentencia.component.html',
   styleUrl: './alta-sentencia.component.css'
 })

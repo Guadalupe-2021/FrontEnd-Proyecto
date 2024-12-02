@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { SentenciasService } from '../sentencias.service.js';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
+
 
 @Component({
   selector: 'app-mostrar-sentenias',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './mostrar-sentencias.component.html',
   styleUrl: './mostrar-sentencias.component.css'
 })

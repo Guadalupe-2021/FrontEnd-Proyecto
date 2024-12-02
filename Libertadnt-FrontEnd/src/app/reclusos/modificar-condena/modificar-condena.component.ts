@@ -3,11 +3,12 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { ReclusosService } from '../reclusos.service.js';
 import { SentenciasService } from '../../sentencia/sentencias.service.js';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-modificar-condena',
   standalone: true,
-  imports: [ReactiveFormsModule,FormsModule,CommonModule],
+  imports: [ReactiveFormsModule,FormsModule,CommonModule,RouterLink],
   templateUrl: './modificar-condena.component.html',
   styleUrl: './modificar-condena.component.css'
 })

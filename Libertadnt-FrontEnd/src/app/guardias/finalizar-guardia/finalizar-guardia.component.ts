@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { GuardiasService } from '../guardias.service.js';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-finalizar-guardia',
   standalone: true,
-  imports: [FormsModule,ReactiveFormsModule],
+  imports: [FormsModule,ReactiveFormsModule,RouterLink],
   templateUrl: './finalizar-guardia.component.html',
   styleUrl: './finalizar-guardia.component.css'
 })

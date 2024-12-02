@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SectorService } from '../sector.service.js';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-finalizar-turnos',
   standalone: true,
-  imports: [FormsModule,ReactiveFormsModule],
+  imports: [FormsModule,ReactiveFormsModule, RouterLink],
   templateUrl: './finalizar-turnos.component.html',
   styleUrl: './finalizar-turnos.component.css'
 })

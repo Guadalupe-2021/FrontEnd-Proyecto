@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ReclusosService } from '../../reclusos/reclusos.service.js';
 import { ActividadService } from '../actividad.service.js';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-alta-actividad',
   standalone: true,
-  imports: [FormsModule,ReactiveFormsModule],
+  imports: [FormsModule,ReactiveFormsModule,RouterLink],
   templateUrl: './alta-actividad.component.html',
   styleUrl: './alta-actividad.component.css'
 })

@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { ReclusosService } from '../reclusos.service.js';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SectorService } from '../../sector/sector.service.js';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-mover-recluso',
   standalone: true,
-  imports: [FormsModule,ReactiveFormsModule],
+  imports: [FormsModule,ReactiveFormsModule,RouterLink],
   templateUrl: './mover-recluso.component.html',
   styleUrl: './mover-recluso.component.css'
 })

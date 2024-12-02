@@ -1,8 +1,8 @@
-import { Component, OnChanges, SimpleChanges } from '@angular/core';
+import { Component} from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FormsModule } from '@angular/forms'; 
-import { RouterOutlet ,RouterLink, Router} from '@angular/router';
-import { UsuarioService } from './usuario.service.js';
+import { RouterOutlet ,RouterLink, Router, ActivatedRoute} from '@angular/router';
+import { UsuarioService } from '../usuarios/usuario.service.js';
 
 
 @Component({
@@ -12,69 +12,51 @@ import { UsuarioService } from './usuario.service.js';
   templateUrl: './log-in.component.html',
   styleUrl: './log-in.component.css'
 })
-export class LogInComponent implements OnChanges { 
+export class LogInComponent { 
     usuario: FormGroup;
     cod_administrador:FormControl;
     contrasenia: FormControl;
-    
-  bander = false;
-
-constructor (private service : UsuarioService , private router:Router){
+    tipo_usuario:string | undefined;
+    message = '';
+    noEncontrado: boolean | undefined;
+constructor (private service : UsuarioService , private router:Router, private route: ActivatedRoute){
       this.contrasenia= new FormControl('',[Validators.required])
       this.cod_administrador= new FormControl('',[Validators.required])
-      console.log(this.cod_administrador)
-      this.usuario = new FormGroup({
-  
-        cod_administrador: this.cod_administrador,
-        contrasenia: this.contrasenia,
-        
-        })
-}ngOnChanges(changes: SimpleChanges): void {
-    if(this.cod_administrador.value !== ''){
-      console.log(this.cod_administrador)
-    }
-  }
 
-bandUsuario: string | undefined
-bandera = ''
-validarUsuarios(){
-  this.enviarUsuario()
- console.log(this.bandUsuario)
- console.log(this.bandera)
+      this.usuario = new FormGroup({
+        cod_administrador: this.cod_administrador,
+        contrasenia: this.contrasenia,       
+        })
+
 }
-enviarUsuario(){
+
+validarUsuarios(){
+  this.noEncontrado = false
+
   this.service.postAdministrador(this.usuario.value).subscribe({
     next: (response)=> {
       console.log(response)
-      if(response.status == 201){
-        this.bandUsuario='encontrado';
-        this.bandera='menu'
-        console.log("usuario normal ")
-        this.router.navigateByUrl('/menu')
-      }
       if(response.status == 202){
-        this.bandUsuario ='encontrado'
-        this.bandera = "menu-maestro"
-        this.service.setRutaTipoUsuario("menu-maestro")
-        console.log(this.service.getRutaTipoUsuario())
-        console.log("usuario especial")
-        this.router.navigateByUrl('/menu-maestro')
+        this.tipo_usuario = response.tipo_usuario
+        this.irAlMenu()
       }
     },
     error: (e)=> {
-      console.log("usuario no valido ")
-      console.log(e)
+      this.noEncontrado = true
       if(e.status==404){
-        this.bandUsuario='no encontrado';
+        this.message='Usuario Inexistente';
       }
       if(e.status == 401){
-        this.bandUsuario='incorrecto'
+        this.message='Contraseña Incorrecta'
       }
     }
   });
 
 }
 
+irAlMenu():void{
+   if (!this.noEncontrado) {this.router.navigate(['../menu'], { relativeTo: this.route });}
+}
 
 
 

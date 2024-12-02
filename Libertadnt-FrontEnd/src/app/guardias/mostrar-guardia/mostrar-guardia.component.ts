@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { GuardiasService } from '../guardias.service.js';
 import { HttpClient } from '@angular/common/http';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-mostrar-guardia',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './mostrar-guardia.component.html',
   styleUrl: './mostrar-guardia.component.css'
 })

@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { TallerService } from '../taller.service.js';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { RouterLink } from '@angular/router';
+
 
 @Component({
   selector: 'app-modificar-taller',
   standalone: true,
-  imports: [FormsModule,ReactiveFormsModule],
+  imports: [FormsModule,ReactiveFormsModule,RouterLink],
   templateUrl: './modificar-taller.component.html',
   styleUrl: './modificar-taller.component.css'
 })

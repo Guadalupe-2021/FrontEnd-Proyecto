@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ReclusosService } from '../reclusos.service.js';
 import { server } from 'typescript';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-liberar-recluso',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './liberar-recluso.component.html',
   styleUrl: './liberar-recluso.component.css'
 })

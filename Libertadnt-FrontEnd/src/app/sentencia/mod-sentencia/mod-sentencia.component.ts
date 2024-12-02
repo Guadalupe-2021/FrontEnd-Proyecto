@@ -3,12 +3,13 @@ import { FormsModule, ReactiveFormsModule,FormControl,FormGroup, Validators } fr
 import { Input, input, Output, output,EventEmitter } from '@angular/core';
 import { SentenciasService } from '../sentencias.service.js';
 import { formatCurrency } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-mod-sentencia',
   standalone: true,
-  imports: [FormsModule,ReactiveFormsModule],
+  imports: [FormsModule,ReactiveFormsModule,RouterLink],
   templateUrl: './mod-sentencia.component.html',
   styleUrl: './mod-sentencia.component.css'
 })

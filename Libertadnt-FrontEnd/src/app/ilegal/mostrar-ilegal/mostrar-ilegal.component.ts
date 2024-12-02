@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActividadService } from '../../actividades/actividad.service.js';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-mostrar-ilegal',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './mostrar-ilegal.component.html',
   styleUrl: './mostrar-ilegal.component.css'
 })

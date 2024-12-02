@@ -24,11 +24,11 @@ export class MenuTurnosComponent {
     console.log(this.route.snapshot.params['sector'])
     this.crear="crear-turnos"
     this.finalizar="finalizar-turnos"
-    this.service.getTuenosDSeSector(this.route.snapshot.params['sector']).subscribe({
+    this.service.getTurnosDSeSector(this.route.snapshot.params['sector']).subscribe({
       next:(data)=>{
         console.log("turnos obtenidos ")
         this.service.celdas=data;
-        console.log("devolucio",data.data)
+        console.log("devolucion: ",data.data)
       },
       error:(e)=>{
         console.log("turnos no obtenidos",e)

@@ -10,20 +10,12 @@
         @if (cod_administrador.invalid && cod_administrador.touched) {
             <h2 class="form-error">el codigo es requerido</h2>
         }
-    </fieldset>
-    <fieldset>
         <label> contrseña:</label>
         <input type="text" formControlName="contrasenia" >
         @if (contrasenia.invalid && contrasenia.touched) {
-            <h2 class="form-error">el nombre es requerido</h2>
+            <h2 class="form-error">La contraseña es requerida</h2>
         }        
     </fieldset>
     <button [disabled]="usuario.invalid"  >enviar datos</button>
 </form>
-@if (bandUsuario==='encontrado') {
-    <p>usuario valido ingrese al <a routerLink="../menu" >menu</a></p>
-}@else if (bandUsuario==='no encontrado') {
-    <p>usuario invalido</p>
-}@else if (bandUsuario === 'incorrecto') {
-    <p>contraseña incorrecta</p>
-}  
+    <p ng-if="noEncontrado"> {{message}}</p>

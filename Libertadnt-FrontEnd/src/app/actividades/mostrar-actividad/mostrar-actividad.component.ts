@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActividadService } from '../actividad.service.js';
 import { idText } from 'typescript';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-mostrar-actividad',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './mostrar-actividad.component.html',
   styleUrl: './mostrar-actividad.component.css'
 })

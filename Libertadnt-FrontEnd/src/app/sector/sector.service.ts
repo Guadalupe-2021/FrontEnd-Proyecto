@@ -25,7 +25,6 @@ private log(message: string) {
 }
 getSectores() {
   return this.http.get<any | JSON>("http://localhost:8080/sectores")
-  
 }
 getOneSector(id:any) {
   return this.http.get<any | JSON>("http://localhost:8080/sectores/"+`${id}`)
@@ -37,10 +36,14 @@ getCeldasDSeSector(id:any) {
   return this.http.get<any | JSON>("http://localhost:8080/sectores/celdas/"+`${id}`)
   
 }
-getTuenosDSeSector(cod_sector:any) {
+getTurnosDSeSector(cod_sector:any) {
   return this.http.get<any | JSON>("http://localhost:8080/turnos/"+`${cod_sector}`)
-  
 }
+
+deleteOneTurno(cod_sector:any) {
+  return this.http.delete<any | JSON>("http://localhost:8080/turnos/"+`${cod_sector}`)
+}
+
 getOneCeldaDeSector(idSector:any,idCelda:any) {
   return this.http.get<any | JSON>(this.celda_url+`${idSector}`+`${idCelda}`)
 }

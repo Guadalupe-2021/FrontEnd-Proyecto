@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SectorService } from '../sector.service.js';
-import { RouterLink } from '@angular/router';
+import { SectorService } from '../../sector/sector.service.js';
+import { RouterLink , ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-menu-sector',
@@ -10,7 +10,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './menu-sector.component.css'
 })
 export class MenuSectorComponent implements OnInit{
-  constructor (public service : SectorService){}
+  constructor (public service : SectorService, private router:Router, private route:ActivatedRoute){}
   direccion:string | undefined
   ngOnInit(): void {
     this.service.getSectores().subscribe({
@@ -20,13 +20,10 @@ export class MenuSectorComponent implements OnInit{
       error:(e)=>{console.log(e)}})
   }
   verCeldas(x:any){
-    this.direccion= "c/"+`${x}`
-    console.log(this.direccion)
-    
+  this.router.navigate([`${x}`], { relativeTo: this.route });
   }
   verTurnos(x:any){
-    this.direccion= "t/"+`${x}`
-    console.log(this.direccion)
+  this.router.navigate([`${x}`], { relativeTo: this.route });
   }
   
   

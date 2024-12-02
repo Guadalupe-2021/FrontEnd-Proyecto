@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActividadService } from '../actividad.service.js';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-modificar-actividad',
   standalone: true,
-  imports: [FormsModule,ReactiveFormsModule],
+  imports: [FormsModule,ReactiveFormsModule,RouterLink],
   templateUrl: './modificar-actividad.component.html',
   styleUrl: './modificar-actividad.component.css'
 })
