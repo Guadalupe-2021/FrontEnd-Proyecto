@@ -19,13 +19,8 @@ export class MenuSectorComponent implements OnInit{
         this.service.sectores=data},
       error:(e)=>{console.log(e)}})
   }
-  verCeldas(x:any){
-  this.router.navigate([`${x}`], { relativeTo: this.route });
-  }
-  verTurnos(x:any){
-  this.router.navigate([`${x}`], { relativeTo: this.route });
-  }
-  
-  
+  verDetalleSector(cod_sector:any){
+  this.router.navigate([`${cod_sector}` + "/detalle-sector"], { relativeTo: this.route });
 
+}
 }

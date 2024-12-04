@@ -44,9 +44,9 @@ import { MenuGuardiaComponent } from './menu/menu-guardia/menu-guardia.component
 import { MenuActividadComponent } from './menu/menu-actividad/menu-actividad.component.js';
 import { MenuReclusosComponent } from './menu/menu-reclusos/menu-reclusos.component.js';
 import { MenuTallerComponent } from './menu/menu-taller/menu-taller.component.js';
-// import { MenuTallerComponent } from './talleres/menu-taller/menu-taller.component.js';
 import { MenuTurnosComponent } from './sector/menu-turnos/menu-turnos.component.js';
 import { MenuIlegalComponent } from './menu/menu-ilegal/menu-ilegal.component.js';
+import { DetalleSectorComponent } from './sector/detalle-sector/detalle-sector.component.js';
 
 export const routes: Routes = [
     //log in
@@ -88,10 +88,9 @@ export const routes: Routes = [
     {path: 'menu/taller/mostrar-taller', component: MostrarTallerComponent},
     //sector
     {path: 'menu/sector', component: MenuSectorComponent},
-    {path: 'menu/sector/:sector', component: MenuTurnosComponent},
-    {path: 'menu/sector/:sector', component: MostrarCeldasComponent},
-    {path: 'menu/sector/:sector/crear-turnos', component: CrearTurnosComponent},
-    {path: 'menu/sector/:sector/finalizar-turnos', component: FinalizarTurnosComponent},
+    {path: 'menu/sector/:sector/detalle-sector', component: DetalleSectorComponent},
+    {path: 'menu/sector/:sector/detalle-sector/crear-turnos', component: CrearTurnosComponent},
+    {path: 'menu/sector/:sector/detalle-sector/finalizar-turnos', component: FinalizarTurnosComponent},
     
     //ilegal
     {path: 'menu/ilegal', component: MenuIlegalComponent},

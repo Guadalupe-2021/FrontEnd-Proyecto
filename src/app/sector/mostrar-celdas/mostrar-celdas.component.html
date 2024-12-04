@@ -1,15 +1,12 @@
-<div>
-    <nav>
-        <p></p>
-        <a href="usuario/menu/sector">ATRAS</a>
-        <p></p>
-    </nav>    
-</div>
-<h2>celdas :</h2>
-<p></p>
-@for (celda of service.celdas.data; track $index) {
-    <p></p>
-    <p>capacidad: {{celda.capacidad}}<br>codigo de celda: {{celda.cod_celda}}<br>descipcion: {{celda.descipcion}}</p>
-    <p></p>
-}
 
+<div class="celdas-container">
+<h2>CELDAS</h2> <br>
+
+@for (celda of celdas; track $index) {
+    <div class="celda">
+        <h3>Celda {{celda.cod_celda}}</h3>
+     <p>capacidad: {{celda.capacidad}}</p>
+     <p>descipcion: {{celda.descipcion}}</p>
+    </div>
+}
+</div>
