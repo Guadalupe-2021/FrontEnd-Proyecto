@@ -5,3 +5,10 @@ body {
   height: 100vh;
   font-family: cursive;
 }
+
+.actividad{
+    border-bottom: 1px solid grey;
+    padding: 1em;
+    margin-bottom: 1em;
+}
+
