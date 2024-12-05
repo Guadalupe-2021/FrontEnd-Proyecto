@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { GuardiasService } from '../guardias.service.js';
 import { RouterLink } from '@angular/router';
+import { BotonAtrasComponent } from '../../boton-atras/boton-atras.component.js';
 
 @Component({
   selector: 'app-buscar-guardia',
   standalone: true,
-  imports: [FormsModule,ReactiveFormsModule,RouterLink],
+  imports: [FormsModule,ReactiveFormsModule,RouterLink,BotonAtrasComponent],
   templateUrl: './buscar-guardia.component.html',
   styleUrl: './buscar-guardia.component.css'
 })

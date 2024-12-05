@@ -12,6 +12,8 @@ messageService: any;
 usuario:any
 usuarios:any
 usuarioEspecial:any
+tipo_usuario:string|undefined
+
 
 
 constructor(private http: HttpClient) {
@@ -21,15 +23,20 @@ constructor(private http: HttpClient) {
 private log(message: string) {
   this.messageService.add(`GuaridaService: ${message}`);
 }
-getUsuario() {
+getTipoUsuario(){
+  return this.tipo_usuario
+}
+setTipoUsuario(tipo:string){
+  this.tipo_usuario=tipo
+}
+getUsuarios() {
   return this.http.get<any | JSON>("http://localhost:8080/administradores")
-  
 }
 getOneUsuario(id:any) {
   return this.http.get<any | JSON>("http://localhost:8080/administradores/"+`${id}`)
 }
-postAdministrador(uActual:any){
-  return this.http.post<any| JSON>("http://localhost:8080/administradores/logIn", uActual)
+postAdministradorLogIn(usuarioLogIn:{cod_administrador:number, contrasenia:string}){
+  return this.http.post<any| JSON>("http://localhost:8080/administradores/logIn", usuarioLogIn)
 }
 
 }

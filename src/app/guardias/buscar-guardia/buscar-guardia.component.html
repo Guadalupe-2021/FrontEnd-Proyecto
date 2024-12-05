@@ -5,7 +5,7 @@
 <body>
   
     <h2>Buscar Guardia</h2>
-  
+  <app-boton-atras></app-boton-atras>
 
   <form [formGroup]="guardia" (submit)="buscarGuardia()">
     <fieldset>
@@ -25,9 +25,4 @@
       fecha inicio de Contrato: {{service.guardia.data.fecha_ini_contrato}}<br></P>}
   </div>
 
-  <div>
-    
-      <nav><a routerLink="../">Retorno al Menu de Guardias</a></nav>
-    
-  </div>
 </body>

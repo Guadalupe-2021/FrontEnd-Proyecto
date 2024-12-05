@@ -3,18 +3,18 @@
 </head>
 
 <body>
-  <div>
     <div>
       <h2>Nueva Actividad</h2>
+      <app-boton-atras></app-boton-atras>
     </div>
     <div>
       <form [formGroup]="actividad" (submit)="validarActividad()">
         <fieldset>
-          <label>descipcion de la actividad:</label>
+          <label>Descipcion de la Actividad:</label>
           <input type="text" formControlName="decripcion">
         </fieldset>
         <fieldset>
-          <label>locacion:</label>
+          <label>Ubicacion:</label>
           <input type="text" formControlName="locacion">
         </fieldset>
         <fieldset>
@@ -22,7 +22,7 @@
           <input type="text" formControlName="hora">
         </fieldset>
         <fieldset>
-          <label>dia de la semana:</label>
+          <label>Dia de la Semana:</label>
           <input type="text" formControlName="diaDeLaSemana">
         </fieldset>
         <fieldset>
@@ -35,20 +35,12 @@
         </fieldset>
         <button>Enviar</button>
       </form>
-      <div>
-        <p></p>
-        
-          <a routerLink="../">Retorno al Menu de Actividades</a>
-        
-        <p></p>
-      </div>
+
     </div>
-  </div>
+  
   <div>
     @if (bandActividad === true) {
-    <div>
       <p>datos enviados con exito </p>
-    </div>
     }@else if (bandActividad === false) {
     <p>actividad ya existente </p>
     }

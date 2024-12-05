@@ -4,6 +4,7 @@
 
 <body>
 <h1>ingrese los datos del NUEVO guardia</h1>
+<app-boton-atras></app-boton-atras>
 
 <form [formGroup]="guardia"  (submit)="enviarGuarida()" >
     <fieldset>
@@ -32,8 +33,5 @@
     @if(bandera === 'activo'){
         <p>GUARDIA YA EXISTENTE Y OPERATIVO</p>
     }
-</div>
-<div>
-    <nav><a routerLink="../">ATRAS</a></nav>
 </div>
 

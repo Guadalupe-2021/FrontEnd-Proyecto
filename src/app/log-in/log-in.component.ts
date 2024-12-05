@@ -33,11 +33,12 @@ constructor (private service : UsuarioService , private router:Router, private r
 validarUsuarios(){
   this.noEncontrado = false
 
-  this.service.postAdministrador(this.usuario.value).subscribe({
+  this.service.postAdministradorLogIn(this.usuario.value).subscribe({
     next: (response)=> {
       console.log(response)
       if(response.status == 202){
         this.tipo_usuario = response.tipo_usuario
+        this.service.setTipoUsuario(this.tipo_usuario as string)
         this.irAlMenu()
       }
     },

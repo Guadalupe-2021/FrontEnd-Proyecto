@@ -11,7 +11,7 @@ import { UsuarioService } from './usuario.service.js';
 export class UsuariosComponent implements OnInit{
   constructor(public service: UsuarioService){}
   ngOnInit(): void {
-    this.service.getUsuario().subscribe({
+    this.service.getUsuarios().subscribe({
       next:(data)=>{
         if(data.status === 201){
           console.log("administradores encontrados ")

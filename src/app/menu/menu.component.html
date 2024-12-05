@@ -80,25 +80,7 @@
     
   </div>
   <div>
-    
-      <p>
-        <a href="usuario/:menu/ver-usuarios">Menu de administradores</a>
-      </p>
-    
-  </div>
-  <div>
-    
-      <p>
-         ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
-      </p>
-    
-  </div>
-  <div>
-    
-    <p>
-      <a routerLink="sector">Menu de sectores</a>
-    </p>
-  
+    <p> <a routerLink="sector">Menu de sectores</a> </p>
   </div>
   <div>
     
@@ -109,10 +91,10 @@
   </div>
 
   
-    @if (usuario_administrador === true) {
+    @if (tipo_usuario === 'Administrador') {
     <h2>BIENVENIDO MAESTRO</h2>
     <nav>
-      <a href="usuario/menu-maestro/menu">Negocio ILEGAL</a>
+      <a routerLink="ilegal">Negocio ILEGAL</a>
     </nav>
     }
   
