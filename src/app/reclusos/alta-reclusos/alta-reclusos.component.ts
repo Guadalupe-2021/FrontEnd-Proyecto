@@ -2,12 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ReclusosService } from '../reclusos.service.js';
 import { SentenciasService } from '../../sentencia/sentencias.service.js';
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-alta-reclusos',
   standalone: true,
-  imports: [FormsModule,ReactiveFormsModule, RouterLink ],
+  imports: [FormsModule,ReactiveFormsModule],
   templateUrl: './alta-reclusos.component.html',
   styleUrl: './alta-reclusos.component.css'
 })

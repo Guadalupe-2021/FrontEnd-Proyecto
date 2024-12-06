@@ -2,12 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ReclusosService } from '../../reclusos/reclusos.service.js';
 import { ActividadService } from '../../actividades/actividad.service.js';
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-incribirse-ilegal',
   standalone: true,
-  imports: [FormsModule,ReactiveFormsModule,RouterLink],
+  imports: [FormsModule,ReactiveFormsModule],
   templateUrl: './incribirse-ilegal.component.html',
   styleUrl: './incribirse-ilegal.component.css'
 })

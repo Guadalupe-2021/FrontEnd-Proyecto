@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActividadService } from '../../actividades/actividad.service.js';
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-modificar-ilegal',
   standalone: true,
-  imports: [FormsModule,ReactiveFormsModule,RouterLink],
+  imports: [FormsModule,ReactiveFormsModule],
   templateUrl: './modificar-ilegal.component.html',
   styleUrl: './modificar-ilegal.component.css'
 })

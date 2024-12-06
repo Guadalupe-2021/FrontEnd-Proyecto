@@ -1,9 +1,13 @@
-<h1>ingrese los detalles de la sentencia</h1>
-<form [formGroup]="sActual"  (submit)="verFomrulario()" >
-    <fieldset>
-        <label>nombre</label>
-        <input type="text" formControlName="nombre" >        
-    </fieldset>
+<head>
+  <link rel="stylesheet" href="alta-sentencia.component.css">
+</head>
+<body>
+    <h1>ingrese los detalles de la sentencia</h1>
+    <form [formGroup]="sActual"  (submit)="verFomrulario()" >
+        <fieldset>
+            <label>nombre</label>
+            <input type="text" formControlName="nombre" >        
+        </fieldset>
     <fieldset>
         <label> descripcion</label>
         <input type="text" formControlName="descripcion" >        
@@ -22,70 +26,54 @@
     </fieldset>
     <button [disabled]="sActual.invalid">enviar modificacion</button>
 </form>
-<div>
-    <nav><a routerLink="../">ATRAS</a></nav>
-</div>
-<head>
-  <link rel="stylesheet" href="alta-sentencia.component.css">
-</head>
 
-<body>
-  
+    
     <h2>Alta Sentencia</h2>
-  
-  
     <p>(ingrese los detalles de la condena)</p>
-  
-
-  <form [formGroup]="sActual" (submit)="verFomrulario()">
-    <fieldset>
-      
+    
+    <form [formGroup]="sActual" (submit)="verFomrulario()">
+        <fieldset>
         <label>Nombre</label>
         <input type="text" formControlName="nombre">
-      
+        
     </fieldset>
     <fieldset>
       
-        <label>Cantidad de condenas</label>
+        <label>Cantidad de Condenas:</label>
         <input type="text" formControlName="cantidad_cond">
       
     </fieldset>
     <fieldset>
       
-        <label>Descripcion</label>
+        <label>Descripcion:</label>
         <input type="text" formControlName="descripcion">
       
     </fieldset>
     <fieldset>
       
-        <label>Duracion</label>
+        <label>Duracion:</label>
         <input type="text" formControlName="duracion">
-      
+        
     </fieldset>
     <fieldset>
-      
+        
         <label>Dia de la fecha</label>
         <input type="text" formControlName="fecha_dia">
-      
+        
     </fieldset>
     <fieldset>
-      
+        
         <label>Mes de la fecha</label>
         <input type="text" formControlName="fecha_mes">
-      
+        
     </fieldset>
     <fieldset>
-      
-        <label>Anio de la fecha</label>
+        
+        <label>Año de la fecha</label>
         <input type="text" formControlName="fecha_año">
-      
+        
     </fieldset>
     <button [disabled]="sActual.invalid">Enviar modificacion</button>
-  </form>
+</form>
 
-  
-    <div>
-      <nav><a routerLink="../">Retorno al Menu de Sentencia</a></nav>
-    </div>
-  
 </body>

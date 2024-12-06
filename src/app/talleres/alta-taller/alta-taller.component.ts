@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TallerService } from '../taller.service.js';
-import { RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-alta-taller',
   standalone: true,
-  imports: [FormsModule,ReactiveFormsModule,RouterLink],
+  imports: [FormsModule,ReactiveFormsModule],
   templateUrl: './alta-taller.component.html',
   styleUrl: './alta-taller.component.css'
 })

@@ -6,7 +6,6 @@
   <div>
     
       <h2>Verificación</h2>
-      <app-boton-atras></app-boton-atras>
     
   </div>
   <form [formGroup]="actividad" (submit)="validarActividad()">
@@ -16,13 +15,6 @@
     </fieldset>
     <button>Validar actividad</button>
   </form>
-  <div>
-    
-     <p></p>
-      <a routerLink="../../">Retorno al Menu Principal</a>
-     <p></p>
-    
-  </div>
 
   @if (bandActividad) {
   <div>

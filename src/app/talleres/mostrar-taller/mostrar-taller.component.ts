@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { TallerService } from '../taller.service.js';
-import { RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-mostrar-taller',
   standalone: true,
-  imports: [RouterLink],
+  imports: [],
   templateUrl: './mostrar-taller.component.html',
   styleUrl: './mostrar-taller.component.css'
 })

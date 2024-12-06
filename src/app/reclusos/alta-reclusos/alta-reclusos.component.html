@@ -2,9 +2,6 @@
 <head>
   <link rel="stylesheet" href="alta-reclusos.component.css">
 </head>
-<div>
-  <nav><a routerLink="../">ATRAS</a></nav>
-</div>
 
 <body>
 
@@ -32,7 +29,7 @@
       
     </fieldset>
     <fieldset>
-        <label>fecha de nacimiento: </label>
+        <label>Fecha de Nacimiento: </label>
         <input type="text" formControlName="fecha_nac" >      
     </fieldset>
     <button [disabled]="recluso.invalid">validar recluso</button>

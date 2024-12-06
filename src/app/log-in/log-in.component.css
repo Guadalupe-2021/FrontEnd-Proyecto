@@ -47,3 +47,6 @@ button{
   width: 300px;
   margin-left: 35%;
 }
+#myBtn {
+  display: none;
+}

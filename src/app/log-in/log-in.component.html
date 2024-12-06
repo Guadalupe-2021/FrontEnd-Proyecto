@@ -11,11 +11,11 @@
             <h2 class="form-error">el codigo es requerido</h2>
         }
         <label> contrseña:</label>
-        <input type="text" formControlName="contrasenia" >
+        <input type="password" formControlName="contrasenia" >
         @if (contrasenia.invalid && contrasenia.touched) {
             <h2 class="form-error">La contraseña es requerida</h2>
         }        
     </fieldset>
-    <button [disabled]="usuario.invalid"  >enviar datos</button>
+    <button [disabled]="usuario.invalid"  >Enviar Datos</button>
 </form>
     <p ng-if="noEncontrado"> {{message}}</p>

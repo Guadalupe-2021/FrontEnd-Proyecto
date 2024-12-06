@@ -3,16 +3,7 @@
 </head>
 
 <body>
-  <div>
-    <p></p>
-    <a routerLink="../">Retorno al Menu de Talleres</a>
-    <p></p>
-  </div>
-  
     <h2>Mostrar todos los Talleres</h2>
-  
-
-  
     <div>
       @for (item of service.talleres.data; track $index) {
       <li>
@@ -20,6 +11,4 @@
       </li>
       }
     </div>
-  
-  
 </body>

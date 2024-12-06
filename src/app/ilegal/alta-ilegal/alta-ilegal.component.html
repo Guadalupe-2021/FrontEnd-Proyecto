@@ -1,20 +1,14 @@
-<div>
-    <p></p>
-    <nav>
-        <a routerLink="../">ATRAS</a>
-    </nav>
-    <p></p>
-</div>
+
 <body>
     <div>
         <h1>ingrese los datos de la NUEVA actividad</h1>
         <form [formGroup]="ilegal" (submit)="validarActividad()">
             <fieldset>
-                <label>nombre de la actividad:</label>
+                <label>Nombre de la Actividad:</label>
                 <input type="text" formControlName="nombre" >      
             </fieldset>
             <fieldset>
-                <label>descipcion de la actividad:</label>
+                <label>Descipcion de la Actividad:</label>
                 <input type="text" formControlName="descripcion" >      
             </fieldset>
             <fieldset>
@@ -22,23 +16,23 @@
                 <input type="text" formControlName="locacion" >      
             </fieldset>
             <fieldset>
-                <label>dia de la semana:</label>
+                <label>Dia de la Semana:</label>
                 <input type="text" formControlName="diaDeLaSemana" >      
             </fieldset>
             <fieldset>
-                <label>Cantidad Maxima</label>
+                <label>Cantidad Maxima:</label>
                 <input type="text" formControlName="cantidad_maxima" >      
             </fieldset>
             <fieldset>
-                <label>horario de inicio:</label>
+                <label>Horario de Inicio:</label>
                 <input type="text" formControlName="horaInicio" >      
             </fieldset>
             <fieldset>
-                <label>horario de fin:</label>
+                <label>Horario de Fin:</label>
                 <input type="text" formControlName="horaFin" >      
             </fieldset>
             <p></p>
-            <button [disabled]="ilegal.invalid">enviar actividad</button>
+            <button [disabled]="ilegal.invalid">Enviar Actividad</button>
             <p></p>
         </form>
         @if (bandera === 'existente') {<p>actividad ya existente</p>}

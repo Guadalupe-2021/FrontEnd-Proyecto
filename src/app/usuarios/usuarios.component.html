@@ -1,9 +1,4 @@
 <div>
-    <p></p>
-    <a href="usuario/:menu">ATRAS</a>
-    <p></p>
-</div>
-<div>
     @if (bandera=== true) {
     @for (item of service.usuarios; track $index) {
         <p>{{item.cod_administrador}} | {{item.id}} | {{item.title}} | {{item.completed}} <br></p>

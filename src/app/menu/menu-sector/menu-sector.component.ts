@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { SectorService } from '../../sector/sector.service.js';
 import { RouterLink , ActivatedRoute, Router} from '@angular/router';
-import { BotonAtrasComponent } from '../../boton-atras/boton-atras.component.js';
 
 @Component({
   selector: 'app-menu-sector',
   standalone: true,
-  imports: [RouterLink,BotonAtrasComponent],
+  imports: [RouterLink],
   templateUrl: './menu-sector.component.html',
   styleUrl: './menu-sector.component.css'
 })

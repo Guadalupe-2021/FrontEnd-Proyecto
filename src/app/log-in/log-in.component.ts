@@ -1,9 +1,8 @@
-import { Component} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FormsModule } from '@angular/forms'; 
 import { RouterLink, Router, ActivatedRoute} from '@angular/router';
 import { UsuarioService } from '../usuarios/usuario.service.js';
-
 
 @Component({
   selector: 'app-log-in',
@@ -12,7 +11,7 @@ import { UsuarioService } from '../usuarios/usuario.service.js';
   templateUrl: './log-in.component.html',
   styleUrl: './log-in.component.css'
 })
-export class LogInComponent { 
+export class LogInComponent{ 
     usuario: FormGroup;
     cod_administrador:FormControl;
     contrasenia: FormControl;

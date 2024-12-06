@@ -1,11 +1,4 @@
-
-<div>
-    <p></p>
-    <nav>
-        <a routerLink="../">ATRAS</a>
-    </nav>
-    <p></p>
-</div>
+<body>
 <div>
     @for (item of service.ilegales.data; track $index) {
         <li>
@@ -15,42 +8,42 @@
         @if (item.inscripcion) {
             <form [formGroup]="ilegal" (submit)="enviarModificacion(item)">
                 <fieldset>
-                    <label>nombre de la actividad :</label>
+                    <label>Nombre de la Actividad :</label>
                     <input type="text" formControlName="nombre" >      
                 </fieldset>
                 <fieldset>
-                    <label>descipcion de la actividad:</label>
+                    <label>Descipcion de la Actividad:</label>
                     <input type="text" formControlName="decripcion" >      
                 </fieldset>
                 <fieldset>
-                    <label>locacion:</label>
+                    <label>Ubicacion:</label>
                     <input type="text" formControlName="locacion" >      
                 </fieldset>
                 <fieldset>
-                    <label>hora fin:</label>
+                    <label>Hora Fin:</label>
                     <input type="text" formControlName="hora_fin" >      
                 </fieldset>
                 <fieldset>
-                    <label>dia de la semana:</label>
+                    <label>Dia de la Semana:</label>
                     <input type="text" formControlName="dia_de_la_semana" >      
                 </fieldset>
                 <fieldset>
-                    <label>hora inicio</label>
+                    <label>Hora Inicio</label>
                     <input type="text" formControlName="hora_inicio" >      
                 </fieldset>
                 <fieldset>
-                    <label>cantidad minima</label>
+                    <label>Cantidad Minima</label>
                     <input type="text" formControlName="cantMin" >      
                 </fieldset>
                 <fieldset>
-                    <label>cantidad maxima</label>
+                    <label>Cantidad Maxima</label>
                     <input type="text" formControlName="cantMax" >      
                 </fieldset>
                 <fieldset>
-                    <label>dar de baja actividad </label>
+                    <label>Dar de Baja Actividad </label>
                     <input type="checkbox" formControlName="estado" >      
                 </fieldset>
-                <button>enviar cambios</button>
+                <button>Enviar</button>
             </form>
             @if(bandera=='modificado'){
                 <p></p>
@@ -70,3 +63,4 @@
         }
     }
 </div>
+</body>

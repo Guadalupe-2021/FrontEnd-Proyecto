@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { ReclusosService } from '../reclusos.service.js';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-buscar-reclusos',
   standalone: true,
-  imports: [FormsModule,ReactiveFormsModule, RouterLink],
+  imports: [FormsModule,ReactiveFormsModule],
   templateUrl: './buscar-reclusos.component.html',
   styleUrl: './buscar-reclusos.component.css'
 })

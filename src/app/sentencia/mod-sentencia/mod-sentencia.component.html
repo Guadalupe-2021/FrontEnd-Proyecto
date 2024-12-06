@@ -5,11 +5,8 @@
 <body>
   
     <h2>Modificacion de Sentencia</h2>
-  
-  
     <p>ingrese la/las caracteristicas a modificar</p>
   
-
   <form [formGroup]="sActual" (submit)="verFomrulario()">
     <fieldset>
       
@@ -61,9 +58,4 @@
     <button [disabled]="sActual.invalid">Enviar modificacion</button>
   </form>
 
-  
-    <div>
-      <nav><a routerLink="../">Retorno al Menu de Sentencia</a></nav>
-    </div>
-  
 </body>

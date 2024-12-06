@@ -3,12 +3,7 @@
 </head>
 
 <body>
-  
-    
       <h2>Alta Taller</h2>
-    
-  
-
   <div>
     <form [formGroup]="taller" (submit)="enviarTaller()">
       <fieldset>
@@ -31,13 +26,13 @@
       </fieldset>
       <fieldset>
         
-        <label>Dia de la semana:</label>
+        <label>Dia de la Semana:</label>
         <input type="number" formControlName="dia_de_la_semana">
       
     </fieldset>
     <fieldset>
         
-      <label>Hora de inicio</label>
+      <label>Hora de Inicio: </label>
       <input type="number" formControlName="hora_inicio">
     
   </fieldset>
@@ -50,7 +45,7 @@
      
      
       
-      <button [disabled]="taller.invalid">registrar taller</button>
+      <button [disabled]="taller.invalid">Registrar Taller</button>
     </form>
   </div>
   @if(bandTaller== 'exito'){
@@ -59,15 +54,5 @@
   @if(bandTaller== 'interferencia'){
     <p>el taller coincide en horario y dia con otro taller</p>
   }
-
-  
-
-  
-    <div>
-      <p></p>
-      <a routerLink="../">Retorno al Menu de Talleres</a>
-      <p></p>
-    </div>
-  
 
 </body>

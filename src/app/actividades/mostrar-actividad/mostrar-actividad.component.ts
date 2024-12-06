@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActividadService } from '../actividad.service.js';
-import { RouterLink } from '@angular/router';
-import { BotonAtrasComponent } from '../../boton-atras/boton-atras.component.js';
 
 @Component({
   selector: 'app-mostrar-actividad',
   standalone: true,
-  imports: [RouterLink,BotonAtrasComponent],
+  imports: [],
   templateUrl: './mostrar-actividad.component.html',
   styleUrl: './mostrar-actividad.component.css'
 })

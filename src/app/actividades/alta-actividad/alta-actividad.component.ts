@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActividadService } from '../actividad.service.js';
-import { BotonAtrasComponent } from '../../boton-atras/boton-atras.component.js';
 
 @Component({
   selector: 'app-alta-actividad',
   standalone: true,
-  imports: [FormsModule,ReactiveFormsModule,BotonAtrasComponent],
+  imports: [FormsModule,ReactiveFormsModule],
   templateUrl: './alta-actividad.component.html',
   styleUrl: './alta-actividad.component.css'
 })
