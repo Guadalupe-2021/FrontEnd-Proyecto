@@ -1,0 +1,34 @@
+
+
+<body>
+    <div>
+        <nav>
+            <p></p>
+            <a routerLink="../">ATRAS</a>
+            <p></p>
+        </nav>    
+    </div>
+    <h2>Dar de baja turno</h2>
+    <p></p>
+    <form [formGroup]="baja_turno" (submit)="darBajaTurno()">
+        <fieldset>
+            <label>codigo de guardia: </label>
+            <input type="number" formControlName="cod_guardia" >        
+        </fieldset>
+        <fieldset>
+            <label>turno: </label>
+            <input type="text" formControlName="turno" >        
+        </fieldset>
+        <button [disabled]="baja_turno.invalid">finalizar turno </button>
+    </form>
+    @if (bandera == 'exito') {
+        <p>el turno fue dado de baja </p>
+    }
+    @if (bandera == 'no turno') {
+        <p>no existen turnos activos con esas espesificaciones  </p>
+    }
+    @if (bandera == 'no guardia') {
+        <p>guardia no encontrado  </p>
+    }
+    
+</body>

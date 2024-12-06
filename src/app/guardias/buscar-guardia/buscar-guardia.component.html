@@ -1,0 +1,28 @@
+<head>
+  <link rel="stylesheet" href="buscar-guardia.component.css">
+</head>
+
+<body>
+  
+    <h2>Buscar Guardia</h2>
+  <app-boton-atras></app-boton-atras>
+
+  <form [formGroup]="guardia" (submit)="buscarGuardia()">
+    <fieldset>
+        <label>dni de guardia: </label>
+        <input type="text" formControlName="dni" >        
+    </fieldset>
+
+
+   <button [disabled]="guardia.invalid">Enviar</button>
+  </form>
+
+  <div>
+    @if (bandera=== true) {<p>el guardia ingresado no existe </p>}
+    @else if(bandera === false){<P>nombre: {{service.guardia.data.nombre}}<br>
+      apellido: {{service.guardia.data.apellido}}<br>
+      dni: {{service.guardia.data.dni}}<br>
+      fecha inicio de Contrato: {{service.guardia.data.fecha_ini_contrato}}<br></P>}
+  </div>
+
+</body>

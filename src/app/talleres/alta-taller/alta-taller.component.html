@@ -1,0 +1,73 @@
+<head>
+  <link rel="stylesheet" href="alta-taller.component.css">
+</head>
+
+<body>
+  
+    
+      <h2>Alta Taller</h2>
+    
+  
+
+  <div>
+    <form [formGroup]="taller" (submit)="enviarTaller()">
+      <fieldset>
+        
+          <label>Nombre:</label>
+          <input type="text" formControlName="nombre">
+        
+      </fieldset>
+      <fieldset>
+        
+          <label>Descripcion:</label>
+          <input type="text" formControlName="descripcion">
+        
+      </fieldset>
+      <fieldset>
+        
+          <label>Locacion:</label>
+          <input type="text" formControlName="locacion">
+        
+      </fieldset>
+      <fieldset>
+        
+        <label>Dia de la semana:</label>
+        <input type="number" formControlName="dia_de_la_semana">
+      
+    </fieldset>
+    <fieldset>
+        
+      <label>Hora de inicio</label>
+      <input type="number" formControlName="hora_inicio">
+    
+  </fieldset>
+      <fieldset>
+        
+          <label>Hora de finalizacion:</label>
+          <input type="number" formControlName="hora_fin">
+        
+      </fieldset>
+     
+     
+      
+      <button [disabled]="taller.invalid">registrar taller</button>
+    </form>
+  </div>
+  @if(bandTaller== 'exito'){
+    <p>el taller fue guardado con exito </p>
+  }
+  @if(bandTaller== 'interferencia'){
+    <p>el taller coincide en horario y dia con otro taller</p>
+  }
+
+  
+
+  
+    <div>
+      <p></p>
+      <a routerLink="../">Retorno al Menu de Talleres</a>
+      <p></p>
+    </div>
+  
+
+</body>

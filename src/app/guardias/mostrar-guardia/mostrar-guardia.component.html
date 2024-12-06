@@ -1,0 +1,31 @@
+<p></p>
+
+
+
+
+
+<head>
+  <link rel="stylesheet" href="mostrar-guardia.component.css">
+</head>
+
+<body>
+  
+    <h2>Mostrar Guardias</h2>
+  <app-boton-atras></app-boton-atras>
+
+  
+  
+  
+
+  
+    <ul>
+      @for (item of service.guardias.data; track $index) {
+      <li>
+        <p>nombre: {{item.nombre}}<br>
+          apellido: {{item.apellido}}<br>
+          dni: {{item.dni}}<br>
+          fechaIniContrato: {{item.fecha_ini_contrato}}<br></p>
+      </li>
+      }
+    </ul>
+</body>

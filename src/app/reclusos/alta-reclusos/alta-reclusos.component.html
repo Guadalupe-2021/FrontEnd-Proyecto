@@ -1,0 +1,63 @@
+
+<head>
+  <link rel="stylesheet" href="alta-reclusos.component.css">
+</head>
+<div>
+  <nav><a routerLink="../">ATRAS</a></nav>
+</div>
+
+<body>
+
+  
+    <h2>Alta Recluso</h2>
+  
+
+  <form [formGroup]="recluso" (submit)="validarRecluso()">
+    <fieldset>
+      
+        <label>Nombre: </label>
+        <input type="text" formControlName="nombre">
+      
+    </fieldset>
+    <fieldset>
+      
+        <label>Apellido: </label>
+        <input type="text" formControlName="apellido">
+      
+    </fieldset>
+    <fieldset>
+      
+        <label>Dni: </label>
+        <input type="text" formControlName="dni">
+      
+    </fieldset>
+    <fieldset>
+        <label>fecha de nacimiento: </label>
+        <input type="text" formControlName="fecha_nac" >      
+    </fieldset>
+    <button [disabled]="recluso.invalid">validar recluso</button>
+  </form>
+
+  
+    @if (bandRecluso == 'exito') {
+      <p></p>
+      <h2>Sentencias :</h2>
+      <p></p>
+      @for (item of sSentencia.sentencias.data; track $index) {
+        <p>codigo: {{item.cod_sentencia}}<br>nombre: {{item.nombre}}<br>descripcion: {{item.descripcion}}<br></p>
+        <button (click)="agregarSentencia(item.cod_sentencia)">AGREGAR</button><button (click)="quitarSentencia(item.cod_sentencia)">Eliminar</button>
+      }
+      <p></p>
+      <button (click)="enviarCondena()">ENVIAR</button>
+
+    }
+    @if (bandRecluso == 'activa') {
+      <p>el recluso tiene una condena activa</p>
+    }
+    
+  
+  
+    
+  
+
+</body>

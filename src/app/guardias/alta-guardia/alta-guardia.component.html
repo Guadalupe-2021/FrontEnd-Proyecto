@@ -1,0 +1,37 @@
+<head>
+  <link rel="stylesheet" href="alta-guardia.component.css">
+</head>
+
+<body>
+<h1>ingrese los datos del NUEVO guardia</h1>
+<app-boton-atras></app-boton-atras>
+
+<form [formGroup]="guardia"  (submit)="enviarGuarida()" >
+    <fieldset>
+        <label>nombre:</label>
+        <input type="text" formControlName="nombre" >        
+    </fieldset>
+    <fieldset>
+        <label> apellido:</label>
+        <input type="text" formControlName="apellido" >        
+    </fieldset>
+    <fieldset>
+        <label>dni de guardia: </label>
+        <input type="text" formControlName="dni" >        
+    </fieldset>
+    
+    
+    <button [disabled]="guardia.invalid">enviar datos</button>
+</form>
+<div>
+    @if(bandera === 'creado'){
+        <p>GUARDIA GUARDADO</p>
+    }
+    @if(bandera === 'existente'){
+        <p>GUARDIA EXISTENTE CONTRATADO</p>
+    }
+    @if(bandera === 'activo'){
+        <p>GUARDIA YA EXISTENTE Y OPERATIVO</p>
+    }
+</div>
+

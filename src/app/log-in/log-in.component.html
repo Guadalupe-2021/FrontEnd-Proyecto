@@ -1,0 +1,21 @@
+<head>
+  <link rel="stylesheet" href="log-in.component.css">
+</head>
+
+<h1>ingrese el ususario para ingresar</h1>
+<form [formGroup]="usuario" (submit)="validarUsuarios()"   >
+    <fieldset>
+        <label> codigo de usuario: </label>
+        <input type="text" formControlName="cod_administrador" > 
+        @if (cod_administrador.invalid && cod_administrador.touched) {
+            <h2 class="form-error">el codigo es requerido</h2>
+        }
+        <label> contrseña:</label>
+        <input type="text" formControlName="contrasenia" >
+        @if (contrasenia.invalid && contrasenia.touched) {
+            <h2 class="form-error">La contraseña es requerida</h2>
+        }        
+    </fieldset>
+    <button [disabled]="usuario.invalid"  >enviar datos</button>
+</form>
+    <p ng-if="noEncontrado"> {{message}}</p>

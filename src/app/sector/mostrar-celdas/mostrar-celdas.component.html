@@ -1,0 +1,12 @@
+
+<div class="celdas-container">
+<h2>CELDAS</h2> <br>
+
+@for (celda of celdas; track $index) {
+    <div class="celda">
+        <h3 class="celda-titulo">Celda {{celda.cod_celda}}</h3>
+     <p>capacidad: {{celda.capacidad}}</p>
+     <p>descipcion: {{celda.descipcion}}</p>
+    </div>
+}
+</div>

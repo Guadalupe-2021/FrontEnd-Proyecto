@@ -1,0 +1,44 @@
+<head>
+  <link rel="stylesheet" href="inscripcion-taller.component.css">
+</head>
+
+<body>
+  <div>
+    <p></p>
+    <a routerLink="../">Retorno al Menu de Talleres</a>
+    <p></p>
+  </div>
+  
+    <h2>Inscripcion a Taller</h2>
+ 
+
+  
+    @for (item of service.talleres.data; track $index) {
+    <li>
+      <p>nombre: {{item.nombre}}<br>descripcion: {{item.descripcion}} <br>locacion: {{item.locacion}}<br>dia de la semana {{item.dia_de_la_semana}}<br>hora inicio: {{item.hora_inicio}}<br>hora de fin: {{item.hora_fin}}</p>
+      <button (click)="ingresarIsncripcion(item)">expandir</button>
+    </li>
+    @if (item.inscripcion) {
+    <p></p>
+    <form [formGroup]="recluso" (submit)="validarRecluso(item)">
+      <fieldset>
+        <label>codigo del recluso: </label>
+        <input type="text" formControlName="cod_recluso">
+      </fieldset>
+      <p></p>
+      <button>inscribir recluso</button>
+    </form>
+    @if (banderaRecluso=='inscripto') {
+    <p>inscripcion valida</p>
+    }@else if (banderaRecluso== 'no encontrada') {<p>taller no encontrado</p>}
+    @else if (banderaRecluso== 'no encontrada') {<p>taller no encontrado</p>}
+    @else if (banderaRecluso== 'ocupado') {<p>el taller esta ocupado</p>}
+    @else if (banderaRecluso== 'existente') {<p>el recluso ya esta inscripto </p>}
+    @else if (banderaRecluso== 'no inscripto') {<p>recluso no encontrado </p>}
+    }
+    }
+ 
+  
+   
+ 
+</body>

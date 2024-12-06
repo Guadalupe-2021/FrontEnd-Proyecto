@@ -1,0 +1,15 @@
+<app-boton-atras></app-boton-atras>
+<div>
+    <form [formGroup]="guardia"  (submit)="validarGuarida()" >
+        <fieldset>
+            <label>codigo de guardia: </label>
+            <input type="text" formControlName="cod_guardia" >        
+        </fieldset>
+        <button [disabled]="guardia.invalid">enviar datos</button>
+    </form>
+</div>
+<div>
+    @if (fin==="exito") {<p>contrato finalizado</p>}
+    @if (fin==="no encontrado") {<p>GUARDIA NO ENCONTRADO</p>}
+    @if (fin==="finalizado") {<p>contrato ya posteriormente finalizado</p>}
+</div>

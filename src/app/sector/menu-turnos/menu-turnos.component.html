@@ -1,0 +1,21 @@
+
+<div class="turnos-container" *ngFor="let turno of turnos">
+<h2>TURNOS</h2>
+
+<div>
+    <nav>
+        <button routerLink="../detalle-sector/crear-turnos"> Nuevo Turno <br></button>
+        <button routerLink="../detalle-sector/finalizar-turnos"> Eliminar Turno</button>
+    </nav>
+</div>
+
+    <div class="turno">
+        <h3>{{turno.turno}}</h3>
+    <p>codigo de guardia: {{turno.cod_guardia_cod_guardia}}<br>
+        codigo de sector: {{turno.cod_sector_cod_sector}}<br>
+        fecha de inicio: {{turno.fecha_ini}}<br>
+        <p *ngIf="turno.fecha_fin==null">turno no terminado</p>
+        <p *ngIf="turno.fecha_fin">fecha de fin: {{turno.fecha_fin}}</p>
+    </div>
+
+</div>

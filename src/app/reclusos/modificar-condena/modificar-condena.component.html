@@ -1,0 +1,51 @@
+
+
+<body>
+  
+    <h2>Validar Recluso</h2>
+  
+  <form [formGroup]="recluso" (submit)="validarRecluso()">
+    <fieldset>
+      
+        <label>Nombre: </label>
+        <input type="text" formControlName="nombreR">
+      
+    </fieldset>
+    <fieldset>
+      
+        <label>Dni: </label>
+        <input type="text" formControlName="dni">
+      
+    </fieldset>
+    <button>Validar</button>
+  </form>
+  
+    @if (bandRecluso === true) {
+    @for (item of sSentencia.sentencias; track $index) {
+    <ul>
+      <li>
+        <p>Nombre de la sentencia : {{item.name}} || Id sentencia: {{item.id}}</p>
+        <button (click)="agregarSentencia(item)" [ngClass]="value">agregar</button>
+        <button (click)="quitarSentencia(item)">quitar</button>
+      </li>
+    </ul>
+    }
+  
+
+  
+    @for (item of condena; track $index) {
+    <p>sentencia : {{item.name}}</p>
+    }
+    
+      <button (click)="enviarCondena()">enviar condena</button>
+    
+    }@else if (bandRecluso === false) {
+    <p>El recluso ingresado no existe</p>
+    }
+  
+  
+    <div>
+      <nav><a routerLink="../">Retorno al Menu de Reclusos</a></nav>
+    </div>
+  
+</body>

@@ -1,0 +1,49 @@
+<div>
+    <p></p>
+    <nav>
+        <a routerLink="../">ATRAS</a>
+    </nav>
+    <p></p>
+</div>
+<body>
+    <div>
+        <h1>ingrese los datos de la NUEVA actividad</h1>
+        <form [formGroup]="ilegal" (submit)="validarActividad()">
+            <fieldset>
+                <label>nombre de la actividad:</label>
+                <input type="text" formControlName="nombre" >      
+            </fieldset>
+            <fieldset>
+                <label>descipcion de la actividad:</label>
+                <input type="text" formControlName="descripcion" >      
+            </fieldset>
+            <fieldset>
+                <label>locacion:</label>
+                <input type="text" formControlName="locacion" >      
+            </fieldset>
+            <fieldset>
+                <label>dia de la semana:</label>
+                <input type="text" formControlName="diaDeLaSemana" >      
+            </fieldset>
+            <fieldset>
+                <label>Cantidad Maxima</label>
+                <input type="text" formControlName="cantidad_maxima" >      
+            </fieldset>
+            <fieldset>
+                <label>horario de inicio:</label>
+                <input type="text" formControlName="horaInicio" >      
+            </fieldset>
+            <fieldset>
+                <label>horario de fin:</label>
+                <input type="text" formControlName="horaFin" >      
+            </fieldset>
+            <p></p>
+            <button [disabled]="ilegal.invalid">enviar actividad</button>
+            <p></p>
+        </form>
+        @if (bandera === 'existente') {<p>actividad ya existente</p>}
+        @if (bandera === 'error') {<p>error al postear</p>}
+        @if (bandera === 'correcto'){<p>actividad registrada con exito</p>}
+    </div>
+</body>
+

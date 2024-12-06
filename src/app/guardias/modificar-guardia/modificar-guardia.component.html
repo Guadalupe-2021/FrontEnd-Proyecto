@@ -1,0 +1,36 @@
+<head>
+  <link rel="stylesheet" href="modificar-guardia.component.css">
+</head>
+
+<body>
+
+  
+    <h2>Verificación</h2>
+    <app-boton-atras></app-boton-atras>
+  
+  
+    <p>(Ingrese el codigo de guardia a modificar)</p>
+  
+  <form [formGroup]="guardia" (submit)="validarCodigo()">
+    <fieldset>
+      <label>Codigo de guardia:</label>
+      <input type="text" formControlName="cod_guardia">
+    </fieldset>
+    <button [disabled]="guardia.invalid">Enviar</button>
+  </form>
+
+  @if (guardia.disabled || encontrado === true) {
+  <form [formGroup]="guardia" (submit)="enviarModificacion()">
+    <fieldset>
+      <label>Nombre:</label>
+      <input type="text" formControlName="nombre">
+    </fieldset>
+    <fieldset>
+      <label>Apellido:</label>
+      <input type="text" formControlName="apellido">
+    </fieldset>
+    <button [disabled]="guardia.invalid">Enviar</button>
+  </form>
+  }
+
+</body>

@@ -1,0 +1,11 @@
+<app-boton-atras></app-boton-atras>
+<h2>Sectores:</h2>
+<div>
+    @for (sector of service.sectores.data; track $index) {
+        <p></p>
+        <p>nombre: {{sector.nombre}}<br>descripcion: {{sector.descripcion}}<br>codigo de sector: {{sector.cod_sector}}<br></p>
+        <p></p>
+        <button (click)="verDetalleSector(sector.cod_sector)">Mas Informacion</button>
+    }
+</div>
+
