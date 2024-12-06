@@ -33,21 +33,20 @@ getOneSector(id:any) {
 postSector(uActual:any){
   return this.http.post<any| JSON>("http://localhost:8080/sectores",uActual)
 }
+
+// CELDAS
 getCeldasDSeSector(id:any) {
   return this.http.get<any | JSON>("http://localhost:8080/sectores/" + `${id}` + "/celdas/")
 }
 
+
+// TURNOS
 getTurnosDeSector(cod_sector:any) {
   return this.http.get<any | JSON>("http://localhost:8080/sectores/" + `${cod_sector}` + "/turnos/")
 }
-
 deleteOneTurno(cod_sector:any) {
   return this.http.delete<any | JSON>("http://localhost:8080/turnos/"+`${cod_sector}`)
 }
-
-// getOneCeldaDeSector(idSector:any,idCelda:any) {
-//   return this.http.get<any | JSON>(this.celda_url+`${idSector}`+`${idCelda}`)
-// }
 postTurno(uActual:any){
   return this.http.post<any| JSON>("http://localhost:8080/turnos",uActual)
 }

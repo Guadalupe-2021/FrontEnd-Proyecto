@@ -1,7 +1,7 @@
 import { Component} from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FormsModule } from '@angular/forms'; 
-import { RouterOutlet ,RouterLink, Router, ActivatedRoute} from '@angular/router';
+import { RouterLink, Router, ActivatedRoute} from '@angular/router';
 import { UsuarioService } from '../usuarios/usuario.service.js';
 
 

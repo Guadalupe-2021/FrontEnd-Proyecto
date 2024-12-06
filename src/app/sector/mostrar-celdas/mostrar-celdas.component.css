@@ -10,3 +10,7 @@ border-bottom:1px solid grey;
 padding:2em;
 margin: 2em;
 }
+
+.celda-titulo{
+  background-color: rgb(226, 223, 223);
+}
