@@ -2,22 +2,28 @@
   <link rel="stylesheet" href="buscar-reclusos.component.css">
 </head>
 <body>
-  <form [formGroup]="recluso" (submit)="validarRecluso()"> 
+  <form [formGroup]="form_recluso" (submit)="buscarRecluso()"> 
     <fieldset>
-      
-        <label>DNI Recluso: </label>
-        <input type="text" formControlName="dni">
-      
+    <label>BUSCAR RECLUSO POR </label>
+    <select id="selectorID" (change)="definirIdentificador()">
+      <option value="dni">DNI</option>
+      <option value="cod">Codigo</option>
+    </select>
+        <input type="text" formControlName="id">
     </fieldset>
-    <button >ENVIAR</button>
+    <button [disabled]="form_recluso.invalid">BUSCAR</button>
+          @if (error_encontrado == true) {<p class="mensaje_error">{{message}}</p>}
   </form>
-  <div>
-    @if (bandera == true) {
-      <p>nombre: {{service.recluso.data.nombre}}<br> apellido: {{service.recluso.data.apellido}}<br> dni: {{service.recluso.data.dni}}<br> fecha de nacimiento: {{service.recluso.data.fecha_nac}}</p>
+
+  <div class="reclusos-container">
+    <div class="recluso" *ngFor="let recluso of reclusos">
+    @if (recluso_encontrado == true) {
+        <div class="codigo">Cod. {{recluso.cod_recluso}}</div>
+      <p>{{recluso.apellido}}, {{recluso.nombre}}<br>
+        DNI: {{recluso.dni}}<br>
+        Fecha de Nacimiento: {{recluso.fecha_nac | date:'dd-mm-yyyy'}}</p>
     }
-    @if (bandera == false) {
-      <p>recluso no encontrado</p>
-    }
+    </div>
   </div>
 </body>
 

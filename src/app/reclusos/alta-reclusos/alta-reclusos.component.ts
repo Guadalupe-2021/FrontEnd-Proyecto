@@ -1,81 +1,58 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators,FormBuilder } from '@angular/forms';
 import { ReclusosService } from '../reclusos.service.js';
 import { SentenciasService } from '../../sentencia/sentencias.service.js';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-alta-reclusos',
   standalone: true,
-  imports: [FormsModule,ReactiveFormsModule],
+  imports: [FormsModule,ReactiveFormsModule,NgFor],
   templateUrl: './alta-reclusos.component.html',
   styleUrl: './alta-reclusos.component.css'
 })
+
 export class AltaReclusosComponent implements OnInit{
-  constructor (public service : ReclusosService,public sSentencia : SentenciasService){
-    this.fecha_nac= new FormControl('',[Validators.required,]);
-    this.nombre= new FormControl('',[Validators.required,]);
-    this.apellido= new FormControl('',[Validators.required,]);
-    this.dni= new FormControl('',[Validators.required,]);
-    this.cod_sentencia = new FormControl('',)
-  
-  
-  this.recluso = new FormGroup({
-    nombre:this.nombre ,
-    apellido: this.apellido, 
-    dni: this.dni,
-    fecha_nac:this.fecha_nac   
-  })
-  this.condena =new FormGroup({
-    cod_sentencia:this.cod_sentencia
-  })
-  
+
+  form_recluso:FormGroup
+  constructor (public _service_rec : ReclusosService,public _service_sent: SentenciasService,private form: FormBuilder){
+this.form_recluso = this.form.group({
+  fecha_nac:['',[Validators.required]],
+  nombre:['',Validators.required],
+  apellido:['',Validators.required],
+  dni:['',[Validators.required,Validators.minLength(8)]]
+  //cod_sentencia:['',]
+})
 }
-  ngOnInit(): void {
-    this.sSentencia.getSentencias().subscribe({
-      next:(data)=>{
-        console.log(this.sSentencia.sentencias)
-        this.sSentencia.sentencias=data
-        console.log("sentencias obtenidas")
-        console.log(this.sSentencia.sentencias)
-        
-      },
-      error:(e)=>{
-        console.log("error en cargar sentencias")
-        
+bandRecluso :string | undefined
+bandCelda :boolean | undefined
+respuesta:any = []
+value:string|undefined
+cod_rec: number | undefined
+sentencias:any[]|undefined
+recluso_creado=false
+
+ngOnInit(): void {
+  this._service_sent.getSentencias().subscribe({
+    next:(data)=>{
+      console.log(this._service_sent.sentencias)
+      this._service_sent.sentencias=data
+      this.sentencias = data
+      console.log("sentencias obtenidas:",this._service_sent.sentencias)
+    },
+    error:(e)=>{
+      console.log("error en cargar sentencias:",e)
       }})
-  }
+    }
 
-
-  
-  recluso  : FormGroup;
-  nombre : FormControl;
-  apellido : FormControl;
-  fecha_nac: FormControl;
-  cod_sentencia: FormControl;
-  dni: FormControl;
-  bandRecluso :string | undefined
-  bandCelda :boolean | undefined
-  condena: FormGroup;
-  respuesta:any = []
-  value:string|undefined
-  cod_rec: number | undefined
-
-
-validarRecluso(){ 
-  this.service.postRecluso(this.recluso.value).subscribe({
+registrarRecluso(){ 
+  this._service_rec.postRecluso(this.form_recluso.value).subscribe({
     next: (data)=>{
-      console.log("status",data.status)
+        this.cod_rec = data.data
+        console.log("Recluso Creado con Exito")
+        this._service_rec.recluso = data
+        this.recluso_creado=true
 
-      this.cod_rec = data.data
-      if(data.status == 201){
-        console.log("recluso creado")
-        this.service.recluso = data
-        this.bandRecluso = 'exito'
-      }
-      if(data.status == 202 ) {
-        console.log("recluso existente")
-        this.bandRecluso= 'exito'      
-      }
       if(data.status == 203){
         console.log("recluso tiene condena activa")
         this.bandRecluso='activa'
@@ -85,51 +62,15 @@ validarRecluso(){
       if(e.status == 203){
         console.log("recluso tiene condena activa")
         this.bandRecluso='activa'
+      if(e.status == 409 )console.log("Conflict: Recluso ya Existe")     
       }
     }
   })
 }
-
-enviarCondena(){
-  let sentencia_enviar={
-    cod_recluso: this.cod_rec,
-    cod_sentencias: this.respuesta
-  }
-  console.log(sentencia_enviar)
-  this.service.postCondena(sentencia_enviar).subscribe({
-    next:(data)=>{
-      if(data.status == 201){
-        console.log("condena posteada")
-      }
-    },
-    error:(e)=>{
-      if(e.status == 404){
-        console.log("condena no posteada")
-      }
-    }})
-    this.bandRecluso = undefined
-    this.recluso.reset()
-}
-
-agregarSentencia(sent:any){
-  if(this.validarSentencia(sent)){
-    this.respuesta.push(sent)
-    this.value='true'
-  }
-  
-}
-quitarSentencia(sent:any){
-  this.respuesta.splice(this.respuesta.findIndex((item: any)=>{item == sent}),1)
-  this.value='false'
-}
-validarSentencia(sent:any){
-  let encontrado = this.respuesta.find((x:any)=>x == sent)
-  console.log(encontrado)
-  if(encontrado == undefined){
-    return true
-  }
-  return false
-}
+// UNA VEZ INGRESADO UN RECLUSO VALIDO (DNI UNICO) HAY QUE HACER ALTA CONDENA Y ALTA SENTENCIAS Y QUE SE GUARDEN EN RECLUSO
+// DESPUES SE POSTEA EL RECLUSO COMPLETO CON SUS SENTENCIAS Y CONDENAS COMO PROPIEDADES
+//this.respuesta.splice(this.respuesta.findIndex((item: any)=>{item == sent}),1)
+//this.form_recluso.reset()
 
 }
 

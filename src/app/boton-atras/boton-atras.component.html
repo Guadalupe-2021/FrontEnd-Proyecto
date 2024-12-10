@@ -1,10 +1,7 @@
-
 <head>
   <link rel="stylesheet" href="boton-atras.component.css">
 </head>
 
-  <button id="myBtn" class="myBtn" *ngIf="mostrar_boton" (click)="volverAtras()" >
-    ATRAS
-  </button>
-
-
+<button id="myBtn" class="myBtn" *ngIf="mostrar_boton" (click)="volverAtras()" >
+    ATRAS</button>
+<button (click)="volverArriba()" id="myBtnTop">Top</button>

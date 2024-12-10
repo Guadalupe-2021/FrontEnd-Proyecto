@@ -9,50 +9,45 @@
     <h2>Alta Recluso</h2>
   
 
-  <form [formGroup]="recluso" (submit)="validarRecluso()">
+  <form [formGroup]="form_recluso" (submit)="registrarRecluso()">
     <fieldset>
-      
         <label>Nombre: </label>
         <input type="text" formControlName="nombre">
-      
     </fieldset>
     <fieldset>
-      
         <label>Apellido: </label>
         <input type="text" formControlName="apellido">
-      
     </fieldset>
     <fieldset>
-      
         <label>Dni: </label>
         <input type="text" formControlName="dni">
-      
     </fieldset>
     <fieldset>
         <label>Fecha de Nacimiento: </label>
-        <input type="text" formControlName="fecha_nac" >      
+        <input type="date" formControlName="fecha_nac" >      
     </fieldset>
-    <button [disabled]="recluso.invalid">validar recluso</button>
+    <button [disabled]="form_recluso.invalid">Registrar Recluso</button>
   </form>
 
-  
-    @if (bandRecluso == 'exito') {
-      <p></p>
-      <h2>Sentencias :</h2>
-      <p></p>
-      @for (item of sSentencia.sentencias.data; track $index) {
-        <p>codigo: {{item.cod_sentencia}}<br>nombre: {{item.nombre}}<br>descripcion: {{item.descripcion}}<br></p>
-        <button (click)="agregarSentencia(item.cod_sentencia)">AGREGAR</button><button (click)="quitarSentencia(item.cod_sentencia)">Eliminar</button>
-      }
-      <p></p>
-      <button (click)="enviarCondena()">ENVIAR</button>
 
+<!--  
+    @if (bandRecluso == 'exito') {
+      <h2>Alta Sentencias :</h2>
+      <div class="sentencias-container" *ngFor="let sentencia of sentencias">
+        <p >
+          codigo: {{sentencia.cod_sentencia}}<br>
+          nombre: {{sentencia.nombre}}<br>
+          descripcion: {{sentencia.descripcion}}<br></p>
+        <button (click)="asignarSentencia(sentencia.cod_sentencia)">ASIGNAR</button><button (click)="quitarSentencia(sentencia.cod_sentencia)">Eliminar</button>
+
+      <button (click)="enviarCondena()">ENVIAR</button>
+</div>
     }
     @if (bandRecluso == 'activa') {
       <p>el recluso tiene una condena activa</p>
     }
     
-  
+  -->
   
     
   

@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { IRecluso, IServerResponse } from '../shared/entity.interfaces.js';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +15,7 @@ export class ReclusosService {
   condena:any
   recluso: any
   reclusos:any 
+  rec_id_obj!:{id:string,tipo:string}
   messageService: any;
   celda:any;
   celdas:any;
@@ -29,15 +32,17 @@ export class ReclusosService {
   }  
 
 
-getReclusos() {
-  return this.http.get<any | JSON>("http://localhost:8080/reclusos")
+getAllReclusos():Observable<IRecluso[]>{
+  return this.http.get<IRecluso[]>("http://localhost:8080/reclusos")
 }
-postRecluso(x:any){
-  return this.http.post<any|JSON>("http://localhost:8080/reclusos/",x);
+getOneRecluso(id:string):Observable<IRecluso> {
+  return this.http.get<IRecluso>("http://localhost:8080/reclusos/"+`${id}`);
 }
-getOneRecluso(id:number) {
-  return this.http.get<any | JSON>("http://localhost:8080/reclusos/"+`${id}`);
+
+postRecluso(recluso:IRecluso):Observable<IServerResponse>{
+  return this.http.post<IServerResponse>("http://localhost:8080/reclusos/",recluso);
 }
+
 getOneCondena(id:number) {
   return this.http.get<any | JSON>(this.api_condena+`${id}`);
 }

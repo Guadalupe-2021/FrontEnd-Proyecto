@@ -29,7 +29,7 @@ getTipoUsuario(){
 setTipoUsuario(tipo:string){
   this.tipo_usuario=tipo
 }
-getUsuarios() {
+getUsuarios(){
   return this.http.get<any | JSON>("http://localhost:8080/administradores")
 }
 getOneUsuario(id:any) {
