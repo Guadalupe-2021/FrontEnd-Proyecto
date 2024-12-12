@@ -1,25 +1,18 @@
-<p></p>
-
-
-
-
-
 <head>
   <link rel="stylesheet" href="mostrar-guardia.component.css">
 </head>
 
 <body>
-  
-    <h2>Mostrar Guardias</h2>
-  
-    <ul>
-      @for (item of service.guardias.data; track $index) {
-      <li>
-        <p>nombre: {{item.nombre}}<br>
-          apellido: {{item.apellido}}<br>
-          dni: {{item.dni}}<br>
-          fechaIniContrato: {{item.fecha_ini_contrato}}<br></p>
-      </li>
-      }
-    </ul>
+<h2>Mostrar Guardias</h2>
+    <div class="guardias-container" *ngFor="let guardia of guardias">
+      <div class="guardia">
+        <p>Cod. {{guardia.cod_guardia}} </p>
+        <p>Nombre: {{guardia.nombre}}<br>
+          Apellido: {{guardia.apellido}}<br>
+          DNI: {{guardia.dni}}<br>
+          Fecha De Contratación: {{guardia.fecha_ini_contrato | date:'dd-mm-yyyy'}}<br></p>
+      <button (click)="editarGuardia(guardia)">EDITAR</button><button>FINALIZAR CONTRATO</button>
+        </div>
+      <p class="mensaje_error" *ngIf="error_encontrado">{{message}}</p>
+    </div>
 </body>

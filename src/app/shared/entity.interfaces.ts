@@ -38,6 +38,15 @@ export interface ISector{
     descripcion:  string,
   }
 
+export interface IGuardia {
+  cod_guardia?: number,
+  nombre: string,
+  apellido: string,
+  dni: number,
+  fecha_ini_contrato: Date,
+  fecha_fin_contrato?: Date,
+}
+
   export interface IServerResponse{
     status:number,
     data?:any,

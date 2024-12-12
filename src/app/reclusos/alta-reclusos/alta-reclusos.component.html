@@ -4,31 +4,26 @@
 </head>
 
 <body>
-
-  
     <h2>Alta Recluso</h2>
   
-
-  <form [formGroup]="form_recluso" (submit)="registrarRecluso()">
+<div class="form_recluso_container">
+  <form [formGroup]="form_recluso" (submit)="registrarRecluso()" class="form_recluso">
     <fieldset>
-        <label>Nombre: </label>
-        <input type="text" formControlName="nombre">
+        <input type="text" formControlName="nombre" placeholder="Nombre">
     </fieldset>
     <fieldset>
-        <label>Apellido: </label>
-        <input type="text" formControlName="apellido">
+        <input type="text" formControlName="apellido" placeholder="Apellido">
     </fieldset>
     <fieldset>
-        <label>Dni: </label>
-        <input type="text" formControlName="dni">
+        <input type="text" formControlName="dni" placeholder="DNI">
     </fieldset>
     <fieldset>
-        <label>Fecha de Nacimiento: </label>
+        <label class="fecha_nacimiento_label">Fecha de Nacimiento: </label>
         <input type="date" formControlName="fecha_nac" >      
     </fieldset>
     <button [disabled]="form_recluso.invalid">Registrar Recluso</button>
   </form>
-
+</div>
 
 <!--  
     @if (bandRecluso == 'exito') {
@@ -50,6 +45,4 @@
   -->
   
     
-  
-
 </body>

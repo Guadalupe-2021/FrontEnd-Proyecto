@@ -6,13 +6,13 @@ body {
   font-family: cursive;
 }
 
-t {
-  font-family: Verdana;
+p{
+  margin: 0px;
 }
 
 input,
 textarea {
-  width: 100%;
+  width: 50%;
   padding: 5px;
   outline: none;
 }
@@ -30,5 +30,8 @@ input[type="submit"] {
 }
 
 fieldset {
-  padding: 20px 40px;
+  padding: 10px 20px;
+}
+#date_ini{
+  width: 20px;
 }

@@ -6,22 +6,24 @@
   
     <h2>Buscar Guardia</h2>
 
-  <form [formGroup]="guardia" (submit)="buscarGuardia()">
-    <fieldset>
-        <label>dni de guardia: </label>
-        <input type="text" formControlName="dni" >        
-    </fieldset>
+<form [formGroup]="form_buscar_guardia" (submit)="buscarGuardia()">
+  <fieldset>
+    <label>BUSCAR GUARDIA POR </label>
+    <select id="selectorID" (change)="definirIdentificador()">
+      <option value="dni">DNI</option>
+      <option value="cod">Codigo</option>
+    </select>
+    <input type="text" formControlName="id">
+  </fieldset>
+  <button [disabled]="form_buscar_guardia.invalid">BUSCAR</button>
+</form>
+<p class="mensaje_error" *ngIf="!guardia_encontrado">{{message}}</p>
 
-
-   <button [disabled]="guardia.invalid">Enviar</button>
-  </form>
-
-  <div>
-    @if (bandera=== true) {<p>el guardia ingresado no existe </p>}
-    @else if(bandera === false){<P>nombre: {{service.guardia.data.nombre}}<br>
-      apellido: {{service.guardia.data.apellido}}<br>
-      dni: {{service.guardia.data.dni}}<br>
-      fecha inicio de Contrato: {{service.guardia.data.fecha_ini_contrato}}<br></P>}
+  <div class="guardia_container" *ngIf="guardia_encontrado">
+      <p>Nombre: {{unGuardia.nombre}}<br>
+      Apellido: {{unGuardia.apellido}}<br>
+      DNI: {{unGuardia.dni}}<br>
+      Fecha de Contratacion: {{unGuardia.fecha_ini_contrato | date:'dd-mm-yyyy'}}<br></p>
   </div>
 
 </body>

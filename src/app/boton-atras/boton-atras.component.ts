@@ -30,7 +30,7 @@ volverAtras():void {
   this.url = this.router.url
   this.url_arr = this.url.split("/")
   this.last_element = this.url_arr.splice(-1)[0]
-  if(this.last_element === 'detalle-sector')this.url_arr.splice(-1)
+  if(this.last_element === 'detalle-sector'||this.last_element === 'modificar')this.url_arr.splice(-1)
     this.router.navigate(this.url_arr,{relativeTo:this.route})
 }
 

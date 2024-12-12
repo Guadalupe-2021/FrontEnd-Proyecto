@@ -3,33 +3,20 @@
 </head>
 
 <body>
-
-  
-    <h2>Verificación</h2>
-  
-  
-    <p>(Ingrese el codigo de guardia a modificar)</p>
-  
-  <form [formGroup]="guardia" (submit)="validarCodigo()">
+  <form [formGroup]="form_guardia" (submit)="enviarModificacion()">
     <fieldset>
-      <label>Codigo de guardia:</label>
-      <input type="text" formControlName="cod_guardia">
-    </fieldset>
-    <button [disabled]="guardia.invalid">Enviar</button>
-  </form>
-
-  @if (guardia.disabled || encontrado === true) {
-  <form [formGroup]="guardia" (submit)="enviarModificacion()">
-    <fieldset>
-      <label>Nombre:</label>
       <input type="text" formControlName="nombre">
     </fieldset>
     <fieldset>
-      <label>Apellido:</label>
       <input type="text" formControlName="apellido">
     </fieldset>
-    <button [disabled]="guardia.invalid">Enviar</button>
+    <fieldset>
+      <input type="text" formControlName="dni">
+    </fieldset>
+      <fieldset>
+<input id="date_ini" type="date" (change)="dateChange()" formControlName="fecha"><input formControlName="fecha_ini_contrato" readonly>
+      </fieldset>
+    <button [disabled]="form_guardia.invalid">Enviar</button>
   </form>
-  }
 
 </body>

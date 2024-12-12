@@ -12,13 +12,12 @@ import { DatePipe, NgFor } from '@angular/common';
 })
 export class BuscarReclusosComponent {
 form_recluso:FormGroup
-form_ctrl_value:string|undefined
 identificador="dni"
 recluso_encontrado=false
 error_encontrado=false
 message:string|undefined
-constructor(public service : ReclusosService, private form:FormBuilder){
-this.form_recluso = this.form.group({
+constructor(public service : ReclusosService, private form_b:FormBuilder){
+this.form_recluso = this.form_b.group({
   id:['',[Validators.required,Validators.minLength(8)]],
   })
 }
@@ -26,11 +25,10 @@ this.form_recluso = this.form.group({
   
 definirIdentificador():void{
 this.identificador = (document.getElementById("selectorID") as HTMLInputElement).value
-this.form_ctrl_value = this.form_recluso.value.dni
   if(this.identificador==='dni'){
-this.form_recluso.setControl('id',this.form.control('', [Validators.required,Validators.minLength(8)]));
+this.form_recluso.setControl('id',this.form_b.control('', [Validators.required,Validators.minLength(8)]));
   }else if(this.identificador==='cod'){
-this.form_recluso.setControl('id',this.form.control('', [Validators.required,Validators.maxLength(7)]));
+this.form_recluso.setControl('id',this.form_b.control('', [Validators.required,Validators.maxLength(7)]));
   }
 }
 

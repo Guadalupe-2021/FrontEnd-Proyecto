@@ -62,12 +62,12 @@ export const routes: Routes = [
     {path: 'menu/sentencia/modificar', component: ModSentenciaComponent},
     {path: 'menu/sentencia/sentencias', component: MostrarSenteniasComponent},
     //guardia
-    {path: 'menu/guardia', component: MenuGuardiaComponent},
-    {path: 'menu/guardia/alta-guardia', component:AltaGuardiaComponent },
-    {path: 'menu/guardia/buscar-guardia', component:BuscarGuardiaComponent },
-    {path: 'menu/guardia/modificar-guardia', component: ModificarGuardiaComponent},
-    {path: 'menu/guardia/mostrar-guardia', component:MostrarGuardiaComponent },
-    {path: 'menu/guardia/finalizar-guarida', component: FinalizarGuardiaComponent},
+    {path: 'menu/guardias', component: MenuGuardiaComponent},
+    {path: 'menu/guardias/alta-guardia', component:AltaGuardiaComponent },
+    {path: 'menu/guardias/buscar-guardia', component:BuscarGuardiaComponent },
+    {path: 'menu/guardias/:id/modificar', component: ModificarGuardiaComponent},
+    {path: 'menu/guardias/mostrar-guardia', component:MostrarGuardiaComponent },
+    {path: 'menu/guardias/finalizar-guarida', component: FinalizarGuardiaComponent},
     //recluso
     {path: 'menu/recluso', component: MenuReclusosComponent},
     {path: 'menu/recluso/alta-recluso', component:AltaReclusosComponent },

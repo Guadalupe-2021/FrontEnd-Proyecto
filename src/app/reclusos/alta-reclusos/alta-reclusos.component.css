@@ -7,8 +7,7 @@
 body {
   display: grid;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
+  height: 80vh;
   font-family: cursive;
 }
 
@@ -23,10 +22,6 @@ textarea {
   outline: none;
 }
 
-label {
-  line-height: 2.0rem;
-}
-
 input[type="submit"] {
   transform: translate(2.0%);
   padding: 3px;
@@ -36,7 +31,18 @@ input[type="submit"] {
 }
 
 fieldset {
-  padding: 20px 40px;
-  width: 300px;
+  padding: 1em 1.2em;
+  width: 10em;
   margin: auto;
+}
+.form_recluso_container{
+  margin-top:0px;
+  padding-top: 0px;
+justify-self: left;
+margin-left: 1.5em;
+justify-content: center;
+}
+.fecha_nacimiento_label{
+  font-size: .7em;
+  color: rgb(150, 150, 145);
 }

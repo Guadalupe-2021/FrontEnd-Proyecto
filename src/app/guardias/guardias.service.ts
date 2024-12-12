@@ -1,43 +1,46 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { IGuardia, IServerResponse } from '../shared/entity.interfaces.js';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GuardiasService {
   readonly api_url="https://jsonplaceholder.typicode.com/todos/"
-  guardia: any
+  guardia!: IGuardia
   guardias:any 
   messageService: any;
-  constructor(private http: HttpClient) {this.guardias =  [],
-    this.guardia={
-    nombre: "",
-    apellido: "", 
-    dni: 0, 
-    fechaIniContrato: "0"}
-   }  
+  constructor(private http: HttpClient) {}  
   private log(message: string) {
   this.messageService.add(`GuaridaService: ${message}`);
 }
+response:any
 
-getGuardias() {
-  return this.http.get<any | JSON>("http://localhost:8080/guardias")
+setGuardia(gard:IGuardia){
+  this.guardia = gard
+}
+getGuardia(){
+  return this.guardia
+}
+
+getAll():Observable<IGuardia[]> {
+  return this.http.get<IGuardia[]>("http://localhost:8080/guardias")
+}
+getOne(id:string):Observable<IGuardia> {
+  return this.http.get<IGuardia>("http://localhost:8080/guardias/"+`${id}`)
+}
+
+putGuardia(){
+  //return this.http.put<any|JSON>("http://localhost:8080/guardias",x);
 }
 postGuardia(x:any){
-  const today = new Date();
-  const day = today.getDate();
-  const month = today.getMonth() + 1;
-  let year = today.getFullYear();
-  let finalDate = `${year}-${month}-${day}`
-  this.guardia.fechaIniContrato = finalDate
-  return this.http.post<any|JSON>("http://localhost:8080/guardias",x);
+  return this.http.post<IServerResponse>("http://localhost:8080/guardias/",x);
 }
 putFinalizarGuardia(x:any){
   return this.http.put<any | JSON>("http://localhost:8080/guardias/finalizarContrato",x);
 }
-getOneGuardias(id:number) {
-  return this.http.get<any | JSON>("http://localhost:8080/guardias/"+`${id}`);
-}
+
 }
 
 
