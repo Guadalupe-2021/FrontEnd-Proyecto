@@ -31,12 +31,14 @@ getOne(id:string):Observable<IGuardia> {
   return this.http.get<IGuardia>("http://localhost:8080/guardias/"+`${id}`)
 }
 
-putGuardia(){
-  //return this.http.put<any|JSON>("http://localhost:8080/guardias",x);
+putGuardia(id:number|undefined,guardia:IGuardia):Observable<IServerResponse>{
+  return this.http.put<IServerResponse>("http://localhost:8080/guardias/"+ `${id}` + "/modificar",guardia);
 }
+
 postGuardia(guardia:IGuardia):Observable<IServerResponse>{
   return this.http.post<IServerResponse>("http://localhost:8080/guardias/",guardia);
 }
+
 putFinalizarGuardia(x:any){
   return this.http.put<any | JSON>("http://localhost:8080/guardias/finalizarContrato",x);
 }

@@ -8,7 +8,8 @@ import { ToastrService} from 'ngx-toastr';
   standalone: true,
   imports: [FormsModule,ReactiveFormsModule],
   templateUrl: './alta-guardia.component.html',
-  styleUrl: './alta-guardia.component.css'
+  styleUrl: './alta-guardia.component.css',
+  providers:[],
 })
 export class AltaGuardiaComponent {
   message = ["GUARDIA GUARDADO","GUARDIA EXISTENTE CONTRATADO","GUARDIA YA EXISTENTE Y OPERATIVO"]
@@ -22,22 +23,20 @@ this.form_guardia = this.formb.group({
   fecha_ini_contrato:[null,Validators.required],
 })}
  
-  altaGuardia(){
+altaGuardia(){
   this.unGuardia = this.form_guardia.value
   this._service_guard.postGuardia(this.unGuardia).subscribe({
       next:(data)=>{
-        if(data.status === 201)console.log("el guardia se creo ", data)
-        if(data.status == 202)console.log("el guardia ya existe y se reanuda el contrato")
-      },
+        if(data.status === 201) this.toastr.success("Guardia Creado Con Exito")
+        },
       error:(e)=>{
-        if(e.status === 404)console.log("guardia y esta activo  ")
+        if(e.status === 409) this.toastr.error("ERROR: El Guardia Ya Existe")
+        if(e.status === 500) this.toastr.error("Error Inesperado")
       }})
-      this.form_guardia.reset()
+
+      //this.form_guardia.reset()
   }
-  showSuccess() {this.toastr.success('Hello world!', 'Toastr fun!');
-    console.log(this.toastr.success("success"))
-    console.log("ssss")
-  }
+
 }
 
 

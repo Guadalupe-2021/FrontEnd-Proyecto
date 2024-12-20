@@ -10,5 +10,5 @@ import { BotonAtrasComponent } from './boton-atras/boton-atras.component.js';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  
+  title="front-libertant"
 }

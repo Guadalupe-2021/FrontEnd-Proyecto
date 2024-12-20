@@ -1,19 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { provideToastr, ToastrModule } from 'ngx-toastr';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {BrowserAnimationsModule, provideAnimations} from "@angular/platform-browser/animations";
 import { AltaGuardiaComponent } from './guardias/alta-guardia/alta-guardia.component.js';
 import { AppComponent } from './app.component.js';
+import { BrowserModule } from '@angular/platform-browser';
+import { MenuActividadComponent } from './menu/menu-actividad/menu-actividad.component.js';
+import { MenuGuardiaComponent } from './menu/menu-guardia/menu-guardia.component.js';
 
 
 @NgModule({
-  declarations: [AppComponent, AltaGuardiaComponent],
+  declarations: [AppComponent, AltaGuardiaComponent,MenuActividadComponent,MenuGuardiaComponent],
   imports: [
-    BrowserAnimationsModule,
     CommonModule,
-    ToastrModule.forRoot(), 
+    BrowserModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot({positionClass: 'toast-top-right',}), // ToastrModule added
   ],
-  providers:[provideToastr()],
-  bootstrap: [AppComponent]
+  providers:[],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

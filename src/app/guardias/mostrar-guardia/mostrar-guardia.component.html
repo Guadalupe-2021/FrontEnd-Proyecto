@@ -11,7 +11,7 @@
           Apellido: {{guardia.apellido}}<br>
           DNI: {{guardia.dni}}<br>
           Fecha De Contratación: {{guardia.fecha_ini_contrato | date:'dd-mm-yyyy'}}<br></p>
-      <button (click)="editarGuardia(guardia)">EDITAR</button><button>FINALIZAR CONTRATO</button>
+      <button (click)="editarGuardia(guardia)">EDITAR</button><button (click)="finalizarContrato(guardia)">FINALIZAR CONTRATO</button>
         </div>
       <p class="mensaje_error" *ngIf="error_encontrado">{{message}}</p>
     </div>
