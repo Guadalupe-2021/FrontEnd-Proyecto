@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { GuardiasService } from '../guardias.service.js';
 import { IGuardia } from '../../shared/entity.interfaces.js';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-modificar-guardia',
@@ -17,7 +18,7 @@ unGuardia:IGuardia
 fecha_ini:any
 today= new Date
 fecha:Date|undefined
-constructor (public _service_guard: GuardiasService, private formb:FormBuilder ) {
+constructor (public _service_guard: GuardiasService, private formb:FormBuilder, private toastr:ToastrService ) {
 this.unGuardia = this._service_guard.getGuardia()
 this.fecha_ini = this.unGuardia.fecha_ini_contrato;
 
@@ -47,13 +48,17 @@ dateChange(){
 }
 
 enviarModificacion(){
-this._service_guard.postGuardia(this.form_guardia.value).subscribe({
-next:(serverResponse)=>{console.log(serverResponse)},
-error: (e)=>{console.log(e)
-
+this._service_guard.putGuardia(this.unGuardia.cod_guardia,this.form_guardia.value).subscribe({
+next:(serverResponse)=>{
+  this.toastr.success(serverResponse.message)
+  console.log(serverResponse.data)
+},
+error: (e)=>{
+  console.log(e)
+  this.toastr.error(e.message)
 }
 })
-//this.guardia.reset() 
+
 }
 
 

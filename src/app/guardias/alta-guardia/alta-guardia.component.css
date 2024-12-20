@@ -32,3 +32,6 @@ input[type="submit"] {
 fieldset {
   padding: 20px 40px;
 }
+input[type=number] {
+  -moz-appearance: textfield;
+}

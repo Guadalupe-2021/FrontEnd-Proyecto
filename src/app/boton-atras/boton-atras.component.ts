@@ -1,6 +1,7 @@
 import { NgIf } from '@angular/common';
 import { Component} from '@angular/core';
 import { ActivatedRoute, Router} from '@angular/router';
+import {HostListener} from '@angular/core';
 
 @Component({
   selector: 'app-boton-atras',    // <app-boton-atras></app-boton-atras>
@@ -16,16 +17,7 @@ export class BotonAtrasComponent{
   url_arr: string[]|undefined
   last_element:string|undefined
   mostrar_boton=true
-constructor(private router:Router, private route:ActivatedRoute){
- // let butt = document.getElementById("myBtnTop")
- //  window.addEventListener("scroll",function(){
- //   console.log("scroll")
-  //  console.log(butt)
-  //    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-  //      if(butt!=null)butt.style.display = "block";
-  //    } else { if(butt!=null)butt.style.display = "none"; }
-  // })
-}
+constructor(private router:Router, private route:ActivatedRoute){}
 volverAtras():void {
   this.url = this.router.url
   this.url_arr = this.url.split("/")
@@ -39,6 +31,14 @@ volverArriba():void{
   document.documentElement.scrollTop = 0;
 
 }
+
+  @HostListener('window:scroll', ['$event']) onScroll(){
+const button = document.getElementById("myBtnTop")
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    if(button!=null)button.style.display = "block";
+  } else { if(button!=null)button.style.display = "none"; }
+}
+
 
 
 }

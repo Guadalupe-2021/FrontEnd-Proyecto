@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { GuardiasService } from '../guardias.service.js';
-
+import { IGuardia } from '../../shared/entity.interfaces.js';
+import { ToastrService} from 'ngx-toastr';
 @Component({
   selector: 'app-alta-guardia',
   standalone: true,
@@ -10,49 +11,33 @@ import { GuardiasService } from '../guardias.service.js';
   styleUrl: './alta-guardia.component.css'
 })
 export class AltaGuardiaComponent {
-  constructor (private service : GuardiasService){
-    this.dni= new FormControl('',[Validators.required,Validators.maxLength(30)]);
-    this.nombre= new FormControl('',[Validators.required,]);
-    this.apellido= new FormControl('',[Validators.required,]);
-    
-  
-    this.guardia = new FormGroup({
-
-      nombre: this.nombre,
-      dni: this.dni,
-      apellido: this.apellido,
-      
-      })}
-    
-  guardia : FormGroup;
-  nombre : FormControl;
-  apellido : FormControl;
-  dni: FormControl;
-  bandera: undefined| string
+  message = ["GUARDIA GUARDADO","GUARDIA EXISTENTE CONTRATADO","GUARDIA YA EXISTENTE Y OPERATIVO"]
+  unGuardia!:IGuardia
+  form_guardia:FormGroup
+  constructor (private toastr: ToastrService, private _service_guard : GuardiasService, private formb:FormBuilder){
+this.form_guardia = this.formb.group({
+  nombre:['',Validators.required],
+  apellido:['',Validators.required],
+  dni:[null,[Validators.required,Validators.minLength(8)]],
+  fecha_ini_contrato:[null,Validators.required],
+})}
  
-  enviarGuarida(){
-    this.bandera=undefined
-    this.service.guardia=this.guardia.value
-    console.log(this.service.guardia)
-    this.service.postGuardia(this.service.guardia).subscribe({
+  altaGuardia(){
+  this.unGuardia = this.form_guardia.value
+  this._service_guard.postGuardia(this.unGuardia).subscribe({
       next:(data)=>{
-        if(data.status === 201){
-          console.log("el guardia se creo ", data)
-          this.bandera='creado'
-        }
-        if(data.status == 202){
-          this.bandera='existente'
-          console.log("el guardia ya existe y se reanuda el contrato")
-        }
+        if(data.status === 201)console.log("el guardia se creo ", data)
+        if(data.status == 202)console.log("el guardia ya existe y se reanuda el contrato")
       },
       error:(e)=>{
-        if(e.status === 404){
-          console.log("guardia y esta activo  ")
-          this.bandera = 'activo'
-        }
+        if(e.status === 404)console.log("guardia y esta activo  ")
       }})
-      this.guardia.reset()
+      this.form_guardia.reset()
   }
-
-
+  showSuccess() {this.toastr.success('Hello world!', 'Toastr fun!');
+    console.log(this.toastr.success("success"))
+    console.log("ssss")
+  }
 }
+
+

@@ -25,7 +25,7 @@ getGuardia(){
 }
 
 getAll():Observable<IGuardia[]> {
-  return this.http.get<IGuardia[]>("http://localhost:8080/guardias")
+  return this.http.get<IGuardia[]>("http://localhost:8080/guardias/")
 }
 getOne(id:string):Observable<IGuardia> {
   return this.http.get<IGuardia>("http://localhost:8080/guardias/"+`${id}`)
@@ -34,8 +34,8 @@ getOne(id:string):Observable<IGuardia> {
 putGuardia(){
   //return this.http.put<any|JSON>("http://localhost:8080/guardias",x);
 }
-postGuardia(x:any){
-  return this.http.post<IServerResponse>("http://localhost:8080/guardias/",x);
+postGuardia(guardia:IGuardia):Observable<IServerResponse>{
+  return this.http.post<IServerResponse>("http://localhost:8080/guardias/",guardia);
 }
 putFinalizarGuardia(x:any){
   return this.http.put<any | JSON>("http://localhost:8080/guardias/finalizarContrato",x);
