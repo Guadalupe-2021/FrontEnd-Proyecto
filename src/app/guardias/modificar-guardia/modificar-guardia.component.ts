@@ -1,64 +1,115 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { GuardiasService } from '../guardias.service.js';
 import { IGuardia } from '../../shared/entity.interfaces.js';
 import { ToastrService } from 'ngx-toastr';
+import { ActivatedRoute, Router } from '@angular/router';
+import { DatePipe, NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-modificar-guardia',
   standalone: true,
-  imports: [FormsModule,ReactiveFormsModule],
+  imports: [FormsModule,ReactiveFormsModule,NgFor,NgIf,DatePipe],
   templateUrl: './modificar-guardia.component.html',
-  styleUrl: './modificar-guardia.component.css'
+  styleUrl: './modificar-guardia.component.css',
+  providers:[DatePipe]
 })
-export class ModificarGuardiaComponent {
-
+export class ModificarGuardiaComponent implements OnInit {
+  @Input() guardia!: IGuardia;
+  
 form_guardia:FormGroup
-unGuardia:IGuardia
-fecha_ini:any
 today= new Date
-fecha:Date|undefined
-constructor (public _service_guard: GuardiasService, private formb:FormBuilder, private toastr:ToastrService ) {
-this.unGuardia = this._service_guard.getGuardia()
-this.fecha_ini = this.unGuardia.fecha_ini_contrato;
+fecha_sanitizada!: string
+fecha_fin_sanitizada!: string
+contrato_finalizado = false
+modificar=false
 
-//this.fecha = new Date((this.unGuardia.fecha_ini_contrato))
+constructor (public _service_guard: GuardiasService,
+  private formb:FormBuilder,
+  private toastr:ToastrService,
+  private datePipe: DatePipe,
+  public router:Router,private route:ActivatedRoute,
+) {
+
 console.log(this.today.toLocaleDateString("es-AR")) // Date--->'dd/mm/yyyy'
-this.fecha = new Date(this.unGuardia.fecha_ini_contrato)  // new Date(unString) de string--->Date
-console.log(this.fecha)
-console.log(this.fecha.toLocaleDateString("es-AR"))  // unaDate.toLocaleString(formatoPais)--->dd/mm/yyyy(string)
-
-
-
+//this.fecha = new Date(this.unGuardia.fecha_ini_contrato)  // new Date(unString) de string--->Date
+//console.log(this.fecha.toLocaleDateString("es-AR"))  // unaDate.toLocaleString(formatoPais)--->dd/mm/yyyy(string)
 
 this.form_guardia = this.formb.group({
-  nombre:[this.unGuardia.nombre,Validators.required],
-  apellido:[this.unGuardia.apellido,Validators.required],
-  dni:[`${this.unGuardia.dni}`,[Validators.required,Validators.minLength(8)]],
-  fecha:[this.unGuardia.fecha_ini_contrato,Validators.required],
-  fecha_ini_contrato:[(new Date(this.unGuardia.fecha_ini_contrato).toLocaleDateString("es-AR")),
-    Validators.required],
-  fecha_fin_contrato:[this.unGuardia.fecha_fin_contrato,Validators.required]
+  nombre:["",Validators.required],
+  apellido:["",Validators.required],
+  dni:["",[Validators.required,Validators.minLength(8)]], //${this.unGuardia.dni}
+  fecha_ini_contrato:["",Validators.required] //(new Date(this.unGuardia.fecha_ini_contrato).toLocaleDateString("es-AR"))
 })
-
 }
+
+ngOnInit() {
+  this.fecha_sanitizada = new Date(this.guardia.fecha_ini_contrato).toLocaleDateString("es-AR")
+  this.fecha_fin_sanitizada = new Date(this.guardia.fecha_ini_contrato).toLocaleDateString("es-AR")
+  this.form_guardia.setControl('nombre', this.formb.control(this.guardia.nombre, [Validators.required]));
+  this.form_guardia.setControl('apellido', this.formb.control(this.guardia.apellido, [Validators.required]));
+  this.form_guardia.setControl('dni', this.formb.control(this.guardia.dni, [Validators.required,Validators.minLength(8)]));
+  this.form_guardia.setControl('fecha_ini_contrato',
+    this.formb.control(this.datePipe.transform(this.guardia.fecha_ini_contrato, 'dd/MM/yyyy'), [Validators.required]));
+
+    if(this.guardia.fecha_fin_contrato!=null) this.contrato_finalizado=true
+ this.form_guardia.disable()
+}
+
+changeInputToDate(){ this.modificar= true }
+
+enviarModificacion(guard:IGuardia){
+  guard.apellido = this.form_guardia.value.nombre
+  guard.nombre = this.form_guardia.value.apellido
+  guard.dni = this.form_guardia.value.dni
+  guard.fecha_ini_contrato = new Date(this.form_guardia.value.fecha_ini_contrato)
+  if(this.form_guardia.disabled){
+    this.toastr.error("ERROR Debe Habilitar El Modo Edicion")
+  }else{
+    this._service_guard.putGuardia(guard.cod_guardia,guard).subscribe({
+    next:(serverResponse)=>{
+      this.toastr.success(serverResponse.message)
+      console.log(serverResponse.data)
+      this.form_guardia.disable()
+    },
+    error: (e)=>{
+      console.log(e)
+      this.toastr.error(e.message)
+    }
+    })
+  }
+}
+
+
+editarGuardia(guard:IGuardia){
+  //this.router.navigate(["../"+`${guardia.cod_guardia}`+"/modificar"], {relativeTo: this.route}); 
+if(this.guardia.fecha_fin_contrato==null){
+  this.form_guardia.enable()
+}else{
+this.toastr.error("Contrato Finalizado. No se Permiten Modificaciones")
+  }
+}
+
+
 dateChange(){
-  this.fecha = new Date(this.form_guardia.value.fecha)
-  this.form_guardia.setControl('fecha_ini_contrato', this.formb.control(this.fecha.toLocaleDateString("es-AR"), [Validators.required]));
+console.log("date change")
 }
+finalizarContrato(guard:IGuardia){
+if (guard.fecha_fin_contrato===null){
+    guard.fecha_fin_contrato = new Date()
+    this._service_guard.putGuardia(guard.cod_guardia,guard).subscribe({
+      next:(serverResponse)=>{
+      this.toastr.success("Contrato Finalizado")
+      console.log(serverResponse.data)
+      this.contrato_finalizado = true
+    },
+    error: (e)=>{
+      console.log(e)
+      this.toastr.error(e.message)
+    }
+    })
 
-enviarModificacion(){
-this._service_guard.putGuardia(this.unGuardia.cod_guardia,this.form_guardia.value).subscribe({
-next:(serverResponse)=>{
-  this.toastr.success(serverResponse.message)
-  console.log(serverResponse.data)
-},
-error: (e)=>{
-  console.log(e)
-  this.toastr.error(e.message)
-}
-})
-
+  }else{this.toastr.error("El Contrato ya se Encuentra Finalizado")}
 }
 
 

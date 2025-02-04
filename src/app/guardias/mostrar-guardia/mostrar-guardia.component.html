@@ -1,18 +1,11 @@
 <head>
   <link rel="stylesheet" href="mostrar-guardia.component.css">
+
 </head>
 
 <body>
-<h2>Mostrar Guardias</h2>
-    <div class="guardias-container" *ngFor="let guardia of guardias">
-      <div class="guardia">
-        <p>Cod. {{guardia.cod_guardia}} </p>
-        <p>Nombre: {{guardia.nombre}}<br>
-          Apellido: {{guardia.apellido}}<br>
-          DNI: {{guardia.dni}}<br>
-          Fecha De Contratación: {{guardia.fecha_ini_contrato | date:'dd-mm-yyyy'}}<br></p>
-      <button (click)="editarGuardia(guardia)">EDITAR</button><button (click)="finalizarContrato(guardia)">FINALIZAR CONTRATO</button>
-        </div>
-      <p class="mensaje_error" *ngIf="error_encontrado">{{message}}</p>
-    </div>
+<h2>Menu Guardias</h2>
+<div class="guardias-container" *ngFor="let guardia of guardias">
+    <app-modificar-guardia [guardia]="guardia"></app-modificar-guardia>
+</div>
 </body>

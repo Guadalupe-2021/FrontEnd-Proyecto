@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { provideToastr, ToastrModule } from 'ngx-toastr';
+import { ToastrModule } from 'ngx-toastr';
 import {BrowserAnimationsModule, provideAnimations} from "@angular/platform-browser/animations";
 import { AltaGuardiaComponent } from './guardias/alta-guardia/alta-guardia.component.js';
 import { AppComponent } from './app.component.js';
@@ -10,7 +10,10 @@ import { MenuGuardiaComponent } from './menu/menu-guardia/menu-guardia.component
 
 
 @NgModule({
-  declarations: [AppComponent, AltaGuardiaComponent,MenuActividadComponent,MenuGuardiaComponent],
+  declarations: [AppComponent,
+     AltaGuardiaComponent,
+     MenuActividadComponent,
+     MenuGuardiaComponent],
   imports: [
     CommonModule,
     BrowserModule,

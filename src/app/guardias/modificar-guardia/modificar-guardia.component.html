@@ -3,20 +3,50 @@
 </head>
 
 <body>
-  <form [formGroup]="form_guardia" (submit)="enviarModificacion()">
-    <fieldset>
-      <input type="text" formControlName="nombre">
-    </fieldset>
-    <fieldset>
-      <input type="text" formControlName="apellido">
-    </fieldset>
-    <fieldset>
-      <input type="text" formControlName="dni">
-    </fieldset>
-      <fieldset>
-<input id="date_ini" type="date" (change)="dateChange()" formControlName="fecha"><input formControlName="fecha_ini_contrato" readonly>
-      </fieldset>
+ <!-- <form [formGroup]="form_guardia" (submit)="enviarModificacion()">
     <button [disabled]="form_guardia.invalid">Enviar</button>
   </form>
+  <input type="text" formControlName="nombre"> <br>
+  <input type="text" formControlName="apellido"> <br>
+  <input type="text" formControlName="dni"> <br>
+  <input id="date_ini" type="date" (change)="dateChange()" formControlName="fecha"><input
+    formControlName="fecha_ini_contrato" readonly>
+--> 
 
+    <div class="guardia">
+      <form [formGroup]="form_guardia">
+      <p>Cod. {{guardia.cod_guardia}}</p>
+      <p>
+        <label>Nombre: </label>
+        <input type="text" formControlName="nombre"> <br>
+      </p>
+      <p>
+        <label>Apellido: </label>
+        <input type="text" formControlName="apellido">
+      </p>
+      <p>
+        <label>DNI: </label>
+        <input type="text" formControlName="dni">
+      </p>
+      <p *ngIf="!contrato_finalizado">
+        <label>Fecha De Contratación:</label>
+        <input type="date" formControlName="fecha_ini_contrato" *ngIf="modificar">
+        <input type="text" formControlName="fecha_ini_contrato" *ngIf="!modificar" (click)="changeInputToDate()" value="{{guardia.fecha_ini_contrato | date:'dd/MM/yyyy'}}">
+      </p>
+      <p *ngIf="contrato_finalizado">
+        <label>Fecha De Contratación:</label>
+        <input [disabled]="contrato_finalizado" type="text" value="{{guardia.fecha_ini_contrato | date:'dd/MM/yyyy'}} - {{guardia.fecha_fin_contrato | date:'dd/MM/yyyy'}}">
+      </p>
+
+      <div class="edit" (click)="editarGuardia(guardia)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square edit-icon" viewBox="0 0 16 16">
+          <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"></path>
+          <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"></path>
+        </svg>
+      </div>
+      <button (click)="finalizarContrato(guardia)" [disabled]="contrato_finalizado">FINALIZAR CONTRATO</button>
+      <button (click)="enviarModificacion(guardia)" [disabled]="contrato_finalizado">GUARDAR CAMBIOS</button>
+      </form>
+    </div>
+   <!-- <p class="mensaje_error" *ngIf="error_encontrado">{{message}}</p>-->
 </body>
