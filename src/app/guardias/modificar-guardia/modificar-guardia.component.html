@@ -31,7 +31,7 @@
       <p *ngIf="!contrato_finalizado">
         <label>Fecha De Contratación:</label>
         <input type="date" formControlName="fecha_ini_contrato" *ngIf="modificar">
-        <input type="text" formControlName="fecha_ini_contrato" *ngIf="!modificar" (click)="changeInputToDate()" value="{{guardia.fecha_ini_contrato | date:'dd/MM/yyyy'}}">
+        <input type="text" formControlName="fecha_ini_contrato_txt" *ngIf="!modificar" (click)="changeInputToDate()" value="{{guardia.fecha_ini_contrato | date:'dd/MM/yyyy'}}">
       </p>
       <p *ngIf="contrato_finalizado">
         <label>Fecha De Contratación:</label>
