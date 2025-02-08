@@ -15,6 +15,12 @@ display: grid;
   text-align: center;
   width: 26em;
   margin-top: 0.2em;
+  /*
+  opacity:0;
+  transition-property: opacity, background-color;
+  transition-duration: 1s, 1s;
+  position: relative;
+  */
 }
 .btn-alta-guardia-icono{
   width: 100%;
@@ -25,5 +31,5 @@ display: grid;
   justify-self: center;
 }
 .new-btn{
-  width: 100%;
+  width: 25em;
 }

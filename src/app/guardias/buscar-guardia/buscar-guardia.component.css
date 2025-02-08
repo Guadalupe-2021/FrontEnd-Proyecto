@@ -2,12 +2,7 @@ body {
   display: grid;
   align-items: center;
   justify-content: center;
-  height: 100vh;
   font-family: cursive;
-}
-
-t {
-  font-family: Verdana;
 }
 
 input,
@@ -31,4 +26,27 @@ input[type="submit"] {
 
 fieldset {
   padding: 20px 40px;
+}
+.search-icon{
+font-size: 1.02em;
+color: white;
+}
+
+.icon-container:hover>.search-icon{
+ color: rgb(0, 103, 199);
+}
+.btn-icon{
+  border-radius: 40%;
+}
+
+.form-select{
+  flex: 0.24;
+}
+.form-select:focus, .form-control:hover {
+border-color: #86b7fe;
+box-shadow: none;
+box-shadow: 0 0 0 .05rem rgba(13, 110, 253, .25);
+}
+.form-control:focus {
+  box-shadow: 0 0 0 0.05rem rgba(13, 110, 253, .25);
 }

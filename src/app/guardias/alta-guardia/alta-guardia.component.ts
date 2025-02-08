@@ -20,8 +20,7 @@ export class AltaGuardiaComponent {
  
 
 mostrarGuardia(){
-  console.log("mostrar guardia")
-  this.mostrar_guardia=true
+  this.mostrar_guardia= !this.mostrar_guardia
 }
 
 altaGuardia(form_guardia_value: IGuardia){

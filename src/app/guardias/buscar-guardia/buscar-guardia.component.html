@@ -4,22 +4,27 @@
 
 <body>
   
-    <h2>Buscar Guardia</h2>
+    <div class="search-guardia-container">
 
-<form [formGroup]="form_buscar_guardia" (submit)="buscarGuardia()">
+<form [formGroup]="form_buscar_guardia">
   <fieldset>
-    <label>BUSCAR GUARDIA POR </label>
-    <select id="selectorID" (change)="definirIdentificador()">
-      <option value="dni">DNI</option>
-      <option value="cod">Codigo</option>
-    </select>
-    <input type="text" formControlName="id">
+    <div class="input-group">
+      <select class="form-select" id="selectorID" (change)="definirIdentificador()">
+        <option value="dni">DNI</option>
+        <option value="cod">Codigo</option>
+      </select>
+      <input type="text" formControlName="id" class="form-control"
+       [pattern]="pattern" [title]="title">
+       <button class="btn-icon btn btn-primary" (click)="buscarGuardia()" title="Buscar"
+        [disabled]="form_buscar_guardia.invalid">
+         <i class="bi bi-search search-icon"></i>
+        </button>
+    </div>
   </fieldset>
-  <button [disabled]="form_buscar_guardia.invalid">BUSCAR</button>
 </form>
-<p class="mensaje_error" *ngIf="!guardia_encontrado">{{message}}</p>
   <div class="guardia_container" *ngIf="guardia_encontrado">
     <app-modificar-guardia [guardia]="unGuardia"></app-modificar-guardia>
   </div>
+</div>
 
 </body>
