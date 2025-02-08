@@ -1,0 +1,51 @@
+<head>
+  <link rel="stylesheet" href="formulario-guardia.component.css">
+</head>
+
+<body>
+
+
+  <div class="guardia">
+    <form [formGroup]="form_guardia">
+      <p *ngIf="guardia!=undefined">Cod. {{guardia.cod_guardia}}</p>
+      <h5 *ngIf="guardia===undefined">Nuevo Guardia</h5>
+      <p>
+        <label>Nombre: </label>
+        <input type="text" formControlName="nombre"> <br>
+      </p>
+      <p>
+        <label>Apellido: </label>
+        <input type="text" formControlName="apellido">
+      </p>
+      <p>
+        <label>DNI: </label>
+        <input type="number" pattern="^\d{8,10}$" formControlName="dni">
+      </p>
+      <p *ngIf="!contrato_finalizado">
+        <label>Fecha De Contratación:</label>
+        <input type="date" formControlName="fecha_ini_contrato">
+      </p>
+      <p *ngIf="contrato_finalizado">
+        <label>Fecha De Contratación:</label>
+        <input [disabled]="contrato_finalizado" type="text"
+          value="{{guardia.fecha_ini_contrato | date:'dd/MM/yyyy'}} - {{guardia.fecha_fin_contrato | date:'dd/MM/yyyy'}}">
+      </p>
+
+      <button [disabled]="form_guardia.invalid || contrato_finalizado || form_guardia.disabled"
+       class="endContract-icon-container" (click)="enviarFormValueForDate()"  title="Finalizar Contrato"
+      *ngIf="modificar_guardia">
+        <i class="bi bi-calendar2-x-fill endContract-icon"></i>
+      </button>
+
+      <button [disabled]="form_guardia.invalid || contrato_finalizado || form_guardia.disabled"
+      class="send-icon-container" (click)="enviarFormValue()" title="Enviar">
+        <i class="bi bi-send send-icon"></i>
+      </button>
+      
+    </form>
+    
+    <div class="edit" (click)="editarGuardia()" title="Editar" *ngIf="modificar_guardia">
+        <i class="bi bi-pencil-square edit-icon"></i>
+    </div>
+</div>
+</body>

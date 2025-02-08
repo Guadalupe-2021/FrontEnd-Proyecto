@@ -18,12 +18,8 @@
   <button [disabled]="form_buscar_guardia.invalid">BUSCAR</button>
 </form>
 <p class="mensaje_error" *ngIf="!guardia_encontrado">{{message}}</p>
-
   <div class="guardia_container" *ngIf="guardia_encontrado">
-      <p>Nombre: {{unGuardia.nombre}}<br>
-      Apellido: {{unGuardia.apellido}}<br>
-      DNI: {{unGuardia.dni}}<br>
-      Fecha de Contratacion: {{unGuardia.fecha_ini_contrato | date:'dd-mm-yyyy'}}<br></p>
+    <app-modificar-guardia [guardia]="unGuardia"></app-modificar-guardia>
   </div>
 
 </body>

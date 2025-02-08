@@ -8,27 +8,9 @@ p {
     /* Aligns elements vertically */
     align-items: center;
     /* Centers elements horizontally */
-
-}
-.guardia{
-  position:relative;
-  background-color: rgb(219, 215, 215);
-  text-align: center;
-  width: 26em;
-  margin-top: 0.2em;
 }
 
-.edit{
-  position:absolute;
-  top:1px;
-  right:5px;
-  color: green;
-}
-.edit-icon:hover{
-  width: 17px;
-  height: 17px;
-  cursor: pointer;
-}
+
 input {
   border: none;
   display: inline;

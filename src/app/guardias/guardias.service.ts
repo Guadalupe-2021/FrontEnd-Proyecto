@@ -31,7 +31,7 @@ getOne(id:string):Observable<IGuardia> {
   return this.http.get<IGuardia>("http://localhost:8080/guardias/"+`${id}`)
 }
 
-putGuardia(id:number|undefined,guardia:any):Observable<IServerResponse>{
+putGuardia(id:number|undefined,guardia:IGuardia):Observable<IServerResponse>{
   return this.http.put<IServerResponse>("http://localhost:8080/guardias/"+ `${id}` + "/modificar",guardia);
 }
 

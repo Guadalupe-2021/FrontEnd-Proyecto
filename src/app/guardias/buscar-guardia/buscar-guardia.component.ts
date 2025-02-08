@@ -3,11 +3,12 @@ import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, 
 import { GuardiasService } from '../guardias.service.js';
 import { IGuardia } from '../../shared/entity.interfaces.js';
 import { DatePipe, NgIf } from '@angular/common';
+import { ModificarGuardiaComponent } from '../modificar-guardia/modificar-guardia.component.js';
 
 @Component({
   selector: 'app-buscar-guardia',
   standalone: true,
-  imports: [FormsModule,ReactiveFormsModule,NgIf,DatePipe],
+  imports: [FormsModule,ReactiveFormsModule,NgIf,DatePipe,ModificarGuardiaComponent],
   templateUrl: './buscar-guardia.component.html',
   styleUrl: './buscar-guardia.component.css'
 })

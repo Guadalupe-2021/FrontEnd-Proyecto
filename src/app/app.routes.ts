@@ -33,7 +33,6 @@ import { MostrarIlegalComponent } from './ilegal/mostrar-ilegal/mostrar-ilegal.c
 import { UsuarioService } from './usuarios/usuario.service.js';
 import { UsuariosComponent } from './usuarios/usuarios.component.js';
 import { LiberarReclusoComponent } from './reclusos/liberar-recluso/liberar-recluso.component.js';
-import { FinalizarGuardiaComponent } from './guardias/finalizar-guardia/finalizar-guardia.component.js';
 import { MostrarSenteniasComponent } from './sentencia/mostrar-sentencias/mostrar-sentenias.component.js';
 import { CrearTurnosComponent } from './sector/crear-turnos/crear-turnos.component.js';
 import { FinalizarTurnosComponent } from './sector/finalizar-turnos/finalizar-turnos.component.js';
@@ -67,7 +66,6 @@ export const routes: Routes = [
     {path: 'menu/guardias/buscar-guardia', component:BuscarGuardiaComponent },
     {path: 'menu/guardias/:id/modificar', component: ModificarGuardiaComponent},
     {path: 'menu/guardias/mostrar-guardia', component:MostrarGuardiaComponent },
-    {path: 'menu/guardias/finalizar-guarida', component: FinalizarGuardiaComponent},
     //recluso
     {path: 'menu/recluso', component: MenuReclusosComponent},
     {path: 'menu/recluso/alta-recluso', component:AltaReclusosComponent },

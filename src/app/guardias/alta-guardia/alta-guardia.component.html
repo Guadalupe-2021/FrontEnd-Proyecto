@@ -3,25 +3,15 @@
 </head>
 
 <body>
-<h1>ingrese los datos del NUEVO guardia</h1>
 
-<form [formGroup]="form_guardia"  (submit)="altaGuardia()" >
-    <fieldset>
-        <label>Nombre</label>
-        <input type="text" formControlName="nombre" placeholder="Nombre">        
-    </fieldset>
-    <fieldset>
-        <label>Apellido</label>
-        <input type="text" formControlName="apellido" placeholder="Apellido">        
-    </fieldset>
-    <fieldset>
-        <label>DNI</label>
-        <input type="number" formControlName="dni" placeholder="DNI">        
-    </fieldset>
-    <fieldset>
-        <label>Fecha Contratacion</label>
-        <input type="date" formControlName="fecha_ini_contrato" >
-    </fieldset>
-    <button [disabled]="form_guardia.invalid">enviar datos</button>
-</form>
+  <div class="alta-guardia-container">
+    <button class="new-btn" (click)="mostrarGuardia()" title="Nuevo Guardia">
+      <i class="bi bi-plus-lg alta-guardia-icono"></i>
+    </button>
+    <div class="guardia" *ngIf="mostrar_guardia">
+    <app-formulario-guardia (sendFormValue)="altaGuardia($event)"></app-formulario-guardia>
+    </div>
+  </div>
+
+</body>
 

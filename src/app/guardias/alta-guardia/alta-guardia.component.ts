@@ -1,31 +1,31 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GuardiasService } from '../guardias.service.js';
 import { IGuardia } from '../../shared/entity.interfaces.js';
 import { ToastrService} from 'ngx-toastr';
+import { FormularioGuardiaComponent } from '../formulario-guardia/formulario-guardia.component.js';
+import { DatePipe, NgIf } from '@angular/common';
 @Component({
   selector: 'app-alta-guardia',
   standalone: true,
-  imports: [FormsModule,ReactiveFormsModule],
+  imports: [FormsModule,ReactiveFormsModule,FormularioGuardiaComponent,NgIf],
   templateUrl: './alta-guardia.component.html',
   styleUrl: './alta-guardia.component.css',
-  providers:[],
+  providers:[DatePipe],
 })
 export class AltaGuardiaComponent {
-  message = ["GUARDIA GUARDADO","GUARDIA EXISTENTE CONTRATADO","GUARDIA YA EXISTENTE Y OPERATIVO"]
   unGuardia!:IGuardia
-  form_guardia:FormGroup
-  constructor (private toastr: ToastrService, private _service_guard : GuardiasService, private formb:FormBuilder){
-this.form_guardia = this.formb.group({
-  nombre:['',Validators.required],
-  apellido:['',Validators.required],
-  dni:[null,[Validators.required,Validators.minLength(8)]],
-  fecha_ini_contrato:[null,Validators.required],
-})}
+  mostrar_guardia = false
+  constructor (private toastr: ToastrService, private _service_guard : GuardiasService,){}
  
-altaGuardia(){
-  this.unGuardia = this.form_guardia.value
-  this._service_guard.postGuardia(this.unGuardia).subscribe({
+
+mostrarGuardia(){
+  console.log("mostrar guardia")
+  this.mostrar_guardia=true
+}
+
+altaGuardia(form_guardia_value: IGuardia){
+  this._service_guard.postGuardia(form_guardia_value).subscribe({
       next:(data)=>{
         if(data.status === 201) this.toastr.success("Guardia Creado Con Exito")
         },
@@ -33,9 +33,8 @@ altaGuardia(){
         if(e.status === 409) this.toastr.error("ERROR: El Guardia Ya Existe")
         if(e.status === 500) this.toastr.error("Error Inesperado")
       }})
-
-      //this.form_guardia.reset()
   }
+
 
 }
 
