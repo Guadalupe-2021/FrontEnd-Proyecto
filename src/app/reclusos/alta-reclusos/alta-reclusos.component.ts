@@ -3,11 +3,12 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators,Fo
 import { ReclusosService } from '../reclusos.service.js';
 import { SentenciasService } from '../../sentencia/sentencias.service.js';
 import { NgFor } from '@angular/common';
+import { FormularioReclusoComponent } from '../formulario-recluso/formulario-recluso.component.js';
 
 @Component({
   selector: 'app-alta-reclusos',
   standalone: true,
-  imports: [FormsModule,ReactiveFormsModule,NgFor],
+  imports: [FormsModule,ReactiveFormsModule,NgFor,FormularioReclusoComponent],
   templateUrl: './alta-reclusos.component.html',
   styleUrl: './alta-reclusos.component.css'
 })

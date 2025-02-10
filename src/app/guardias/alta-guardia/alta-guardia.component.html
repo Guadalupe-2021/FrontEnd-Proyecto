@@ -5,11 +5,13 @@
 <body>
 
   <div class="alta-guardia-container">
-    <button class="new-btn" (click)="mostrarGuardia()" title="Nuevo Guardia">
+    <button class="new-btn" (click)="mostrarGuardia()" title="Nuevo Guardia"
+    type="button" data-bs-toggle="collapse" data-bs-target="#collapseGuardia"
+    aria-expanded="false" aria-controls="collapseGuardia">
       <i class="bi bi-plus-lg alta-guardia-icono" *ngIf="!mostrar_guardia"></i>
       <i class="bi bi-dash-lg alta-guardia-icono" *ngIf="mostrar_guardia"></i>
     </button>
-    <div class="guardia" *ngIf="mostrar_guardia">
+    <div class="guardia" class="collapse" id="collapseGuardia">
     <app-formulario-guardia (sendFormValue)="altaGuardia($event)"></app-formulario-guardia>
     </div>
   </div>

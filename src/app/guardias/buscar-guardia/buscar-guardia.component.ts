@@ -46,6 +46,7 @@ definirIdentificador():void{
 }
 
 buscarGuardia(){
+  this.guardia_encontrado=false
   if(!this.form_buscar_guardia.invalid){
   this._service_guard.getOne(this.form_buscar_guardia.value.id).subscribe({
     next:(data)=> {

@@ -1,0 +1,46 @@
+<head>
+  <link rel="stylesheet" href="formulario-recluso.component.css">
+</head>
+
+<body>
+
+<h1>Hello Recluso</h1>
+  <div class="recluso">
+    <form [formGroup]="form_recluso">
+      <p *ngIf="recluso!=undefined">Cod. {{recluso.cod_recluso}}</p>
+      <h5 *ngIf="recluso===undefined">Nuevo Recluso</h5>
+      <p>
+        <label>Nombre: </label>
+        <input type="text" formControlName="nombre"> <br>
+      </p>
+      <p>
+        <label>Apellido: </label>
+        <input type="text" formControlName="apellido">
+      </p>
+      <p>
+        <label>DNI: </label>
+        <input type="number" formControlName="dni">
+      </p>
+      <p>
+        <label>Fecha De Nacimiento:</label>
+        <input type="date" formControlName="fecha_nac">
+      </p>
+
+      <button [disabled]="form_recluso.invalid || recluso_liberado || form_recluso.disabled"
+        class="endContract-icon-container" (click)="enviarFormValueForFreedom()" title="Finalizar Contrato"
+        *ngIf="modificar_recluso">
+        <i class="bi bi-calendar2-x-fill endContract-icon"></i>
+      </button>
+
+      <button [disabled]="form_recluso.invalid || recluso_liberado || form_recluso.disabled"
+        class="save-icon-container" (click)="enviarFormValue()" title="Enviar">
+        <i class="bi bi-save save-icon"></i>
+      </button>
+
+    </form>
+
+    <div class="edit" (click)="editarRecluso()" title="Editar" *ngIf="modificar_recluso">
+      <i class="bi bi-pencil-square edit-icon"></i>
+    </div>
+  </div>
+</body>

@@ -5,44 +5,5 @@
 
 <body>
     <h2>Alta Recluso</h2>
-  
-<div class="form_recluso_container">
-  <form [formGroup]="form_recluso" (submit)="registrarRecluso()" class="form_recluso">
-    <fieldset>
-        <input type="text" formControlName="nombre" placeholder="Nombre">
-    </fieldset>
-    <fieldset>
-        <input type="text" formControlName="apellido" placeholder="Apellido">
-    </fieldset>
-    <fieldset>
-        <input type="text" formControlName="dni" placeholder="DNI">
-    </fieldset>
-    <fieldset>
-        <label class="fecha_nacimiento_label">Fecha de Nacimiento: </label>
-        <input type="date" formControlName="fecha_nac" >      
-    </fieldset>
-    <button [disabled]="form_recluso.invalid">Registrar Recluso</button>
-  </form>
-</div>
-
-<!--  
-    @if (bandRecluso == 'exito') {
-      <h2>Alta Sentencias :</h2>
-      <div class="sentencias-container" *ngFor="let sentencia of sentencias">
-        <p >
-          codigo: {{sentencia.cod_sentencia}}<br>
-          nombre: {{sentencia.nombre}}<br>
-          descripcion: {{sentencia.descripcion}}<br></p>
-        <button (click)="asignarSentencia(sentencia.cod_sentencia)">ASIGNAR</button><button (click)="quitarSentencia(sentencia.cod_sentencia)">Eliminar</button>
-
-      <button (click)="enviarCondena()">ENVIAR</button>
-</div>
-    }
-    @if (bandRecluso == 'activa') {
-      <p>el recluso tiene una condena activa</p>
-    }
-    
-  -->
-  
-    
+      <app-formulario-recluso></app-formulario-recluso>
 </body>
