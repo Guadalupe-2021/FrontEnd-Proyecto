@@ -15,7 +15,7 @@ import { ReclusosService } from '../reclusos.service.js';
   providers:[DatePipe]
 })
 export class FormularioReclusoComponent  implements OnInit {
-  @Output() sendFormValue: EventEmitter<IRecluso> = new EventEmitter<IRecluso>();
+  @Output() sendFormReclusoValue: EventEmitter<IRecluso> = new EventEmitter<IRecluso>();
   @Output() sendFormValueForDate: EventEmitter<IRecluso> = new EventEmitter<IRecluso>();
 
   @Input() recluso!: IRecluso;
@@ -57,8 +57,8 @@ ngOnInit() {
   }
 }
 
-enviarFormValue(){
-    this.sendFormValue.emit(this.form_recluso.value); // Emit the data to the parent
+enviarFormReclusoValue(){
+    this.sendFormReclusoValue.emit(this.form_recluso.value); // Emit the data to the parent
     if(this.modificar_recluso){
       this.form_recluso.disable()
     }else{

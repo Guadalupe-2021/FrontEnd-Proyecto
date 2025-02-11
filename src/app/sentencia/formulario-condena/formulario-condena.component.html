@@ -1,0 +1,43 @@
+<head>
+  <link rel="stylesheet" href="formulario-condena.component.css">
+</head>
+
+<body>
+
+  <div class="condena">
+    <form [formGroup]="form_condena">
+      <p>
+        <label>Titulo: </label>
+        <input type="text" formControlName="titulo"> <br>
+      </p>
+      <p>
+        <label>Descripcion: </label>
+        <input type="text" formControlName="descripcion">
+      </p>
+    <p>
+      <label for="year">Años:</label>
+      <select id="year" [(ngModel)]="selectedYear">
+        <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+      </select>
+    </p>
+    <p>
+    <label for="month">Meses:</label>
+    <select id="month" [(ngModel)]="selectedMonth">
+      <option *ngFor="let month of months" [value]="month">{{ month }}</option>
+    </select>
+    </p>
+
+    <p>
+     <label for="day">Dias:</label>
+      <select id="day" [(ngModel)]="selectedDay">
+        <option *ngFor="let day of days" [value]="day">{{ day }}</option>
+      </select>     
+    </p>
+
+    </form>
+
+    <div class="edit" (click)="editarCondena()" title="Editar">
+      <i class="bi bi-pencil-square edit-icon"></i>
+    </div>
+  </div>
+</body>

@@ -35,8 +35,8 @@ export class ReclusosService {
 getAllReclusos():Observable<IRecluso[]>{
   return this.http.get<IRecluso[]>("http://localhost:8080/reclusos")
 }
-getOneRecluso(id:string):Observable<IRecluso> {
-  return this.http.get<IRecluso>("http://localhost:8080/reclusos/"+`${id}`);
+getOneRecluso(id:string) {
+  return this.http.get<any | JSON>("http://localhost:8080/reclusos/"+`${id}`);
 }
 
 postRecluso(recluso:IRecluso):Observable<IServerResponse>{

@@ -5,5 +5,10 @@
 
 <body>
     <h2>Alta Recluso</h2>
-      <app-formulario-recluso></app-formulario-recluso>
+      <app-formulario-recluso [recluso]="recluso"></app-formulario-recluso>
+      <!--  BOTON PARA QUE APAREZCAN MAS CONDENAS (porque es propio del alta) -->
+   <div class="formulario-condena" *ngFor="let condena of condenas">
+      <app-formulario-condena></app-formulario-condena>
+    </div>
+    <button class="btn-formulario-condena" (click)="nuevaCondena()">Nueva Condena</button>
 </body>

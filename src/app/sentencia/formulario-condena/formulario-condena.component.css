@@ -1,0 +1,69 @@
+.condena {
+  position: relative;
+  background-color: rgb(219, 215, 215);
+  text-align: center;
+  width: 26em;
+  margin-top: 0.2em;
+  padding-bottom: 1.5em;
+  border-radius: 4%;
+  border-width: 1px;
+  border-style: solid;
+  border-color: gray;
+}
+
+.edit {
+  position: absolute;
+  font-size: 1.25em;
+  top: 1px;
+  right: 5px;
+}
+
+.edit-icon:hover {
+  color: green;
+  font-size: 1.05em;
+  cursor: pointer;
+}
+
+
+i {
+  color: black;
+}
+
+
+p {
+  font-family: Verdana;
+}
+
+fieldset {
+  padding: 10px 20px;
+}
+
+input {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  display: inline;
+  font-family: inherit;
+  font-size: inherit;
+  padding: none;
+  width: auto;
+  margin-bottom: 1px;
+  margin-left: 3px;
+}
+
+input[type="number"],
+input[type="date"] {
+  background-color: rgb(219, 215, 215);
+}
+
+label {
+  margin-left: 3px;
+  display: inline-block;
+  min-width: 7em;
+  text-align: left;
+}
+
+input[type="text"],
+textarea {
+  background-color: rgb(219, 215, 215);
+}

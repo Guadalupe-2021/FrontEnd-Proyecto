@@ -1,19 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators,FormBuilder } from '@angular/forms';
 import { ReclusosService } from '../reclusos.service.js';
 import { SentenciasService } from '../../sentencia/sentencias.service.js';
 import { NgFor } from '@angular/common';
 import { FormularioReclusoComponent } from '../formulario-recluso/formulario-recluso.component.js';
+import { FormularioCondenaComponent } from '../../sentencia/formulario-condena/formulario-condena.component.js';
 
 @Component({
   selector: 'app-alta-reclusos',
   standalone: true,
-  imports: [FormsModule,ReactiveFormsModule,NgFor,FormularioReclusoComponent],
+  imports: [FormsModule,ReactiveFormsModule,NgFor,FormularioReclusoComponent,FormularioCondenaComponent],
   templateUrl: './alta-reclusos.component.html',
   styleUrl: './alta-reclusos.component.css'
 })
 
 export class AltaReclusosComponent implements OnInit{
+
 
   form_recluso:FormGroup
   constructor (public _service_rec : ReclusosService,public _service_sent: SentenciasService,private form: FormBuilder){
@@ -72,6 +74,8 @@ registrarRecluso(){
 // DESPUES SE POSTEA EL RECLUSO COMPLETO CON SUS SENTENCIAS Y CONDENAS COMO PROPIEDADES
 //this.respuesta.splice(this.respuesta.findIndex((item: any)=>{item == sent}),1)
 //this.form_recluso.reset()
-
+nuevaCondena(){
+  console.log("nueva condena")
+}
 }
 

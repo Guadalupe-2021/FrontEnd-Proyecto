@@ -4,7 +4,6 @@
 
 <body>
 
-<h1>Hello Recluso</h1>
   <div class="recluso">
     <form [formGroup]="form_recluso">
       <p *ngIf="recluso!=undefined">Cod. {{recluso.cod_recluso}}</p>
@@ -33,7 +32,7 @@
       </button>
 
       <button [disabled]="form_recluso.invalid || recluso_liberado || form_recluso.disabled"
-        class="save-icon-container" (click)="enviarFormValue()" title="Enviar">
+        class="save-icon-container" (click)="enviarFormReclusoValue()" title="Enviar">
         <i class="bi bi-save save-icon"></i>
       </button>
 

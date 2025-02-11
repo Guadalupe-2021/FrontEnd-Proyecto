@@ -7,13 +7,9 @@
 body {
   display: grid;
   align-items: center;
-  height: 80vh;
   font-family: cursive;
 }
 
-t {
-  font-family: Verdana;
-}
 
 input,
 textarea {
@@ -45,4 +41,8 @@ justify-content: center;
 .fecha_nacimiento_label{
   font-size: .7em;
   color: rgb(150, 150, 145);
+}
+
+.btn-formularo-condena{
+  width: 100px;
 }

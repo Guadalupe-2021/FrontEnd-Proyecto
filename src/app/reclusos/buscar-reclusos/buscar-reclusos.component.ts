@@ -39,6 +39,8 @@ this.form_recluso.setControl('id',this.form_b.control('', [Validators.required,V
       this.service.recluso=recluso
       if(!(this.reclusos.find((o)=>o.cod_recluso==recluso.cod_recluso)))this.reclusos.push(recluso) 
       if(this.reclusos.length >=1) this.recluso_encontrado = true
+      console.log(recluso.actividades)
+      console.log(recluso)
     }
     ,error: (e)=>{
       this.error_encontrado=true
