@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule, NgFor } from '@angular/common';
+import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import {BrowserAnimationsModule, provideAnimations} from "@angular/platform-browser/animations";
 import { AltaGuardiaComponent } from './guardias/alta-guardia/alta-guardia.component.js';
@@ -17,6 +17,7 @@ import { FormsModule, NgModel } from '@angular/forms';
      MenuGuardiaComponent],
   imports: [NgModel,
     NgFor,
+    NgIf,
     FormsModule,
     CommonModule,
     BrowserModule,

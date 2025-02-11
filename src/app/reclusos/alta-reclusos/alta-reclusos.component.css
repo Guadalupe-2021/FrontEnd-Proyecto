@@ -46,3 +46,8 @@ justify-content: center;
 .btn-formularo-condena{
   width: 100px;
 }
+
+
+.collapse,.collapsing,.show{
+  display: block;
+}

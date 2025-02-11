@@ -7,8 +7,16 @@
     <h2>Alta Recluso</h2>
       <app-formulario-recluso [recluso]="recluso"></app-formulario-recluso>
       <!--  BOTON PARA QUE APAREZCAN MAS CONDENAS (porque es propio del alta) -->
-   <div class="formulario-condena" *ngFor="let condena of condenas">
-      <app-formulario-condena></app-formulario-condena>
+      <button class="btn-formulario-condena" (click)="nuevaCondena()" 
+      title="Nueva Condena" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCondena"
+       aria-expanded="false" aria-controls="collapseCondena">
+            <i class="bi bi-plus-lg plus-icono"></i>
+      </button>
+      <div class="formulario-condena" id="collapseCondena"
+      *ngFor="let number of numbers; let i = index">
+      <app-formulario-condena ></app-formulario-condena>
     </div>
-    <button class="btn-formulario-condena" (click)="nuevaCondena()">Nueva Condena</button>
+
+
+
 </body>

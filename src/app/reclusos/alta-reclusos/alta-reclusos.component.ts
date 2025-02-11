@@ -1,24 +1,27 @@
-import { Component, input, OnInit } from '@angular/core';
+import { Component, ElementRef, input, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators,FormBuilder } from '@angular/forms';
 import { ReclusosService } from '../reclusos.service.js';
 import { SentenciasService } from '../../sentencia/sentencias.service.js';
-import { NgFor } from '@angular/common';
+import { CommonModule, NgFor } from '@angular/common';
 import { FormularioReclusoComponent } from '../formulario-recluso/formulario-recluso.component.js';
 import { FormularioCondenaComponent } from '../../sentencia/formulario-condena/formulario-condena.component.js';
 
 @Component({
   selector: 'app-alta-reclusos',
   standalone: true,
-  imports: [FormsModule,ReactiveFormsModule,NgFor,FormularioReclusoComponent,FormularioCondenaComponent],
+  imports: [FormsModule,ReactiveFormsModule,NgFor,FormularioReclusoComponent,FormularioCondenaComponent,
+    CommonModule
+  ],
   templateUrl: './alta-reclusos.component.html',
   styleUrl: './alta-reclusos.component.css'
 })
 
 export class AltaReclusosComponent implements OnInit{
-
+@ViewChild('myDiv', { static: false }) myDiv!: ElementRef;
 
   form_recluso:FormGroup
-  constructor (public _service_rec : ReclusosService,public _service_sent: SentenciasService,private form: FormBuilder){
+  constructor (public _service_rec : ReclusosService,public _service_sent: SentenciasService,
+    private form: FormBuilder, private renderer: Renderer2){
 this.form_recluso = this.form.group({
   fecha_nac:['',[Validators.required]],
   nombre:['',Validators.required],
@@ -27,6 +30,7 @@ this.form_recluso = this.form.group({
   //cod_sentencia:['',]
 })
 }
+recluso:any
 bandRecluso :string | undefined
 bandCelda :boolean | undefined
 respuesta:any = []
@@ -34,8 +38,12 @@ value:string|undefined
 cod_rec: number | undefined
 sentencias:any[]|undefined
 recluso_creado=false
+cant_condenas = 1
+numbers :any
 
 ngOnInit(): void {
+  this.numbers=Array.from({length:this.cant_condenas},(_,i)=>i)
+
   this._service_sent.getSentencias().subscribe({
     next:(data)=>{
       console.log(this._service_sent.sentencias)
@@ -75,7 +83,9 @@ registrarRecluso(){
 //this.respuesta.splice(this.respuesta.findIndex((item: any)=>{item == sent}),1)
 //this.form_recluso.reset()
 nuevaCondena(){
-  console.log("nueva condena")
+  this.cant_condenas = this.cant_condenas+1;
+  this.numbers=Array.from({length:this.cant_condenas},(_,i)=>i)
+
 }
 }
 

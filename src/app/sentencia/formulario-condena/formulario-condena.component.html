@@ -16,20 +16,20 @@
       </p>
     <p>
       <label for="year">Años:</label>
-      <select id="year" [(ngModel)]="selectedYear">
+      <select id="year" formControlName="duracion_anios">
         <option *ngFor="let year of years" [value]="year">{{ year }}</option>
       </select>
     </p>
     <p>
     <label for="month">Meses:</label>
-    <select id="month" [(ngModel)]="selectedMonth">
+    <select id="month" formControlName="duracion_meses">
       <option *ngFor="let month of months" [value]="month">{{ month }}</option>
     </select>
     </p>
 
     <p>
      <label for="day">Dias:</label>
-      <select id="day" [(ngModel)]="selectedDay">
+      <select id="day" formControlName="duracion_dias">
         <option *ngFor="let day of days" [value]="day">{{ day }}</option>
       </select>     
     </p>
