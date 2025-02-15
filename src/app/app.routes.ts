@@ -39,7 +39,7 @@ import { FinalizarTurnosComponent } from './sector/finalizar-turnos/finalizar-tu
 
 // MENU
 import { MenuComponent } from './menu/menu.component.js';
-import { MenuGuardiaComponent } from './menu/menu-guardia/menu-guardia.component.js';
+import { MenuGuardiaComponent } from './guardias/menu-guardia/menu-guardia.component.js';
 import { MenuActividadComponent } from './menu/menu-actividad/menu-actividad.component.js';
 import { MenuReclusosComponent } from './menu/menu-reclusos/menu-reclusos.component.js';
 import { MenuTallerComponent } from './menu/menu-taller/menu-taller.component.js';

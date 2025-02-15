@@ -8,6 +8,7 @@ p {
     /* Aligns elements vertically */
     align-items: center;
     /* Centers elements horizontally */
+    background-color: rgb(179 179 179);
 }
 
 

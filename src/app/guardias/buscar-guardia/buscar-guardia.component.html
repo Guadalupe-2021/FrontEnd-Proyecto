@@ -11,7 +11,7 @@
     <div class="input-group">
       <select class="form-select" id="selectorID" (change)="definirIdentificador()">
         <option value="dni">DNI</option>
-        <option value="cod">Codigo</option>
+        <option value="cod">CODIGO</option>
       </select>
       <input type="text" formControlName="id" class="form-control"
        [pattern]="pattern" [title]="title">
@@ -22,9 +22,9 @@
     </div>
   </fieldset>
 </form>
+</div>
   <div class="guardia_container" *ngIf="guardia_encontrado">
     <app-modificar-guardia [guardia]="unGuardia"></app-modificar-guardia>
-  </div>
 </div>
 
 </body>

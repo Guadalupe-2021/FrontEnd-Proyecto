@@ -2,7 +2,23 @@ body {
   display: grid;
   align-items: center;
   justify-content: center;
-  font-family: cursive;
+  justify-items: center;
+  background-color: rgb(179 179 179);
+}
+.search-guardia-container{
+  width: 20em;
+}
+.form-select[_ngcontent-ng-c3499155274] {
+  flex: 0.3;
+  font-family: fantasy;
+}
+
+.guardia-container {
+  display: flex;
+  flex-direction: column;
+  /* Aligns elements vertically */
+  align-items: center;
+  margin-bottom: 3em;
 }
 
 input,
@@ -11,6 +27,7 @@ textarea {
   padding: 5px;
   outline: none;
 }
+
 
 label {
   line-height: 2.0rem;
@@ -25,7 +42,7 @@ input[type="submit"] {
 }
 
 fieldset {
-  padding: 20px 40px;
+  font-family: cursive;
 }
 .search-icon{
 font-size: 1.02em;

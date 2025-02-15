@@ -6,7 +6,7 @@ import { AltaGuardiaComponent } from './guardias/alta-guardia/alta-guardia.compo
 import { AppComponent } from './app.component.js';
 import { BrowserModule } from '@angular/platform-browser';
 import { MenuActividadComponent } from './menu/menu-actividad/menu-actividad.component.js';
-import { MenuGuardiaComponent } from './menu/menu-guardia/menu-guardia.component.js';
+import { MenuGuardiaComponent } from './guardias/menu-guardia/menu-guardia.component.js';
 import { FormsModule, NgModel } from '@angular/forms';
 
 
