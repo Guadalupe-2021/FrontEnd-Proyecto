@@ -37,12 +37,15 @@ constructor (public _service_reclcuso: ReclusosService,
   nombre:["",Validators.required],
   apellido:["",Validators.required],
   dni:["",[Validators.required,Validators.minLength(8),Validators.maxLength(10)]],
-  fecha_nac:["",Validators.required] })
+  fecha_nac:["",Validators.required]
+
+ })
 
 }
 
 
 ngOnInit() {
+  console.log('recluso: ',this.recluso)
   if(this.recluso!=undefined){
   this.modificar_recluso = true
   this.form_recluso.controls['nombre'].setValue(this.recluso.nombre)
@@ -58,11 +61,14 @@ ngOnInit() {
 }
 
 enviarFormReclusoValue(){
+  this.form_recluso.controls['fecha_nac'].setValue(new Date(this.form_recluso.value.fecha_nac))
     this.sendFormReclusoValue.emit(this.form_recluso.value); // Emit the data to the parent
     if(this.modificar_recluso){
       this.form_recluso.disable()
     }else{
-      this.form_recluso.reset()
+      // cheuqear por las condenas
+      this.form_recluso.disable()
+      //this.form_recluso.reset()
     } 
     
 }

@@ -4,9 +4,14 @@
   max-height: 0.80px;
 }
 
+
+.formulario-condena, .form-condena-container{
+  margin: 0;
+}
 body {
-  display: grid;
-  align-items: center;
+  display: flex;
+  margin-top: 0;
+  margin-bottom: 0;
   font-family: cursive;
 }
 
@@ -33,6 +38,7 @@ fieldset {
 }
 .form_recluso_container{
   margin-top:0px;
+  margin-bottom: 0px;
   padding-top: 0px;
 justify-self: left;
 margin-left: 1.5em;
@@ -43,11 +49,15 @@ justify-content: center;
   color: rgb(150, 150, 145);
 }
 
-.btn-formularo-condena{
-  width: 100px;
+.btn-formulario-condena{
+  width: 26em;
 }
 
 
 .collapse,.collapsing,.show{
   display: block;
+}
+
+.form-recluso-container,.form-condena-container{
+display:inline;
 }

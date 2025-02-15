@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IRecluso, IServerResponse } from '../shared/entity.interfaces.js';
+import { IRecluso, IServerResponse, ICondena } from '../shared/entity.interfaces.js';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -42,6 +42,12 @@ getOneRecluso(id:string) {
 postRecluso(recluso:IRecluso):Observable<IServerResponse>{
   return this.http.post<IServerResponse>("http://localhost:8080/reclusos/",recluso);
 }
+
+postReclusoYCondenas(reclusoData:IRecluso,condenasData:ICondena[]):Observable<IServerResponse>{
+  const body = {reclusoData,condenasData}
+ return this.http.post<IServerResponse>("http://localhost:8080/reclusos/",body);
+}
+
 
 getOneCondena(id:number) {
   return this.http.get<any | JSON>(this.api_condena+`${id}`);

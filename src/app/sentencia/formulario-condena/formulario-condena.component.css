@@ -6,9 +6,21 @@
   margin-top: 0.2em;
   padding-bottom: 1.5em;
   border-radius: 4%;
+  border-top-left-radius:0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
   border-width: 1px;
+  border-left-width: 0;
   border-style: solid;
   border-color: gray;
+  margin-bottom: 0px;
+}
+
+
+.anos,.dias,.meses{
+  display: inline-block;
+  width: 5em;
+  height: 3em;
 }
 
 .edit {
@@ -58,8 +70,8 @@ input[type="date"] {
 
 label {
   margin-left: 3px;
-  display: inline-block;
-  min-width: 7em;
+  display: inline;
+  min-width: 3em;
   text-align: left;
 }
 

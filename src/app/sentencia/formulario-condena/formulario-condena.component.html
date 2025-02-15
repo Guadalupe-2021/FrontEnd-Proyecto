@@ -6,38 +6,45 @@
 
   <div class="condena">
     <form [formGroup]="form_condena">
+      <h5>Condena</h5>
       <p>
         <label>Titulo: </label>
-        <input type="text" formControlName="titulo"> <br>
+        <input type="text" formControlName="nombre"> <br>
       </p>
       <p>
         <label>Descripcion: </label>
         <input type="text" formControlName="descripcion">
       </p>
-    <p>
-      <label for="year">Años:</label>
-      <select id="year" formControlName="duracion_anios">
+<div class="dias-meses-anos">
+    <div class="anos">
+      <label for="year">Años:</label> <br>
+      <select id="year" formControlName="duracion_anios" (change)="setYear()">
         <option *ngFor="let year of years" [value]="year">{{ year }}</option>
       </select>
-    </p>
-    <p>
-    <label for="month">Meses:</label>
-    <select id="month" formControlName="duracion_meses">
+    </div>
+    <div class="meses">
+    <label for="month">Meses:</label> <br>
+    <select id="month" formControlName="duracion_meses" (change)="setMonth()">
       <option *ngFor="let month of months" [value]="month">{{ month }}</option>
     </select>
-    </p>
+    </div>
 
-    <p>
-     <label for="day">Dias:</label>
-      <select id="day" formControlName="duracion_dias">
+    <div class="dias">
+     <label for="day">Dias:</label> <br>
+      <select id="day" formControlName="duracion_dias" (change)="setDay()">
         <option *ngFor="let day of days" [value]="day">{{ day }}</option>
       </select>     
-    </p>
-
+    </div>
+</div>
     </form>
 
     <div class="edit" (click)="editarCondena()" title="Editar">
       <i class="bi bi-pencil-square edit-icon"></i>
     </div>
+
+    <button class="save-icon-container" (click)="enviarFormCondenaValue()" title="Guardar"
+    [disabled]="form_condena.invalid || form_condena.disabled">
+      <i class="bi bi-save save-icon"></i>
+    </button>
   </div>
 </body>

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ISentencia } from '../shared/entity.interfaces.js';
+import { IPena } from '../shared/entity.interfaces.js';
 import { Observable } from 'rxjs';
 
 
@@ -27,8 +27,8 @@ export class SentenciasService {
   this.messageService.add(`GuaridaService: ${message}`);
 }
 
-getSentencias():Observable<ISentencia[]>{
-  return this.http.get<ISentencia[]>("http://localhost:8080/sentencias")
+getSentencias():Observable<IPena[]>{
+  return this.http.get<IPena[]>("http://localhost:8080/sentencias")
 }
 getOneSentencias(id:any) {
   return this.http.get<any | JSON>(this.api_url+id)
