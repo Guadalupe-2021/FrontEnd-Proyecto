@@ -4,7 +4,7 @@
 
 <body>
 
-  <div class="recluso">
+  <div #elRecluso class="recluso">
     <form [formGroup]="form_recluso">
       <p *ngIf="recluso!=undefined">Cod. {{recluso.cod_recluso}}</p>
       <h5 *ngIf="recluso===undefined">Nuevo Recluso</h5>

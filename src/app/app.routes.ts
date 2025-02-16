@@ -5,15 +5,18 @@ import { MenuSentenciaComponent } from './menu/menu-sentencia/menu-sentencia.com
 import { AltaSentenciaComponent } from './sentencia/alta-sentencia/alta-sentencia.component.js';
 import { ModSentenciaComponent } from './sentencia/mod-sentencia/mod-sentencia.component.js';
 
+
+//Guardias
 import { AltaGuardiaComponent } from './guardias/alta-guardia/alta-guardia.component.js';
 import { BuscarGuardiaComponent } from './guardias/buscar-guardia/buscar-guardia.component.js';
 import { ModificarGuardiaComponent } from './guardias/modificar-guardia/modificar-guardia.component.js';
 import { MostrarGuardiaComponent } from './guardias/mostrar-guardia/mostrar-guardia.component.js';
 
+//RECLUSOS
 import { AltaReclusosComponent } from './reclusos/alta-reclusos/alta-reclusos.component.js';
+import { ModificarReclusoComponent } from './reclusos/modificar-recluso/modificar-recluso.component.js';
 import { BuscarReclusosComponent } from './reclusos/buscar-reclusos/buscar-reclusos.component.js';
 import { MoverReclusoComponent } from './reclusos/mover-recluso/mover-recluso.component.js';
-import { ModificarCondenaComponent } from './reclusos/modificar-condena/modificar-condena.component.js';
 import { AltaActividadComponent } from './actividades/alta-actividad/alta-actividad.component.js';
 import { ModificarActividadComponent } from './actividades/modificar-actividad/modificar-actividad.component.js';
 import { MostrarActividadComponent } from './actividades/mostrar-actividad/mostrar-actividad.component.js';
@@ -30,9 +33,8 @@ import { AltaIlegalComponent } from './ilegal/alta-ilegal/alta-ilegal.component.
 import { ModificarIlegalComponent } from './ilegal/modificar-ilegal/modificar-ilegal.component.js';
 import { IncribirseIlegalComponent } from './ilegal/incribirse-ilegal/incribirse-ilegal.component.js';
 import { MostrarIlegalComponent } from './ilegal/mostrar-ilegal/mostrar-ilegal.component.js';
-import { UsuarioService } from './usuarios/usuario.service.js';
+
 import { UsuariosComponent } from './usuarios/usuarios.component.js';
-import { LiberarReclusoComponent } from './reclusos/liberar-recluso/liberar-recluso.component.js';
 import { MostrarSenteniasComponent } from './sentencia/mostrar-sentencias/mostrar-sentenias.component.js';
 import { CrearTurnosComponent } from './sector/crear-turnos/crear-turnos.component.js';
 import { FinalizarTurnosComponent } from './sector/finalizar-turnos/finalizar-turnos.component.js';
@@ -40,8 +42,8 @@ import { FinalizarTurnosComponent } from './sector/finalizar-turnos/finalizar-tu
 // MENU
 import { MenuComponent } from './menu/menu.component.js';
 import { MenuGuardiaComponent } from './guardias/menu-guardia/menu-guardia.component.js';
+import { MenuReclusosComponent } from './reclusos/menu-reclusos/menu-reclusos.component.js';
 import { MenuActividadComponent } from './menu/menu-actividad/menu-actividad.component.js';
-import { MenuReclusosComponent } from './menu/menu-reclusos/menu-reclusos.component.js';
 import { MenuTallerComponent } from './menu/menu-taller/menu-taller.component.js';
 import { MenuTurnosComponent } from './sector/menu-turnos/menu-turnos.component.js';
 import { MenuIlegalComponent } from './menu/menu-ilegal/menu-ilegal.component.js';
@@ -69,10 +71,11 @@ export const routes: Routes = [
     //recluso
     {path: 'menu/recluso', component: MenuReclusosComponent},
     {path: 'menu/recluso/alta-recluso', component:AltaReclusosComponent },
+    {path: 'menu/recluso/modificar-recluso', component:ModificarReclusoComponent },
+
     {path: 'menu/recluso/buscar-recluso', component: BuscarReclusosComponent},
-    {path: 'menu/recluso/modificar-condena', component: ModificarCondenaComponent},
     {path: 'menu/recluso/Mover-Recluso', component: MoverReclusoComponent},
-    {path: 'menu/recluso/liberar-recluso', component: LiberarReclusoComponent},
+
     //actividad
     {path: 'menu/actividad', component: MenuActividadComponent},
     {path: 'menu/actividad/alta-actividad', component: AltaActividadComponent},

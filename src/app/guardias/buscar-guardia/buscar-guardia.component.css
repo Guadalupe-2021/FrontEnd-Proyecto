@@ -2,10 +2,10 @@ body {
   display: grid;
   align-items: center;
   justify-content: center;
-  justify-items: center;
   background-color: rgb(179 179 179);
 }
 .search-guardia-container{
+  justify-self: center;
   width: 20em;
 }
 .form-select[_ngcontent-ng-c3499155274] {
@@ -28,7 +28,6 @@ textarea {
   outline: none;
 }
 
-
 label {
   line-height: 2.0rem;
 }
@@ -41,9 +40,6 @@ input[type="submit"] {
   font-weight: bold;
 }
 
-fieldset {
-  font-family: cursive;
-}
 .search-icon{
 font-size: 1.02em;
 color: white;

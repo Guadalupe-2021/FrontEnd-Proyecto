@@ -1,13 +1,37 @@
 body {
   display: grid;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
+  justify-content: left;
   font-family: cursive;
 }
 
-t{
-  font-family: Verdana;
+.reclusos-container{
+  padding: 1em;
+  margin-bottom: 1em;
+  border: .5px solid rgb(224, 217, 217);
+  text-align: center;
+  background-color: rgb(253, 250, 250);
+}
+
+
+.search-recluso-container {
+  width: 20em;
+  margin: 3em 3em;
+}
+
+.form-select{
+  flex: 0.3;
+  font-family: fantasy;
+}
+
+.form-select:focus, .form-control:hover {
+  border-color: #86b7fe;
+  box-shadow: none;
+  box-shadow: 0 0 0 .05rem rgba(13, 110, 253, .25);
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.05rem rgba(13, 110, 253, .25);
 }
 
 input,
@@ -21,33 +45,4 @@ label {
   line-height: 2.0rem;
 }
 
-input[type="submit"] {
-  transform: translate(2.0%);
-  padding: 3px;
-  margin-top: 0.5rem;
-  font-family: cursive;
-  font-weight: bold;
-}
 
-fieldset {
-  padding: 20px 40px;
-  width: 300px;
-  margin: auto;
-}
-
-.reclusos-container{
-  padding: 1em;
-}
-
-.recluso{
-  margin-bottom: 1em;
-  border: .5px solid rgb(224, 217, 217);
-  text-align: center;
-  background-color: rgb(253, 250, 250);
-}
-.codigo{
-  text-align: left;
-  margin-top: 2px;
-  margin-left: 2px;
-  padding-left: 1em;
-}

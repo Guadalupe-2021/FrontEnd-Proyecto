@@ -8,29 +8,16 @@ import { Observable } from 'rxjs';
 })
 export class ReclusosService {
 
- readonly api_recluso="https://jsonplaceholder.typicode.com/todos/"
+  readonly api_recluso="https://jsonplaceholder.typicode.com/todos/"
   readonly api_condena="https://jsonplaceholder.typicode.com/todos/"
   readonly api_celda="https://jsonplaceholder.typicode.com/todos/"
   condenas:any
   condena:any
-  recluso: any
-  reclusos:any 
-  rec_id_obj!:{id:string,tipo:string}
-  messageService: any;
+  recluso:any
   celda:any;
   celdas:any;
-  constructor(private http: HttpClient) {this.reclusos =  [],
-    this.recluso={
-      nombre:'',
-      apellido:'',
-      dni:'', 
-      fecha_nac:''},
-    this.condena={ fecha_ini:'', fecha_fin_estimada:'',fecha_fin_real :'',celda:this.celda},
-    this.condenas = []
-    this.celda= {}
-    this.celdas= []
-  }  
 
+constructor(private http: HttpClient) {}  
 
 getAllReclusos():Observable<IRecluso[]>{
   return this.http.get<IRecluso[]>("http://localhost:8080/reclusos")
@@ -39,14 +26,16 @@ getOneRecluso(id:string) {
   return this.http.get<any | JSON>("http://localhost:8080/reclusos/"+`${id}`);
 }
 
-postRecluso(recluso:IRecluso):Observable<IServerResponse>{
-  return this.http.post<IServerResponse>("http://localhost:8080/reclusos/",recluso);
-}
 
 postReclusoYCondenas(reclusoData:IRecluso,condenasData:ICondena[]):Observable<IServerResponse>{
   const body = {reclusoData,condenasData}
  return this.http.post<IServerResponse>("http://localhost:8080/reclusos/",body);
 }
+
+modificarRecluso(id:number|undefined, recluso:IRecluso):Observable<IServerResponse>{
+  return this.http.put<IServerResponse>("http://localhost:8080/reclusos/"+ `${id}`,recluso)
+}
+
 
 
 getOneCondena(id:number) {

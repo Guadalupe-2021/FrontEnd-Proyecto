@@ -1,0 +1,17 @@
+
+body{
+  justify-content: center;
+  justify-items: center;
+}
+
+.alta-recluso-btn-container{
+  margin-top: 3em;
+}
+.alta-recluso-btn{
+  width: 25em;
+}
+
+.alta-recluso-icono {
+  font-size: 3.5em;
+  justify-self: center;
+}

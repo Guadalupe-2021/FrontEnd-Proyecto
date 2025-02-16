@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2, ViewChild } from '@angular/core';
 import { IRecluso } from '../../shared/entity.interfaces.js';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
@@ -17,8 +17,9 @@ import { ReclusosService } from '../reclusos.service.js';
 export class FormularioReclusoComponent  implements OnInit {
   @Output() sendFormReclusoValue: EventEmitter<IRecluso> = new EventEmitter<IRecluso>();
   @Output() sendFormValueForDate: EventEmitter<IRecluso> = new EventEmitter<IRecluso>();
-
   @Input() recluso!: IRecluso;
+
+  @ViewChild('elRecluso') reclusoElement!:ElementRef
 
   form_recluso:FormGroup
   contrato_finalizado = false
@@ -31,6 +32,7 @@ constructor (public _service_reclcuso: ReclusosService,
   private toastr:ToastrService,
   private datePipe: DatePipe,
   public router:Router,
+  private renderer: Renderer2
 ) {
   
   this.form_recluso = this.formb.group({
@@ -61,8 +63,10 @@ ngOnInit() {
 }
 
 enviarFormReclusoValue(){
+  console.log("enviando datos del fomulario",this.form_recluso.value)
   this.form_recluso.controls['fecha_nac'].setValue(new Date(this.form_recluso.value.fecha_nac))
     this.sendFormReclusoValue.emit(this.form_recluso.value); // Emit the data to the parent
+  this.form_recluso.get('fecha_nac')?.setValue(this.datePipe.transform(this.form_recluso.value.fecha_nac, 'yyyy-MM-dd'));
     if(this.modificar_recluso){
       this.form_recluso.disable()
     }else{
@@ -88,6 +92,8 @@ enviarFormValueForFreedom(){
 
 editarRecluso(){ 
   console.log("editar recluso")
+  this.form_recluso.enable()
+  // if(this.recluso.pena.fecha_fin > new Date())
 //if(this.recluso.fecha_fin_contrato==null){
 //  this.form_recluso.enable()
 //}else{

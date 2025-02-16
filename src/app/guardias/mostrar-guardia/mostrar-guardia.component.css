@@ -1,14 +1,17 @@
+body{
+    background-color: rgb(179 179 179);
+}
+
+
 p {
   font-family: Verdana;
   margin: 1px;
 }
 .guardias-container{
   display: flex;
-    flex-direction: column;
-    /* Aligns elements vertically */
-    align-items: center;
-    /* Centers elements horizontally */
-    background-color: rgb(179 179 179);
+    flex-direction: column;  /* Aligns elements vertically */
+    align-items: center;     /* Centers elements horizontally */
+    margin-bottom: 0.4em;
 }
 
 

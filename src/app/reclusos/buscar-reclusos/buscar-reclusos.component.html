@@ -2,28 +2,27 @@
   <link rel="stylesheet" href="buscar-reclusos.component.css">
 </head>
 <body>
-  <form [formGroup]="form_recluso" (submit)="buscarRecluso()"> 
-    <fieldset>
-    <label>BUSCAR RECLUSO POR </label>
-    <select id="selectorID" (change)="definirIdentificador()">
-      <option value="dni">DNI</option>
-      <option value="cod">Codigo</option>
-    </select>
-        <input type="text" formControlName="id">
-    </fieldset>
-    <button [disabled]="form_recluso.invalid">BUSCAR</button>
-          @if (error_encontrado == true) {<p class="mensaje_error">{{message}}</p>}
-  </form>
 
-  <div class="reclusos-container">
-    <div class="recluso" *ngFor="let recluso of reclusos">
-    @if (recluso_encontrado == true) {
-        <div class="codigo">Cod. {{recluso.cod_recluso}}</div>
-      <p>{{recluso.apellido}}, {{recluso.nombre}}<br>
-        DNI: {{recluso.dni}}<br>
-        Fecha de Nacimiento: {{recluso.fecha_nac | date:'dd-mm-yyyy'}}</p>
-    }
-    </div>
-  </div>
+<div class="search-recluso-container">
+  <form [formGroup]="form_buscar_recluso">
+    <fieldset>
+      <div class="input-group">
+        <select class="form-select" id="selectorID" (change)="definirIdentificador()">
+          <option value="dni">DNI</option>
+          <option value="cod">CODIGO</option>
+        </select>
+        <input type="text" formControlName="id" class="form-control" [pattern]="pattern" [title]="title">
+        <button class="btn-icon btn btn-primary" (click)="buscarRecluso()" title="Buscar"
+          [disabled]="form_buscar_recluso.invalid">
+          <i class="bi bi-search search-icon"></i>
+        </button>
+      </div>
+    </fieldset>
+  </form>
+</div>
+<div class="recluso_container" *ngIf="recluso_encontrado">
+  <app-modificar-recluso [recluso]="unRecluso"></app-modificar-recluso>
+</div>
+
 </body>
 

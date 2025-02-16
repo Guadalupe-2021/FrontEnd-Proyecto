@@ -8,13 +8,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MenuActividadComponent } from './menu/menu-actividad/menu-actividad.component.js';
 import { MenuGuardiaComponent } from './guardias/menu-guardia/menu-guardia.component.js';
 import { FormsModule, NgModel } from '@angular/forms';
+import { BuscarReclusosComponent } from './reclusos/buscar-reclusos/buscar-reclusos.component.js';
 
 
 @NgModule({
   declarations: [AppComponent,
      AltaGuardiaComponent,
      MenuActividadComponent,
-     MenuGuardiaComponent],
+     MenuGuardiaComponent,
+    BuscarReclusosComponent],
   imports: [NgModel,
     NgFor,
     NgIf,

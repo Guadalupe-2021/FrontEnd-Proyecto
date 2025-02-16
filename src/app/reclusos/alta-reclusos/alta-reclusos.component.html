@@ -8,7 +8,7 @@
       <app-formulario-recluso (sendFormReclusoValue)="recibirRecluso($event)"></app-formulario-recluso>
     <button *ngIf="btn_alta" (click)="altaRecluso()">Finalizar Alta</button>
     </div>
-      <!--  BOTON PARA QUE APAREZCAN MAS CONDENAS (porque es propio del alta) -->
+    
 <div class="form-condena-container">
   <div class="formulario-condena" id="collapseCondena"
   *ngFor="let number of numbers; let i = index">

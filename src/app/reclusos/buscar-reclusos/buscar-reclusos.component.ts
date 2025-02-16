@@ -1,53 +1,70 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ReclusosService } from '../reclusos.service.js';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { DatePipe, NgFor } from '@angular/common';
+import { DatePipe, NgIf } from '@angular/common';
+import { IRecluso } from '../../shared/entity.interfaces.js';
+import { ToastrService } from 'ngx-toastr';
+import { ModificarReclusoComponent } from '../modificar-recluso/modificar-recluso.component.js';
 
 @Component({
   selector: 'app-buscar-reclusos',
   standalone: true,
-  imports: [FormsModule,ReactiveFormsModule,NgFor,DatePipe],
+  imports: [FormsModule,ReactiveFormsModule,DatePipe,ModificarReclusoComponent,NgIf],
   templateUrl: './buscar-reclusos.component.html',
   styleUrl: './buscar-reclusos.component.css'
 })
-export class BuscarReclusosComponent {
-form_recluso:FormGroup
-identificador="dni"
-recluso_encontrado=false
-error_encontrado=false
-message:string|undefined
-constructor(public service : ReclusosService, private form_b:FormBuilder){
-this.form_recluso = this.form_b.group({
+export class BuscarReclusosComponent implements OnInit {
+
+form_buscar_recluso:FormGroup
+unRecluso!:IRecluso
+recluso_encontrado = false
+identificador='dni'
+pattern!:RegExp
+title!:string
+
+constructor(public _service_recluso : ReclusosService, private formb:FormBuilder, private toastr:ToastrService){
+this.form_buscar_recluso = this.formb.group({
   id:['',[Validators.required,Validators.minLength(8)]],
   })
+}
+
+
+ngOnInit(){
+  this.definirIdentificador()
 }
   reclusos:{cod_recluso?:number,nombre:string,apellido:string, dni:number, fecha_nac:Date}[]=[]
   
 definirIdentificador():void{
-this.identificador = (document.getElementById("selectorID") as HTMLInputElement).value
+  this.identificador = (document.getElementById("selectorID") as HTMLInputElement).value
   if(this.identificador==='dni'){
-this.form_recluso.setControl('id',this.form_b.control('', [Validators.required,Validators.minLength(8)]));
-  }else if(this.identificador==='cod'){
-this.form_recluso.setControl('id',this.form_b.control('', [Validators.required,Validators.maxLength(7)]));
-  }
+    this.pattern = /^\d{8,}$/
+    this.title = "Please enter at least 8 digits"
+    this.form_buscar_recluso.setControl('id',this.formb.control('',[Validators.required]));
+      
+    }else if(this.identificador==='cod'){
+      this.form_buscar_recluso.setControl('id',this.formb.control('', [Validators.required]));
+        this.pattern = /^\d{1,7}$/
+        this.title = "Please enter between 1 and 7 digits"
+      }
 }
 
   buscarRecluso(){
-    this.service.getOneRecluso(this.form_recluso.value.id).subscribe({
-      next:(recluso)=>{
-      this.error_encontrado=false
-      this.service.recluso=recluso
-      if(!(this.reclusos.find((o)=>o.cod_recluso==recluso.cod_recluso)))this.reclusos.push(recluso) 
-      if(this.reclusos.length >=1) this.recluso_encontrado = true
-      console.log(recluso.actividades)
-      console.log(recluso)
+  this.recluso_encontrado=false
+  if(!this.form_buscar_recluso.invalid){
+  this._service_recluso.getOneRecluso(this.form_buscar_recluso.value.id).subscribe({
+    next:(data)=> {
+      this.recluso_encontrado = true
+      this.unRecluso = data
+    },
+    error: (e)=>{console.log(e)
+      this.recluso_encontrado = false
+      this.toastr.error("Recluso NO Encontrado")
+      if(e.status == 404) console.log("recluso no encontrado", e.status)
     }
-    ,error: (e)=>{
-      this.error_encontrado=true
-      if(e.status === 500)this.message = "Recluso Inexistente"
-      if(e.status === 404)this.message = "Recluso NO Encontrado"
-    }
-    });
+  })
+ }else{
+  this.toastr.error("Completar Con Datos Validos")
+ }
   }
   
 
