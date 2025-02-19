@@ -25,15 +25,19 @@
         <input type="date" formControlName="fecha_nac">
       </p>
 
-      <button [disabled]="form_recluso.invalid || recluso_liberado || form_recluso.disabled"
-        class="endContract-icon-container" (click)="enviarFormValueForFreedom()" title="Finalizar Contrato"
-        *ngIf="modificar_recluso">
-        <i class="bi bi-calendar2-x-fill endContract-icon"></i>
+
+      <button class="plus-circle-icon-container" *ngIf="modificar_recluso && notClicked" (click)="mostrarDetalles()">
+        Detalles <i class="bi bi-plus-circle plus-circle-icon"></i>
+      </button>
+
+      <button class="plus-circle-icon-container" *ngIf="modificar_recluso && !notClicked" 
+      (click)="enviarFormValueForFreedom()" title="Liberar Recluso">
+        <i class="bi bi-calendar2-x"></i>
       </button>
 
       <button [disabled]="form_recluso.invalid || recluso_liberado || form_recluso.disabled"
-        class="save-icon-container" (click)="enviarFormReclusoValue()" title="Enviar">
-        <i class="bi bi-save save-icon"></i>
+        class="send-icon-container" (click)="enviarFormReclusoValue()" title="Enviar Cambios">
+        <i class="bi bi-send send-icon"></i>
       </button>
 
     </form>

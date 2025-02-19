@@ -36,8 +36,15 @@ days:number[]
 })
   }
 ngOnInit(){
-
-}
+  if(this.condena!=undefined){
+    this.form_condena.controls['nombre'].setValue(this.condena.nombre)
+    this.form_condena.controls['descripcion'].setValue(this.condena.descripcion)
+    this.form_condena.controls['duracion_anios'].setValue(this.condena.duracion_anios)
+    this.form_condena.controls['duracion_meses'].setValue(this.condena.duracion_meses)
+    this.form_condena.controls['duracion_dias'].setValue(this.condena.duracion_dias)
+    this.form_condena.disable()
+  }
+ }
 
 
 

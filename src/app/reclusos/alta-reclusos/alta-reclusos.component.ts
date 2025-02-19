@@ -1,10 +1,10 @@
-import { Component, ElementRef, input, OnInit, Renderer2, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators,FormBuilder } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import {  FormGroup, FormsModule, ReactiveFormsModule, Validators,FormBuilder } from '@angular/forms';
 import { ReclusosService } from '../reclusos.service.js';
-import { SentenciasService } from '../../sentencia/sentencias.service.js';
+
 import { CommonModule, NgFor } from '@angular/common';
 import { FormularioReclusoComponent } from '../formulario-recluso/formulario-recluso.component.js';
-import { FormularioCondenaComponent } from '../../sentencia/formulario-condena/formulario-condena.component.js';
+import { FormularioCondenaComponent } from '../../condena/formulario-condena/formulario-condena.component.js';
 import { ICondena, IRecluso } from '../../shared/entity.interfaces.js';
 import { ToastrService } from 'ngx-toastr';
 
@@ -21,7 +21,7 @@ import { ToastrService } from 'ngx-toastr';
 export class AltaReclusosComponent implements OnInit{
 
   form_recluso:FormGroup
-  constructor (private _service_recluso : ReclusosService,public _service_sent: SentenciasService,
+  constructor (private _service_recluso : ReclusosService,
     private form: FormBuilder, private toastr:ToastrService){
 
 

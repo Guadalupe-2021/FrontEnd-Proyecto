@@ -1,0 +1,28 @@
+<div *ngIf="recluso_encontrado">
+
+  <div class="recluso">
+    <app-modificar-recluso [recluso]="recluso"></app-modificar-recluso>
+  </div>
+
+  <div class="seleccion">
+    <h5>¿Que Desea Ver del Recluso?</h5>
+      <select>
+        <option value="condenas">Condenas</option>
+        <option value="talleres">Talleres</option>
+        <option value="actividades">Actividades</option>
+      </select>
+  </div>
+
+  <div *ngFor="let condena of recluso.condenas" class="condena">
+    <app-modificar-condena [condena]="condena"></app-modificar-condena>
+  </div>
+
+<!-- 
+  informacion de la pena del recluso, fecha en la que comezo su estadia en prision,
+   y si esta finalizada la estadia, en cuyo caso no se permiten modifucaciones
+   se debe permitir dar de alta o liberr al recluso
+  componente de talleres
+  conponente de acividades
+-->
+
+</div>

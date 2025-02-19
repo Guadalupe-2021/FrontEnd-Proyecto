@@ -13,7 +13,7 @@ export interface IRecluso {
     apellido:  string;
     dni:       number;
     fecha_nac: Date;
-    //condenas: ICondena[]
+    condenas?: ICondena[]
     //sentencias: ISentencia[]
 }
 
@@ -24,7 +24,7 @@ export interface ICondena {
   duracion_anios: number,
   duracion_meses: number,
   duracion_dias: number,
-  orden_de_gravedad: number
+  //orden_de_gravedad: number
 }
 
 export interface IPena{

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ModSentenciaComponent } from './mod-sentencia.component';
+import { AltaCondenaComponent } from './alta-condena.component';
 
-describe('ModSentenciaComponent', () => {
-  let component: ModSentenciaComponent;
-  let fixture: ComponentFixture<ModSentenciaComponent>;
+describe('AltaCondenaComponent', () => {
+  let component: AltaCondenaComponent;
+  let fixture: ComponentFixture<AltaCondenaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ModSentenciaComponent]
+      imports: [AltaCondenaComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ModSentenciaComponent);
+    fixture = TestBed.createComponent(AltaCondenaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

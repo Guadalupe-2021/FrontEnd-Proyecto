@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AltaSentenciaComponent } from './alta-sentencia.component';
+import { DetalleReclusoComponent } from './detalle-recluso.component';
 
-describe('AltaSentenciaComponent', () => {
-  let component: AltaSentenciaComponent;
-  let fixture: ComponentFixture<AltaSentenciaComponent>;
+describe('DetalleReclusoComponent', () => {
+  let component: DetalleReclusoComponent;
+  let fixture: ComponentFixture<DetalleReclusoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AltaSentenciaComponent]
+      imports: [DetalleReclusoComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AltaSentenciaComponent);
+    fixture = TestBed.createComponent(DetalleReclusoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -5,20 +5,18 @@
   width: 30%;
 }
 
-.send-icon {
+.send-icon, .plus-circle-icon {
   font-size: 1.2em;
 }
 
-.endContract-icon-container {
+.plus-circle-icon-container {
   position: absolute;
   left: 15%;
   bottom: 0.5px;
   width: 30%;
 }
 
-.endContract-icon {
-  font-size: 1.2em;
-}
+
 
 .edit {
   position: absolute;
@@ -84,7 +82,7 @@ input {
 }
 
 input[type="number"],
-input[type="date"] {
+input[type="date"],input[type="text"],textarea {
   background-color: rgb(219, 215, 215);
 }
 
@@ -93,9 +91,4 @@ label {
   display: inline-block;
   min-width: 90px;
   text-align: left;
-}
-
-input[type="text"],
-textarea {
-  background-color: rgb(219, 215, 215);
 }

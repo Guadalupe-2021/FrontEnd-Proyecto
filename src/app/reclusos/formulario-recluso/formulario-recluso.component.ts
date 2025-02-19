@@ -3,13 +3,13 @@ import { IRecluso } from '../../shared/entity.interfaces.js';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { DatePipe, NgIf } from '@angular/common';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ReclusosService } from '../reclusos.service.js';
 
 @Component({
   selector: 'app-formulario-recluso',
   standalone: true,
-  imports: [FormsModule,ReactiveFormsModule,NgIf,DatePipe],
+  imports: [FormsModule,ReactiveFormsModule,NgIf,DatePipe, RouterLink],
   templateUrl: './formulario-recluso.component.html',
   styleUrl: './formulario-recluso.component.css',
   providers:[DatePipe]
@@ -26,12 +26,14 @@ export class FormularioReclusoComponent  implements OnInit {
   modificar_recluso = false
   fecha_fin!:Date
   recluso_liberado=false
+  notClicked = true
 
 constructor (public _service_reclcuso: ReclusosService,
   private formb:FormBuilder,
   private toastr:ToastrService,
   private datePipe: DatePipe,
   public router:Router,
+  private route:ActivatedRoute,
   private renderer: Renderer2
 ) {
   
@@ -56,7 +58,7 @@ ngOnInit() {
   this.form_recluso.get('fecha_nac')?.setValue(
     this.datePipe.transform(this.recluso.fecha_nac, 'yyyy-MM-dd'));
  // yyyy-MM-dd es el formato necesario para que el valor de la fecha se pueda setear sin problemas en input type date
-
+    if(this.route.snapshot.params["cod_recluso"]!=undefined) this.notClicked=false
  //if(this.recluso.fecha_fin_contrato!=null) this.contrato_finalizado=true
  this.form_recluso.disable()
   }
@@ -65,7 +67,9 @@ ngOnInit() {
 enviarFormReclusoValue(){
   console.log("enviando datos del fomulario",this.form_recluso.value)
   this.form_recluso.controls['fecha_nac'].setValue(new Date(this.form_recluso.value.fecha_nac))
-    this.sendFormReclusoValue.emit(this.form_recluso.value); // Emit the data to the parent
+
+    this.sendFormReclusoValue.emit(this.form_recluso.value);
+
   this.form_recluso.get('fecha_nac')?.setValue(this.datePipe.transform(this.form_recluso.value.fecha_nac, 'yyyy-MM-dd'));
     if(this.modificar_recluso){
       this.form_recluso.disable()
@@ -90,6 +94,8 @@ enviarFormValueForFreedom(){
   }
 }
 
+
+
 editarRecluso(){ 
   console.log("editar recluso")
   this.form_recluso.enable()
@@ -101,5 +107,13 @@ editarRecluso(){
 //  }
 }
 
+  //verDetalleSector(cod_sector:any){
+  //this.router.navigate([`${cod_sector}` + "/detalle-sector"], { relativeTo: this.route });}
+
+
+
+mostrarDetalles(){
+  this.router.navigate([`${this.recluso.cod_recluso}`],{relativeTo:this.route});
+}
 
 }

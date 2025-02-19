@@ -3,23 +3,25 @@ import { IRecluso } from '../../shared/entity.interfaces.js';
 import { ToastrService } from 'ngx-toastr';
 import { ReclusosService } from '../reclusos.service.js';
 import { FormularioReclusoComponent } from '../formulario-recluso/formulario-recluso.component.js';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-modificar-recluso',
   standalone: true,
-  imports: [FormularioReclusoComponent],
+  imports: [FormularioReclusoComponent,NgFor],
   templateUrl: './modificar-recluso.component.html',
   styleUrl: './modificar-recluso.component.css'
 })
 export class ModificarReclusoComponent implements OnInit {
 @Input() recluso!:IRecluso
 
-
+condenas!:any[]|undefined
 constructor(private _service_recluso:ReclusosService, private toastr:ToastrService){
 
 }
 ngOnInit(){
 console.log("inicializado de modificar recluso")
+
 }
 
 

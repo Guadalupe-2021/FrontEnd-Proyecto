@@ -9,6 +9,7 @@ import { MenuActividadComponent } from './menu/menu-actividad/menu-actividad.com
 import { MenuGuardiaComponent } from './guardias/menu-guardia/menu-guardia.component.js';
 import { FormsModule, NgModel } from '@angular/forms';
 import { BuscarReclusosComponent } from './reclusos/buscar-reclusos/buscar-reclusos.component.js';
+import { DetalleReclusoComponent } from './reclusos/detalle-recluso/detalle-recluso.component.js';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { BuscarReclusosComponent } from './reclusos/buscar-reclusos/buscar-reclu
      AltaGuardiaComponent,
      MenuActividadComponent,
      MenuGuardiaComponent,
-    BuscarReclusosComponent],
+    BuscarReclusosComponent,
+  DetalleReclusoComponent],
   imports: [NgModel,
     NgFor,
     NgIf,
