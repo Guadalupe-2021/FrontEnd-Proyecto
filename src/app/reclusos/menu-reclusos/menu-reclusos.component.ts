@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { BuscarReclusosComponent } from '../buscar-reclusos/buscar-reclusos.component.js';
+import { MostrarReclusosComponent } from '../mostrar-reclusos/mostrar-reclusos.component.js';
 
 @Component({
   selector: 'app-menu-reclusos',
   standalone: true,
-  imports: [RouterLink,BuscarReclusosComponent],
+  imports: [RouterLink,BuscarReclusosComponent,MostrarReclusosComponent],
   templateUrl: './menu-reclusos.component.html',
   styleUrl: './menu-reclusos.component.css'
 })

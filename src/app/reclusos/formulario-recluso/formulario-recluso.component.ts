@@ -16,17 +16,19 @@ import { ReclusosService } from '../reclusos.service.js';
 })
 export class FormularioReclusoComponent  implements OnInit {
   @Output() sendFormReclusoValue: EventEmitter<IRecluso> = new EventEmitter<IRecluso>();
-  @Output() sendFormValueForDate: EventEmitter<IRecluso> = new EventEmitter<IRecluso>();
+  @Output() sendFormValueForFreedom: EventEmitter<IRecluso> = new EventEmitter<IRecluso>();
   @Input() recluso!: IRecluso;
 
   @ViewChild('elRecluso') reclusoElement!:ElementRef
+  
 
   form_recluso:FormGroup
   contrato_finalizado = false
   modificar_recluso = false
-  fecha_fin!:Date
+ 
   recluso_liberado=false
   notClicked = true
+  nueva_fecha!:Date
 
 constructor (public _service_reclcuso: ReclusosService,
   private formb:FormBuilder,
@@ -34,7 +36,6 @@ constructor (public _service_reclcuso: ReclusosService,
   private datePipe: DatePipe,
   public router:Router,
   private route:ActivatedRoute,
-  private renderer: Renderer2
 ) {
   
   this.form_recluso = this.formb.group({
@@ -59,57 +60,44 @@ ngOnInit() {
     this.datePipe.transform(this.recluso.fecha_nac, 'yyyy-MM-dd'));
  // yyyy-MM-dd es el formato necesario para que el valor de la fecha se pueda setear sin problemas en input type date
     if(this.route.snapshot.params["cod_recluso"]!=undefined) this.notClicked=false
- //if(this.recluso.fecha_fin_contrato!=null) this.contrato_finalizado=true
+
  this.form_recluso.disable()
   }
 }
 
 enviarFormReclusoValue(){
-  console.log("enviando datos del fomulario",this.form_recluso.value)
-  this.form_recluso.controls['fecha_nac'].setValue(new Date(this.form_recluso.value.fecha_nac))
-
-    this.sendFormReclusoValue.emit(this.form_recluso.value);
-
+  this.nueva_fecha = new Date(this.form_recluso.value.fecha_nac)
+  this.nueva_fecha.setDate(this.nueva_fecha.getDate() + 1)
+//al pasar la fecha de string a date se le restaba un dia :(
+  this.form_recluso.controls['fecha_nac'].setValue(this.nueva_fecha);
+  this.sendFormReclusoValue.emit(this.form_recluso.value);
   this.form_recluso.get('fecha_nac')?.setValue(this.datePipe.transform(this.form_recluso.value.fecha_nac, 'yyyy-MM-dd'));
-    if(this.modificar_recluso){
-      this.form_recluso.disable()
-    }else{
-      // cheuqear por las condenas
-      this.form_recluso.disable()
-      //this.form_recluso.reset()
-    } 
-    
+
+    this.form_recluso.disable();
 }
 
 enviarFormValueForFreedom(){
-  if(!this.contrato_finalizado){
-    this.fecha_fin = new Date()
-    this.form_recluso.addControl('fecha_fin_contrato', this.formb.control(this.fecha_fin, [Validators.required]));
-       this.sendFormValueForDate.emit(this.form_recluso.value); 
-       //this.recluso.fecha_fin_contrato = this.fecha_fin
-       this.contrato_finalizado = true
-       this.form_recluso.disable()
-  }else{
-    this.toastr.error("El Contrato ya se Encuentra Finalizado")
-  }
+  console.log("implementar liberar recluso")
+  /*
+  this.recluso.pena.fecha_fin_real = new Date()
+  this.sendValueForFreedom.emit(this.recluso.pena)
+
+
+     */
 }
 
 
 
 editarRecluso(){ 
   console.log("editar recluso")
+  if(this.recluso.pena?.fecha_fin_real===null){
   this.form_recluso.enable()
-  // if(this.recluso.pena.fecha_fin > new Date())
-//if(this.recluso.fecha_fin_contrato==null){
-//  this.form_recluso.enable()
-//}else{
-//this.toastr.error("Recluso ya fue liberado. No se Permiten Modificaciones")
-//  }
+  }else{
+    this.toastr.error("El Recluso Ya Fue Liberado, No Es Posible Modificar")
+    console.log(this.recluso.pena)
+  }
+
 }
-
-  //verDetalleSector(cod_sector:any){
-  //this.router.navigate([`${cod_sector}` + "/detalle-sector"], { relativeTo: this.route });}
-
 
 
 mostrarDetalles(){

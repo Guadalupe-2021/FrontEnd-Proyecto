@@ -23,6 +23,7 @@ export class FormularioGuardiaComponent implements OnInit {
   contrato_finalizado = false
   modificar_guardia = false
   fecha_fin!:Date
+  nueva_fecha!:Date
 
 constructor (public _service_guard: GuardiasService,
   private formb:FormBuilder,
@@ -58,7 +59,11 @@ ngOnInit() {
 }
 
 enviarFormValue(){
-    this.sendFormValue.emit(this.form_guardia.value); // Emit the data to the parent
+  this.nueva_fecha = new Date(this.form_guardia.value.fecha_ini_contrato)
+  this.nueva_fecha.setDate(this.nueva_fecha.getDate() + 1)
+  this.form_guardia.controls['fecha_ini_contrato'].setValue(this.nueva_fecha);
+    this.sendFormValue.emit(this.form_guardia.value); // emitir al componente padre
+  this.form_guardia.get('fecha_ini_contrato')?.setValue(this.datePipe.transform(this.form_guardia.value.fecha_ini_contrato, 'yyyy-MM-dd'));
     if(this.modificar_guardia){
       this.form_guardia.disable()
     }else{

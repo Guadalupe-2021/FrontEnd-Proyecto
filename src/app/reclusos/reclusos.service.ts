@@ -11,11 +11,6 @@ export class ReclusosService {
   readonly api_recluso="https://jsonplaceholder.typicode.com/todos/"
   readonly api_condena="https://jsonplaceholder.typicode.com/todos/"
   readonly api_celda="https://jsonplaceholder.typicode.com/todos/"
-  condenas:any
-  condena:any
-  recluso:any
-  celda:any;
-  celdas:any;
 
 constructor(private http: HttpClient) {}  
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import {  FormGroup, FormsModule, ReactiveFormsModule, Validators,FormBuilder } from '@angular/forms';
 import { ReclusosService } from '../reclusos.service.js';
 
@@ -19,6 +19,9 @@ import { ToastrService } from 'ngx-toastr';
 })
 
 export class AltaReclusosComponent implements OnInit{
+  @ViewChild(FormularioReclusoComponent) form_recluso_comp!:FormularioReclusoComponent
+  @ViewChildren(FormularioCondenaComponent) form_condena_comps!:QueryList<FormularioCondenaComponent>
+
 
   form_recluso:FormGroup
   constructor (private _service_recluso : ReclusosService,
@@ -35,16 +38,15 @@ export class AltaReclusosComponent implements OnInit{
 }
 recluso!:IRecluso
 recluso_creado=false
-cant_condenas = 0
+cant_condenas = 1
 numbers :any
-condenas:any[] = []
+condenas:ICondena[] = []
 btn_alta = false
 nuevo_recluso!:IRecluso
 
 
 ngOnInit(): void {
-  this.numbers=Array.from({length:this.cant_condenas},(_,i)=>i)  //
-
+  this.numbers=Array.from({length:this.cant_condenas},(_,i)=>i)
     }
 
 recibirRecluso(nuevo_recluso:IRecluso){ 
@@ -63,7 +65,6 @@ addCondena(nueva_condena:ICondena){
 }
 
 altaRecluso(){
-  console.log("hacer alta recluso")
   if(this.condenas.length===0){
     this.toastr.error("Error: Para dar de alta el Recluso necesita almenos una condena")
   }else{
@@ -72,6 +73,7 @@ altaRecluso(){
         console.log("Recluso Creado con Exito",data)
         this.toastr.success("Recluso Ha Sido Dado de Alta")
         this.recluso_creado=true
+        this.resetForms()
     }
     ,error: (e)=>{
       if(e.status == 409 ){
@@ -85,6 +87,18 @@ altaRecluso(){
 
 }
 
+resetForms(){
+  this.form_recluso_comp.form_recluso.reset()
+  this.form_recluso_comp.form_recluso.enable()
+  this.form_condena_comps.forEach(f_condena_comp => {
+    f_condena_comp.form_condena.reset()
+    f_condena_comp.form_condena.enable()
+  });
+  this.cant_condenas=0
+  this.condenas=[]
+  this.numbers=Array.from({length:0},(_,i)=>i)
+  this.btn_alta=false
+}
 
 
 }

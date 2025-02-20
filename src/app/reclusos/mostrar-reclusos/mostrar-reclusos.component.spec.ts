@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MoverReclusoComponent } from './mover-recluso.component';
+import { MostrarReclusosComponent } from './mostrar-reclusos.component';
 
-describe('MoverReclusoComponent', () => {
-  let component: MoverReclusoComponent;
-  let fixture: ComponentFixture<MoverReclusoComponent>;
+describe('MostrarReclusosComponent', () => {
+  let component: MostrarReclusosComponent;
+  let fixture: ComponentFixture<MostrarReclusosComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MoverReclusoComponent]
+      imports: [MostrarReclusosComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MoverReclusoComponent);
+    fixture = TestBed.createComponent(MostrarReclusosComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -38,13 +38,13 @@
 </div>
     </form>
 
-    <div class="edit" (click)="editarCondena()" title="Editar">
+    <div class="edit" (click)="editarCondena()" title="Editar" *ngIf="editar_condena">
       <i class="bi bi-pencil-square edit-icon"></i>
     </div>
 
-    <button class="save-icon-container" (click)="enviarFormCondenaValue()" title="Guardar"
+    <button class="send-icon-container" (click)="enviarFormCondenaValue()" title="Guardar"
     [disabled]="form_condena.invalid || form_condena.disabled">
-      <i class="bi bi-save save-icon"></i>
+      <i class="bi bi-send send-icon"></i>
     </button>
   </div>
 </body>

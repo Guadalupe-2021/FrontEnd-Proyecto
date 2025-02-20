@@ -16,8 +16,6 @@ import { ModificarGuardiaComponent } from '../modificar-guardia/modificar-guardi
 })
 export class MostrarGuardiaComponent implements OnInit {
   guardias!:IGuardia[];
-  error_encontrado = false;
-  message?:string
 
   constructor (
     public _service_guardia : GuardiasService, private toastr:ToastrService){};
@@ -30,7 +28,6 @@ export class MostrarGuardiaComponent implements OnInit {
         this.guardias = data
         }
       ,error: (e) => {
-        this.error_encontrado = true
         if(e.status === 404)this.toastr.error("Guardias NO Encontrados ")
         if(e.status === 500)this.toastr.error("Guardias NO Existentes ")
       }

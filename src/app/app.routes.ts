@@ -14,7 +14,7 @@ import { MostrarGuardiaComponent } from './guardias/mostrar-guardia/mostrar-guar
 import { AltaReclusosComponent } from './reclusos/alta-reclusos/alta-reclusos.component.js';
 import { DetalleReclusoComponent } from './reclusos/detalle-recluso/detalle-recluso.component.js';
 import { BuscarReclusosComponent } from './reclusos/buscar-reclusos/buscar-reclusos.component.js';
-import { MoverReclusoComponent } from './reclusos/mover-recluso/mover-recluso.component.js';
+
 import { AltaActividadComponent } from './actividades/alta-actividad/alta-actividad.component.js';
 import { ModificarActividadComponent } from './actividades/modificar-actividad/modificar-actividad.component.js';
 import { MostrarActividadComponent } from './actividades/mostrar-actividad/mostrar-actividad.component.js';
@@ -68,7 +68,7 @@ export const routes: Routes = [
     {path: 'menu/recluso/:cod_recluso', component:DetalleReclusoComponent },
 
     {path: 'menu/recluso/buscar-recluso', component: BuscarReclusosComponent},
-    {path: 'menu/recluso/Mover-Recluso', component: MoverReclusoComponent},
+
 
     //actividad
     {path: 'menu/actividad', component: MenuActividadComponent},

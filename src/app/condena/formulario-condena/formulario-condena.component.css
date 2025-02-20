@@ -14,6 +14,7 @@
   border-style: solid;
   border-color: gray;
   margin-bottom: 0px;
+  padding-bottom: 2.6em;
 }
 
 
@@ -36,6 +37,16 @@
   cursor: pointer;
 }
 
+.send-icon-container {
+  position: absolute;
+  right: 15%;
+  bottom: 0.5px;
+  width: 30%;
+}
+
+.send-icon {
+  font-size: 1.2em;
+}
 
 i {
   color: black;

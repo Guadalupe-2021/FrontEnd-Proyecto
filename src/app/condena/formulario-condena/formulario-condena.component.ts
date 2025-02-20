@@ -1,4 +1,4 @@
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ICondena } from '../../shared/entity.interfaces.js';
@@ -6,7 +6,7 @@ import { ICondena } from '../../shared/entity.interfaces.js';
 @Component({
   selector: 'app-formulario-condena',
   standalone: true,
-  imports: [NgFor,FormsModule,ReactiveFormsModule],
+  imports: [NgFor, NgIf, FormsModule,ReactiveFormsModule],
   templateUrl: './formulario-condena.component.html',
   styleUrl: './formulario-condena.component.css'
 })
@@ -19,6 +19,7 @@ form_condena!:FormGroup
 years:number[]
 months:number[]
 days:number[]
+editar_condena=false
 
   constructor(private formb:FormBuilder) {
     this.years = Array.from({ length: 101 }, (_, i) => i);
@@ -27,7 +28,7 @@ days:number[]
 
  this.form_condena = this.formb.group({
   nombre:["",Validators.required],
-  descripcion:["",Validators.required],
+  descripcion:[""],
   duracion_anios:[0,[Validators.required]],
   duracion_meses:[0,Validators.required],
   duracion_dias:[0,Validators.required],
@@ -37,6 +38,7 @@ days:number[]
   }
 ngOnInit(){
   if(this.condena!=undefined){
+    this.editar_condena=true
     this.form_condena.controls['nombre'].setValue(this.condena.nombre)
     this.form_condena.controls['descripcion'].setValue(this.condena.descripcion)
     this.form_condena.controls['duracion_anios'].setValue(this.condena.duracion_anios)
