@@ -1,8 +1,7 @@
 <head>
   <link rel="stylesheet" href="log-in.component.css">
 </head>
-
-<h1>ingrese el ususario para ingresar</h1>
+<!--
 <form [formGroup]="usuario" (submit)="validarUsuarios()"   >
     <fieldset>
         <label> codigo de usuario: </label>
@@ -18,4 +17,26 @@
     </fieldset>
     <button [disabled]="usuario.invalid"  >Enviar Datos</button>
 </form>
-    <p ng-if="noEncontrado"> {{message}}</p>
+-->
+<div class="form-logIn-container">
+<h3>Libertant</h3> <br>
+<form class="row g-3 needs-validation" (submit)="validarUsuarios()" [formGroup]="form_logIn" novalidate>
+    <div class="col-md-4 codigo">
+        <label for="validationCustom01" class="form-label">Código</label>
+        <input type="text" class="form-control" id="validationCustom01"
+         formControlName="cod_administrador" required>
+        <div class="valid-feedback">Looks good!</div>
+    </div>
+    <br>
+    <div class="col-md-4 contrasenia">
+        <label for="validationCustom01" class="form-label">Contraseña</label>
+        <input class="form-control" id="validationCustom01"
+        type="password" formControlName="contrasenia" required>
+        <div class="valid-feedback">Looks good!</div>
+    </div>
+    <br>
+    <div class="col-12">
+        <button class="btn btn-primary" type="submit">Iniciar Sesión</button>
+    </div>
+</form>
+</div>

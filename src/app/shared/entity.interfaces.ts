@@ -51,5 +51,6 @@ export interface ISector{
   export interface IServerResponse{
     status:number,
     data?:any,
-    message?:string
+    message?:string,
+    token?:string
   }

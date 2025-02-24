@@ -32,7 +32,6 @@ import { ModificarIlegalComponent } from './ilegal/modificar-ilegal/modificar-il
 import { IncribirseIlegalComponent } from './ilegal/incribirse-ilegal/incribirse-ilegal.component.js';
 import { MostrarIlegalComponent } from './ilegal/mostrar-ilegal/mostrar-ilegal.component.js';
 
-import { UsuariosComponent } from './usuarios/usuarios.component.js';
 import { CrearTurnosComponent } from './sector/crear-turnos/crear-turnos.component.js';
 import { FinalizarTurnosComponent } from './sector/finalizar-turnos/finalizar-turnos.component.js';
 
@@ -53,7 +52,7 @@ export const routes: Routes = [
     //menu
     {path: 'menu', component: MenuComponent},
     //usuario
-    {path: 'usuario/:menu/ver-usuarios', component: UsuariosComponent},
+  
     //sentencia
 
     //guardia

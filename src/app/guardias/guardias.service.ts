@@ -9,13 +9,11 @@ import { IGuardia, IServerResponse } from '../shared/entity.interfaces.js';
 export class GuardiasService {
   readonly api_url="https://jsonplaceholder.typicode.com/todos/"
   guardia!: IGuardia
-  guardias:any 
-  messageService: any;
+
+  token = localStorage.getItem('jwtToken')
+  headers = new HttpHeaders({'Authorization': `${this.token}`,})
+
   constructor(private http: HttpClient) {}  
-  private log(message: string) {
-  this.messageService.add(`GuaridaService: ${message}`);
-}
-response:any
 
 setGuardia(gard:IGuardia){
   this.guardia = gard
@@ -25,7 +23,9 @@ getGuardia(){
 }
 
 getAll():Observable<IGuardia[]> {
-  return this.http.get<IGuardia[]>("http://localhost:8080/guardias/")
+  const headers = this.headers
+  console.log(headers.get("authorization"))
+  return this.http.get<IGuardia[]>("http://localhost:8080/guardias/",{headers})
 }
 getOne(id:string):Observable<IGuardia> {
   return this.http.get<IGuardia>("http://localhost:8080/guardias/"+`${id}`)
