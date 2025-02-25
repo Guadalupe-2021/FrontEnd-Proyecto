@@ -4,7 +4,6 @@ import { ActivatedRoute } from '@angular/router';
 import { IRecluso } from '../../shared/entity.interfaces.js';
 import { ModificarReclusoComponent } from '../modificar-recluso/modificar-recluso.component.js';
 import { NgFor, NgIf } from '@angular/common';
-import { FormularioCondenaComponent } from '../../condena/formulario-condena/formulario-condena.component.js';
 import { ModificarCondenaComponent } from '../../condena/modificar-condena/modificar-condena.component.js';
 
 @Component({
@@ -28,6 +27,7 @@ ngOnInit(){
     next: (data)=>{
       console.log("recluso encontrado")
       this.recluso = data
+      console.log(data)
       console.log("condenas", this.recluso.condenas)
       this.recluso_encontrado=true
     },

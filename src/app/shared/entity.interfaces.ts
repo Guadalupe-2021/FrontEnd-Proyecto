@@ -28,7 +28,7 @@ export interface ICondena {
 }
 
 export interface IPena{
-    cod_recluso: IRecluso['cod_recluso']
+    //cod_recluso: IRecluso['cod_recluso']
     fecha_ini:    Date,
     fecha_fin_estimada:   Date,
     fecha_fin_real:   Date,

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { IRecluso } from '../../shared/entity.interfaces.js';
 import { ToastrService } from 'ngx-toastr';
 import { ReclusosService } from '../reclusos.service.js';
@@ -14,6 +14,7 @@ import { NgFor } from '@angular/common';
 })
 export class ModificarReclusoComponent implements OnInit {
 @Input() recluso!:IRecluso
+@ViewChild(FormularioReclusoComponent) form_recluso_comp!:FormularioReclusoComponent
 
 condenas!:any[]|undefined
 constructor(private _service_recluso:ReclusosService, private toastr:ToastrService){
@@ -39,5 +40,23 @@ modificarRecluso(recluso_editado:IRecluso){
     }
   })
 }
+
+liberarRecluso(recluso_editado:IRecluso){
+
+  this._service_recluso.putLiberarRecluso(recluso_editado.cod_recluso as number,recluso_editado).subscribe({
+    next:(data)=>{
+      console.log(data)
+      this.toastr.success(data.message)
+      this.form_recluso_comp.recluso_liberado = true
+    },
+    error:(e)=>{
+      if(e.status===404) this.toastr.error("Token NO Encontrado")
+      if(e.status===401) this.toastr.error("Usuario No Autorizado")
+      if(e.status===500) this.toastr.error("Error Inesperado")
+      console.log(e)
+    }
+  })
+}
+
 
 }

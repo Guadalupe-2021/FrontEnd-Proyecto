@@ -32,17 +32,17 @@ modificarRecluso(id:number|undefined, recluso:IRecluso):Observable<IServerRespon
 }
 
 
+putLiberarRecluso(id:number,recluso_editado:IRecluso){
+  console.log("en service liberar recluso")
+  return this.http.put<IServerResponse>("http://localhost:8080/reclusos/"+ `${id}`+ "/liberar",recluso_editado)
+}
 
 
 getOneCelda(id:number) {
   return this.http.get<any | JSON>(this.api_celda+`${id}`);
-
 }
 getCelda() {
   return this.http.get<any[] | JSON>(this.api_celda)
-}
-getLiberarRecluso(){
-  return this.http.get<any | JSON>("http://localhost:8080/reclusos/finalizarCondena")
 }
 
 

@@ -77,13 +77,16 @@ enviarFormReclusoValue(){
 }
 
 enviarFormValueForFreedom(){
-  console.log("implementar liberar recluso")
-  /*
-  this.recluso.pena.fecha_fin_real = new Date()
-  this.sendValueForFreedom.emit(this.recluso.pena)
-
-
-     */
+  console.log("liberar recluso")
+  console.log(this.recluso)
+  if(this.recluso.pena!=undefined){
+    this.recluso.pena.fecha_fin_real = new Date()
+    console.log("send data to modificar-recluso")
+    this.sendFormValueForFreedom.emit(this.recluso)
+  }else{
+    console.log("this.recluso.pena es undefined")
+  }
+  //this.recluso_liberado = !this.recluso_liberado
 }
 
 

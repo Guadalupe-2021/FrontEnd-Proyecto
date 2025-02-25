@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } 
 import { FormsModule } from '@angular/forms'; 
 import { RouterLink, Router, ActivatedRoute} from '@angular/router';
 import { LogInService } from './log-in.service.js';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class LogInComponent{
     message = '';
     noEncontrado: boolean | undefined;
 constructor (private _logIn_service : LogInService , private router:Router,
-  private formb:FormBuilder, private route: ActivatedRoute){
+  private formb:FormBuilder, private route: ActivatedRoute, private toastr:ToastrService){
 
   this.form_logIn = this.formb.group({
     cod_administrador:["",Validators.required],
@@ -33,7 +34,6 @@ validarUsuarios(){
       if(data.status == 202){
         console.log(data)
         localStorage.setItem('jwtToken', data.token as string);
-        console.log("log-in exitoso")
         console.log(data.data)
         this.irAlMenu()
       }
@@ -41,10 +41,10 @@ validarUsuarios(){
     error: (e)=> {
       this.noEncontrado = true
       if(e.status==404){
-        this.message='Usuario no Encontrado';
+        this.toastr.error('Usuario no Encontrado')
       }
       if(e.status == 401){
-        this.message='Contraseña Invalida'
+        this.toastr.error('Contraseña Invalida')
       }
     }
   });

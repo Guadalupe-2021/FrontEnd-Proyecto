@@ -1,23 +1,4 @@
-<head>
-  <link rel="stylesheet" href="log-in.component.css">
-</head>
-<!--
-<form [formGroup]="usuario" (submit)="validarUsuarios()"   >
-    <fieldset>
-        <label> codigo de usuario: </label>
-        <input type="text" formControlName="cod_administrador" > 
-        @if (cod_administrador.invalid && cod_administrador.touched) {
-            <h2 class="form-error">el codigo es requerido</h2>
-        }
-        <label> contrseña:</label>
-        <input type="password" formControlName="contrasenia" >
-        @if (contrasenia.invalid && contrasenia.touched) {
-            <h2 class="form-error">La contraseña es requerida</h2>
-        }        
-    </fieldset>
-    <button [disabled]="usuario.invalid"  >Enviar Datos</button>
-</form>
--->
+<body>
 <div class="form-logIn-container">
 <h3>Libertant</h3> <br>
 <form class="row g-3 needs-validation" (submit)="validarUsuarios()" [formGroup]="form_logIn" novalidate>
@@ -29,8 +10,8 @@
     </div>
     <br>
     <div class="col-md-4 contrasenia">
-        <label for="validationCustom01" class="form-label">Contraseña</label>
-        <input class="form-control" id="validationCustom01"
+        <label for="validationCustom02" class="form-label">Contraseña</label>
+        <input class="form-control" id="validationCustom02"
         type="password" formControlName="contrasenia" required>
         <div class="valid-feedback">Looks good!</div>
     </div>
@@ -40,3 +21,4 @@
     </div>
 </form>
 </div>
+</body>

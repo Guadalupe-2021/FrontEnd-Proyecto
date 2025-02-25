@@ -12,14 +12,18 @@ import { BuscarReclusosComponent } from './reclusos/buscar-reclusos/buscar-reclu
 import { DetalleReclusoComponent } from './reclusos/detalle-recluso/detalle-recluso.component.js';
 
 
+
 @NgModule({
-  declarations: [AppComponent,
-     AltaGuardiaComponent,
-     MenuActividadComponent,
-     MenuGuardiaComponent,
+  declarations: [
+    AppComponent,
+    AltaGuardiaComponent,
+    MenuActividadComponent,
+    MenuGuardiaComponent,
     BuscarReclusosComponent,
-  DetalleReclusoComponent],
-  imports: [NgModel,
+    DetalleReclusoComponent
+  ],
+  imports: [
+    NgModel,
     NgFor,
     NgIf,
     FormsModule,
@@ -32,3 +36,4 @@ import { DetalleReclusoComponent } from './reclusos/detalle-recluso/detalle-recl
   bootstrap: [AppComponent],
 })
 export class AppModule { }
+

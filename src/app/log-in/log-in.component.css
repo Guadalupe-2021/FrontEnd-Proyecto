@@ -1,13 +1,9 @@
-.form-error {
-  color: red;
-  font-size: 0.75em;
-  max-height: 0.80px;
-}
-
 body {
   display: grid;
   align-items: center;
   justify-content: center;
+  background-color: rgb(176, 230, 212);
+  height: 100vh;
 }
 
 
@@ -25,10 +21,11 @@ button{
   margin: auto;
   justify-content: center;
 }
+
 h3{
   margin-top: 0.5em;
   margin-bottom: 0.5em;
-  color: rgb(111, 110, 112);
+  color: rgb(65, 65, 65);
 }
 input{
   margin: 0 auto;
@@ -36,7 +33,7 @@ input{
 }
 
 .form-logIn-container {
-  margin-top: 5em;
+  margin-top: 0;
   justify-self: center;
   justify-items: center;
   justify-content: center;

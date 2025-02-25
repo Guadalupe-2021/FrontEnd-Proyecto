@@ -1,6 +1,7 @@
 
 <body>
   
-  <app-formulario-recluso [recluso]="recluso" (sendFormReclusoValue)="modificarRecluso($event)">
+  <app-formulario-recluso [recluso]="recluso" (sendFormReclusoValue)="modificarRecluso($event)"
+  (sendFormValueForFreedom)="liberarRecluso($event)">
   </app-formulario-recluso>
 </body>

@@ -10,6 +10,7 @@ import { BuscarGuardiaComponent } from './guardias/buscar-guardia/buscar-guardia
 import { ModificarGuardiaComponent } from './guardias/modificar-guardia/modificar-guardia.component.js';
 import { MostrarGuardiaComponent } from './guardias/mostrar-guardia/mostrar-guardia.component.js';
 
+
 //RECLUSOS
 import { AltaReclusosComponent } from './reclusos/alta-reclusos/alta-reclusos.component.js';
 import { DetalleReclusoComponent } from './reclusos/detalle-recluso/detalle-recluso.component.js';

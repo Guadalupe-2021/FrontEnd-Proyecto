@@ -32,7 +32,8 @@
 
       <button class="plus-circle-icon-container" *ngIf="modificar_recluso && !notClicked" 
       (click)="enviarFormValueForFreedom()" title="Liberar Recluso">
-        <i class="bi bi-calendar2-x"></i>
+        <i class="bi bi-lock-fill" *ngIf="!recluso_liberado"></i>
+        <i class="bi bi-unlock" *ngIf="recluso_liberado"></i>
       </button>
 
       <button [disabled]="form_recluso.invalid || recluso_liberado || form_recluso.disabled"
