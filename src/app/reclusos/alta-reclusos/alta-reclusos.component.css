@@ -1,16 +1,10 @@
-.form-error {
-  color: red;
-  font-size: 20px;
-  max-height: 0.80px;
-}
-
-
 .formulario-condena, .form-condena-container{
   margin: 0;
 }
+
 body {
   display: flex;
-  margin-top: 0;
+  margin-top: 0.2em;
   margin-bottom: 0;
   font-family: cursive;
 }
@@ -40,9 +34,9 @@ fieldset {
   margin-top:0px;
   margin-bottom: 0px;
   padding-top: 0px;
-justify-self: left;
-margin-left: 1.5em;
-justify-content: center;
+  justify-self: left;
+  margin-left: 1.5em;
+  justify-content: center;
 }
 .fecha_nacimiento_label{
   font-size: .7em;

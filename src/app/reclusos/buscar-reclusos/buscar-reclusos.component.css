@@ -3,9 +3,10 @@ body {
   align-items: center;
   justify-content: left;
   font-family: cursive;
+  margin-bottom:3em;
 }
 
-.reclusos-container{
+.recluso-container{
   padding: 1em;
   margin-bottom: 1em;
   border: .5px solid rgb(224, 217, 217);

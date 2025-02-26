@@ -17,6 +17,7 @@ export class DetalleReclusoComponent implements OnInit{
   cod_recluso!:string
   recluso!:IRecluso
   recluso_encontrado=false
+  selected_value!:string
 
 constructor(private _service_recluso : ReclusosService, private route:ActivatedRoute){
   this.cod_recluso = this.route.snapshot.params['cod_recluso']
@@ -30,6 +31,7 @@ ngOnInit(){
       console.log(data)
       console.log("condenas", this.recluso.condenas)
       this.recluso_encontrado=true
+      this.selected_value = "condenas"
     },
     error: (e)=>{
       console.log("recluso no encontrado")
@@ -39,5 +41,9 @@ ngOnInit(){
 
 }
 
+setSelectValue(element:any){
+  this.selected_value = element.target.value
+  console.log(this.selected_value)
+}
 
 }

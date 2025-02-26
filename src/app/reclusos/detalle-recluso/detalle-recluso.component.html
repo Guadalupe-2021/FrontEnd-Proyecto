@@ -1,22 +1,40 @@
-<div *ngIf="recluso_encontrado">
 
-  <div class="recluso">
+<body>
+  
+
+<div *ngIf="recluso_encontrado" class="recluso-all-container">
+
+  <div class="recluso-container">
     <app-modificar-recluso [recluso]="recluso"></app-modificar-recluso>
   </div>
 
+<div class="informacion-recluso-container">
   <div class="seleccion">
     <h5>¿Que Desea Ver del Recluso?</h5>
-      <select>
+      <select (change)="setSelectValue($event)">
         <option value="condenas">Condenas</option>
         <option value="talleres">Talleres</option>
         <option value="actividades">Actividades</option>
       </select>
   </div>
-
-  <div *ngFor="let condena of recluso.condenas" class="condena">
-    <app-modificar-condena [condena]="condena"></app-modificar-condena>
+  <div *ngIf="selected_value==='condenas'">
+    <div *ngFor="let condena of recluso.condenas" class="condena-constainer">
+      <app-modificar-condena [condena]="condena"></app-modificar-condena>
+    </div>
   </div>
+  <!--
+    <div *ngIf="selected_value===Actividades">
+      <div *ngFor="let cactividad of recluso.actividades" class="actividad-constainer">
 
+      </div>
+    </div>
+      <div *ngIf="selected_value===Talleres">
+        <div *ngFor="let taller of recluso.talleres" class="taller-constainer">
+
+        </div>
+      </div>
+      -->
+</div>
 <!-- 
   informacion de la pena del recluso, fecha en la que comezo su estadia en prision,
    y si esta finalizada la estadia, en cuyo caso no se permiten modifucaciones
@@ -24,5 +42,5 @@
   componente de talleres
   conponente de acividades
 -->
-
-</div>
+  </div>
+</body>

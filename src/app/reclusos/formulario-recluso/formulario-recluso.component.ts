@@ -53,6 +53,7 @@ ngOnInit() {
   console.log('recluso: ',this.recluso)
   if(this.recluso!=undefined){
   this.modificar_recluso = true
+  if(this.recluso.pena?.fecha_fin_real!=null) this.recluso_liberado=true
   this.form_recluso.controls['nombre'].setValue(this.recluso.nombre)
   this.form_recluso.controls['apellido'].setValue(this.recluso.apellido)
   this.form_recluso.controls['dni'].setValue(this.recluso.dni)

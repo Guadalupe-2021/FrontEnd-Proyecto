@@ -1,3 +1,29 @@
+body{
+  display:grid;
+
+  padding: 1em 1em;
+  display: flex;
+}
 select{
   width: 7em;
+}
+.seleccion{
+  display: inline-flex;
+}
+select{
+  background-color: rgb(207, 204, 204);
+  font-weight: bold;
+}
+option{
+  padding-left: 2em;
+  font-weight: bold;
+}
+h5{
+  margin-right: 1.5em;
+}
+.recluso-all-container{
+  display: inline-flex;
+}
+.recluso-container{
+  margin-top: 6em;
 }
