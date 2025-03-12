@@ -13,6 +13,7 @@ import { NgIf } from '@angular/common';
 })
 export class AppComponent implements OnInit{
   isLoginPage = false
+  title = 'Libertadnt-FrontEnd'
 
   constructor(private router:Router){}
 

@@ -28,10 +28,6 @@ import { ModificarTallerComponent } from './talleres/modificar-taller/modificar-
 import { MostrarTallerComponent } from './talleres/mostrar-taller/mostrar-taller.component.js';
 import { MenuSectorComponent } from './menu/menu-sector/menu-sector.component.js';
 
-import { AltaIlegalComponent } from './ilegal/alta-ilegal/alta-ilegal.component.js';
-import { ModificarIlegalComponent } from './ilegal/modificar-ilegal/modificar-ilegal.component.js';
-import { IncribirseIlegalComponent } from './ilegal/incribirse-ilegal/incribirse-ilegal.component.js';
-import { MostrarIlegalComponent } from './ilegal/mostrar-ilegal/mostrar-ilegal.component.js';
 
 import { CrearTurnosComponent } from './sector/crear-turnos/crear-turnos.component.js';
 import { FinalizarTurnosComponent } from './sector/finalizar-turnos/finalizar-turnos.component.js';
@@ -86,21 +82,6 @@ export const routes: Routes = [
     {path: 'menu/sector/:sector/detalle-sector', component: DetalleSectorComponent},
     {path: 'menu/sector/:sector/detalle-sector/crear-turnos', component: CrearTurnosComponent},
     {path: 'menu/sector/:sector/detalle-sector/finalizar-turnos', component: FinalizarTurnosComponent},
-    
-    //ilegal
-    {path: 'menu/ilegal', component: MenuIlegalComponent},
-    {path: 'menu/ilegal/alta-actvidad', component: AltaIlegalComponent},
-    {path: 'menu/ilegal/modificar-actividad', component: ModificarIlegalComponent},
-    {path: 'menu/ilegal/inscripcion-actividad', component: IncribirseIlegalComponent},
-    {path: 'menu/ilegal/mostrar-actividad', component: MostrarIlegalComponent},
-
-    
-
-
-    
-    
-
-    
     
     
 ];

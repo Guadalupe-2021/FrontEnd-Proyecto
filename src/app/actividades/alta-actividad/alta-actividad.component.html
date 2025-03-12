@@ -3,6 +3,15 @@
 </head>
 
 <body>
+    <div class="alta-Actividad-container">
+      <button class="new-btn" (click)="mostrarActividad()" title="Nueva Actividad" type="button" data-bs-toggle="collapse"
+        data-bs-target="#collapseActividad" aria-expanded="false" aria-controls="collapseActividad">
+        <i class="bi bi-plus-lg alta-actividad-icono" *ngIf="!mostrar_actividad"></i>
+        <i class="bi bi-dash-lg alta-actividad-icono" *ngIf="mostrar_actividad"></i>
+      </button>
+      <div class="actividad" class="collapse" id="collapseActividad">
     <app-formulario-actividad (sendFormActividadValue)="crearActividad($event)"></app-formulario-actividad>
-</body>
+      </div>
+    </div>
+  </body>
 
