@@ -27,3 +27,7 @@ h5{
 .recluso-container{
   margin-top: 6em;
 }
+
+.detalles-pena{
+  position: absolute;
+}

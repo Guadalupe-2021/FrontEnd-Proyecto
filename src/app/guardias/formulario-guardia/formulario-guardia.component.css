@@ -37,14 +37,6 @@ position: absolute;
   cursor: pointer;
 }
 
-.formulario-guardias-container {
-  display: flex;
-  flex-direction: column;
-  /* Aligns elements vertically */
-  align-items: center;
-  /* Centers elements horizontally */
-}
-
 .guardia {
   position: relative;
   background-color: rgb(219, 215, 215);

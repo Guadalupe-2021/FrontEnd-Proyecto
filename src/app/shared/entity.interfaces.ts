@@ -16,6 +16,15 @@ export interface IRecluso {
     condenas?: ICondena[];
     pena?: IPena;
 }
+export interface IActividad{
+    nombre:           string;
+    descripcion:      string;
+    dia_de_la_semana: string;
+    hora_inicio:      string;
+    hora_fin:         string;
+    locacion:         string;
+    cant_cupos:       number;
+}
 
 export interface ICondena {
   cod_condena?: number,

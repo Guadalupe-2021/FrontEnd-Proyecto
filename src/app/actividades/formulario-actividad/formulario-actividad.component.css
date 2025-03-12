@@ -1,0 +1,73 @@
+.actividad {
+  position: relative;
+  background-color: rgb(219, 215, 215);
+  text-align: center;
+  width: 26em;
+  margin-top: 0.2em;
+  padding-bottom: 2.5em;
+  border-radius: 4%;
+  border-width: 1px;
+  border-style: solid;
+  border-color: gray;
+}
+.decripcion{
+  display: flex;
+}
+
+.fielset-nombre{
+  width: 70%;
+}
+.btn-save{
+  position:absolute;
+  right:0.5em;
+  bottom: 0.5em;
+}
+
+p {
+  font-family: Verdana;
+}
+
+fieldset {
+  padding: 10px 20px;
+  display: inline-grid;
+}
+
+input {
+  display: inline;
+  font-family: inherit;
+  font-size: inherit;
+  padding: none;
+  width: auto;
+  margin-bottom: 1px;
+  margin-left: 3px;
+}
+
+input[type="time"],input[type="\"number\""] {
+  border: 1px solid grey;
+  width: 4.5em;
+}
+
+label {
+  margin-left: 3px;
+  display: inline-block;
+  min-width: 90px;
+  text-align: left;
+}
+
+input[type="text"],
+textarea,input,select {
+  background-color: rgb(219, 215, 215);
+}
+input[type="text"]{
+  border:none;
+  border: 0.5px solid grey;
+}
+input[type="text"]:focus {
+  outline: none;
+  border:none;
+  border-bottom: 2px solid grey;
+
+}
+textarea{
+  height: 5em;
+}

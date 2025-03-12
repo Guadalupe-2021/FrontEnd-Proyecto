@@ -3,7 +3,11 @@
   
 
 <div *ngIf="recluso_encontrado" class="recluso-all-container">
-
+  <div class="detalles-pena">
+    <h5>Recluso {{recluso.cod_recluso}}</h5>
+    <h5>{{recluso.pena?.fecha_ini}}</h5>
+    <h5>{{recluso.pena?.fecha_fin_real}}</h5>
+  </div>
   <div class="recluso-container">
     <app-modificar-recluso [recluso]="recluso"></app-modificar-recluso>
   </div>

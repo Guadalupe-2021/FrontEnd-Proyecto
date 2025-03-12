@@ -1,0 +1,57 @@
+<body>
+<div>
+</div>
+<div class="actividad">
+  <h5>Nueva Actividad</h5>
+  <form [formGroup]="form_actividad" (submit)="crearActividad()">
+    <fieldset class="fielset-nombre">
+      <label>Nombre: </label>
+      <input  type="text" formControlName="nombre">
+    </fieldset>
+    <fieldset>
+      <label>Descipcion</label>
+      <textarea formControlName="descripcion" maxlength="50" ></textarea>
+    </fieldset>
+    <fieldset>
+      <label>Ubicacion</label>
+      <select formControlName="locacion" >
+        <option value="X">Sector X</option>
+        <option value="Y">Sector Y</option>
+        <option value="Z">Sector Z</option>
+      </select>
+    </fieldset>
+    <fieldset>
+      <label>Hora de Inicio</label>
+  <select formControlName="hora_inicio" (change)="setHoraFinOptions()">
+    <option *ngFor="let hora_ini of hora_ini_arr" type="text" [value]="hora_ini">{{hora_ini}}</option>
+  </select>
+    </fieldset>
+    <fieldset>
+      <label>Hora de Finalización</label>
+      <select formControlName="hora_fin">
+        <option *ngFor="let hora_fin of hora_fin_arr" type="text" [value]="hora_fin">{{hora_fin}}</option>
+      </select>
+    </fieldset>
+    <fieldset>
+      <label>Dia de la Semana</label>
+      <select formControlName="dia_de_la_semana">
+        <option value="lunes">Lunes</option>
+        <option value="martes">Martes</option>
+        <option value="miercoles">Miercoles</option>
+        <option value="jueves">Jueves</option>
+        <option value="viernes">Viernes</option>
+        <option value="sabado">Sabado</option>
+        <option value="domingo">Domingo</option>
+      </select>
+    </fieldset>
+    <fieldset>
+      <label>Cupos </label>
+      <select formControlName="cant_cupos">
+        <option *ngFor="let cupo of cant_cupos_arr" [value]="cupo">{{cupo}}</option>
+      </select>
+    </fieldset>
+    <button class="btn-save" [disabled]="form_actividad.invalid">Guardar</button>
+  </form>
+
+</div>
+</body>

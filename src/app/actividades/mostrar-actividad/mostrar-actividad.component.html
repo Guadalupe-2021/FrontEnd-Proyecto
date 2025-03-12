@@ -4,25 +4,7 @@
 </head>
 
 <body>
-  <div>
-    
-      <h2>Lista de Actividades</h2>
+  <div class="dia_lunes">
+      DIA DE LA SEMANA LUNES
   </div>
-  
-    @for (actividad of actividades; track $index) {
-  <div class="actividad">    
-    <li>
-      <h3>Actividad {{actividad.cod_actividad}}: {{actividad.nombre}}</h3>
-      <p>Descripcion: {{actividad.descripcion}} <br>
-        Ubicacion: {{actividad.locacion}}<br>
-        Dia de la Semana: {{actividad.dia_de_la_semana}}<br>
-        Hora Comienzo: {{actividad.hora_inicio}}:00 Hs.<br>
-        Duracion: {{actividad.hora_fin - actividad.hora_inicio }} Horas<br>
-@if(actividad.estado == 1){Estado: Finalizada<br>}@else {Estado: A Realizarse<br>}
-        Edad Mínima Requerida: {{actividad.edad_minima}}<br>
-      </p>
-    </li>
-</div>
-    }
-  
 </body>

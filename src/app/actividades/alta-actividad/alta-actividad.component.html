@@ -3,46 +3,6 @@
 </head>
 
 <body>
-    <div>
-      <h2>Nueva Actividad</h2>
-    </div>
-    <div>
-      <form [formGroup]="actividad" (submit)="validarActividad()">
-        <fieldset>
-          <label>Descipcion de la Actividad:</label>
-          <input type="text" formControlName="decripcion">
-        </fieldset>
-        <fieldset>
-          <label>Ubicacion:</label>
-          <input type="text" formControlName="locacion">
-        </fieldset>
-        <fieldset>
-          <label>hora:</label>
-          <input type="text" formControlName="hora">
-        </fieldset>
-        <fieldset>
-          <label>Dia de la Semana:</label>
-          <input type="text" formControlName="diaDeLaSemana">
-        </fieldset>
-        <fieldset>
-          <label>Cupo de Participantes</label>
-          <input type="text" formControlName="cantMax">
-        </fieldset>
-        <fieldset>
-          <label>Edad Minima</label>
-          <input type="text" formControlName="edadMin">
-        </fieldset>
-        <button>Enviar</button>
-      </form>
-
-    </div>
-  
-  <div>
-    @if (bandActividad === true) {
-      <p>datos enviados con exito </p>
-    }@else if (bandActividad === false) {
-    <p>actividad ya existente </p>
-    }
-  </div>
+    <app-formulario-actividad (sendFormActividadValue)="crearActividad($event)"></app-formulario-actividad>
 </body>
 
