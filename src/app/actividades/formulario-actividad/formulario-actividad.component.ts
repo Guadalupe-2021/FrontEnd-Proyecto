@@ -20,12 +20,13 @@ export class FormularioActividadComponent implements OnInit{
   hora_ini_arr:string[] = []
   hora_fin_arr:string[] = []
   cant_cupos_arr:number[] =[]
+  modificar_actividad!:boolean
 
   constructor(private formb:FormBuilder){
     this.form_actividad= this.formb.group({
       nombre:['',Validators.required],
       descripcion:[''],
-      locacion:['',Validators.required],
+      cod_sector:['',Validators.required],
       hora_inicio:['12:00',Validators.required],
       hora_fin:['13:00',Validators.required],
       dia_de_la_semana:['',Validators.required],
@@ -35,6 +36,7 @@ export class FormularioActividadComponent implements OnInit{
 
   }
 ngOnInit(): void {
+  this.actividad!=undefined? this.modificar_actividad=true : this.modificar_actividad=false
   if(this.actividad!=undefined){
     this.form_actividad.controls['nombre'].setValue(this.actividad.nombre)
     this.form_actividad.controls['descripcion'].setValue(this.actividad.descripcion)
@@ -63,7 +65,7 @@ setHoraFinOptions(){
   for(let i=1;i<3;i++){
     this.hora_fin_arr.push(`${Number(hora)+i}:${Number(minutos)===0? '00':'30'}`)
     if(minutos==='30' && i < 2) this.hora_fin_arr.push(`${Number(hora)+i+1}:00`)
-    if(minutos==='00' && i < 2) this.hora_fin_arr.push(`${Number(hora)+i+1}:30`)
+    if(minutos==='00' && i < 2) this.hora_fin_arr.push(`${Number(hora)+i}:30`)
   }
 }
 
@@ -71,5 +73,6 @@ crearActividad(){
   console.log("crear actividad")
   console.log(this.form_actividad.value)
   this.sendFormActividadValue.emit(this.form_actividad.value)
+  //if(!this.modificar_actividad) this.form_actividad.reset()
 }
 }

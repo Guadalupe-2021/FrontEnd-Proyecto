@@ -1,34 +1,48 @@
 import { Component, OnInit } from '@angular/core';
 import { ActividadService } from '../actividad.service.js';
+import { NgFor } from '@angular/common';
+import { FormularioActividadComponent } from '../formulario-actividad/formulario-actividad.component.js';
+import { IActividad } from '../../shared/entity.interfaces.js';
 
 @Component({
   selector: 'app-mostrar-actividad',
   standalone: true,
-  imports: [],
+  imports: [NgFor,FormularioActividadComponent],
   templateUrl: './mostrar-actividad.component.html',
   styleUrl: './mostrar-actividad.component.css'
 })
 export class MostrarActividadComponent implements OnInit{
-  constructor (public service : ActividadService){}
-  bandera:undefined|boolean
-  actividades:{cantidad_minima:number, cod_actividad:number, cod_sector:number, descripcion:string,
-dia_de_la_semana:number, edad_minima:number,  estado:number,  hora_fin:number, hora_inicio:number,
- locacion:string,nombre:string}[]|undefined
-  estadoActividad: string|undefined
-  ngOnInit(): void {
-    this.service.getActividades().subscribe({
+
+diasXActividades:{dia:string,actividades:IActividad[]}[] = [
+  { dia: 'Lunes', actividades:[] },
+  { dia: 'Martes', actividades:[] },
+  { dia: 'Miercoles', actividades:[] },
+  { dia: 'Jueves', actividades:[] },
+  { dia: 'Viernes', actividades:[] },
+  { dia: 'Sabado', actividades:[] },
+  { dia: 'Domingo', actividades:[] },
+]
+  constructor (public _service_actividad : ActividadService){}
+
+  ngOnInit(){
+    this._service_actividad.getActividades().subscribe({
       next:(data)=>{
-        if(data.status === 201){
-          this.actividades = data.data
-          console.log("Actividades Encontradas:" , this.actividades)
-        }
+          console.log("Actividades Encontradas:" , data.data)
+          data.data.forEach((actividad:IActividad)=>{
+            this.diasXActividades.forEach((diaXact)=>{
+              if(diaXact.dia.toLowerCase()===actividad.dia_de_la_semana){
+                diaXact.actividades.push(actividad)
+              }
+            })
+          })
       },
       error:(e)=>{
         if(e.status === 404){
-          this.bandera = true
           console.log("Actividades NO Encontradas:",e)
         }
-      }})
+      }
+    })
+
   }
   
 }

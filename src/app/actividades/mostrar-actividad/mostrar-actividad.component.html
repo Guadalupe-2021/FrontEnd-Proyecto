@@ -4,7 +4,10 @@
 </head>
 
 <body>
-  <div class="dia_lunes">
-      DIA DE LA SEMANA LUNES
+  <div class="dia_semana" *ngFor="let dia of diasXActividades">
+      <h5>{{dia.dia}}</h5>
+      <div class="actividad" *ngFor="let actividad of dia.actividades">
+          <app-formulario-actividad [actividad]="actividad"></app-formulario-actividad>
+      </div>
   </div>
 </body>
