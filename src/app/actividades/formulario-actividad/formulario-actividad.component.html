@@ -1,9 +1,9 @@
 <body>
-<div>
-</div>
+
 <div class="actividad">
-  <h5>Nueva Actividad</h5>
-  <form [formGroup]="form_actividad" (submit)="crearActividad()">
+  <h5 *ngIf="!modificar_actividad">Nueva Actividad</h5>
+  <h5 *ngIf="modificar_actividad">{{actividad.nombre}}</h5>
+  <form [formGroup]="form_actividad" (submit)="enviarValorFormulario()">
     <fieldset class="fielset-nombre">
       <label>Nombre</label>
       <input  type="text" formControlName="nombre">
@@ -21,18 +21,6 @@
       </select>
     </fieldset>
     <fieldset>
-      <label>Hora de Inicio</label>
-  <select formControlName="hora_inicio" (change)="setHoraFinOptions()">
-    <option *ngFor="let hora_ini of hora_ini_arr" type="text" [value]="hora_ini">{{hora_ini}}</option>
-  </select>
-    </fieldset>
-    <fieldset>
-      <label>Hora de Finalización</label>
-      <select formControlName="hora_fin">
-        <option *ngFor="let hora_fin of hora_fin_arr" type="text" [value]="hora_fin">{{hora_fin}}</option>
-      </select>
-    </fieldset>
-    <fieldset>
       <label>Dia de la Semana</label>
       <select formControlName="dia_de_la_semana">
         <option value="lunes">Lunes</option>
@@ -45,8 +33,20 @@
       </select>
     </fieldset>
     <fieldset>
+      <label>Hora de Inicio</label>
+      <select formControlName="hora_inicio" (click)="setHoraInicioOptions()" (change)="changeHoraInicio()">
+    <option *ngFor="let hora_ini of hora_ini_arr" type="text" [value]="hora_ini">{{hora_ini}}</option>
+  </select>
+    </fieldset>
+    <fieldset>
+      <label>Hora Finalización</label>
+      <select formControlName="hora_fin" (click)="setHoraFinOptions()">
+        <option *ngFor="let hora_fin of hora_fin_arr" type="text" [value]="hora_fin">{{hora_fin}}</option>
+      </select>
+    </fieldset>
+    <fieldset>
       <label>Cupos </label>
-      <select formControlName="cant_cupos">
+      <select formControlName="cant_cupos" (click)="setCantCuposOptions()">
         <option *ngFor="let cupo of cant_cupos_arr" [value]="cupo">{{cupo}}</option>
       </select>
     </fieldset>

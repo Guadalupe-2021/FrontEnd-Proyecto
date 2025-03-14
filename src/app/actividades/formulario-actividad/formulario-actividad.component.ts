@@ -21,6 +21,9 @@ export class FormularioActividadComponent implements OnInit{
   hora_fin_arr:string[] = []
   cant_cupos_arr:number[] =[]
   modificar_actividad!:boolean
+  hora_inicio!:string
+  hora_fin!:string
+
 
   constructor(private formb:FormBuilder){
     this.form_actividad= this.formb.group({
@@ -38,27 +41,41 @@ export class FormularioActividadComponent implements OnInit{
 ngOnInit(): void {
   this.actividad!=undefined? this.modificar_actividad=true : this.modificar_actividad=false
   if(this.actividad!=undefined){
+    //this.form_actividad.get('hora_inicio')?.reset();
+    //this.form_actividad.get('hora_fin')?.reset();
     this.form_actividad.controls['nombre'].setValue(this.actividad.nombre)
     this.form_actividad.controls['descripcion'].setValue(this.actividad.descripcion)
-    this.form_actividad.controls['locacion'].setValue(this.actividad.locacion)
+    this.form_actividad.controls['cod_sector'].setValue(this.actividad.cod_sector)
     this.form_actividad.controls['hora_inicio'].setValue(this.actividad.hora_inicio)
     this.form_actividad.controls['hora_fin'].setValue(this.actividad.hora_fin)
     this.form_actividad.controls['dia_de_la_semana'].setValue(this.actividad.dia_de_la_semana)
     this.form_actividad.controls['cant_cupos'].setValue(this.actividad.cant_cupos)
-    
+
+    // para que se vean los cambios en el select
+    this.cant_cupos_arr = [this.actividad.cant_cupos]
+    this.hora_ini_arr = [this.actividad.hora_inicio]
+    this.hora_fin_arr = [this.actividad.hora_fin]
+
+    this.form_actividad.disable()
+
   }else{
 
-    for(let i=5; i<=30;i++) this.cant_cupos_arr.push(i)
-    for(let i=12;i<18;i++){
-      this.hora_ini_arr.push(`${i}:00`)
-      this.hora_ini_arr.push(`${i}:30`)
-    }
-    this.hora_ini_arr.push(`${18}:00`)
+    this.setCantCuposOptions()
+    this.setHoraInicioOptions()
     this.setHoraFinOptions()
   }
   
 }
+setHoraInicioOptions(){
+    this.hora_ini_arr = []
+    for(let i=12;i<18;i++){
+      this.hora_ini_arr.push(`${i}:00`)
+      this.hora_ini_arr.push(`${i}:30`)
+      }
+    this.hora_ini_arr.push(`${18}:00`)
+    this.setHoraFinOptions()
 
+}
 setHoraFinOptions(){
   this.hora_fin_arr = []
   const [hora,minutos] = this.form_actividad.value.hora_inicio.split(":")
@@ -67,12 +84,24 @@ setHoraFinOptions(){
     if(minutos==='30' && i < 2) this.hora_fin_arr.push(`${Number(hora)+i+1}:00`)
     if(minutos==='00' && i < 2) this.hora_fin_arr.push(`${Number(hora)+i}:30`)
   }
+
 }
 
-crearActividad(){
+setCantCuposOptions(){
+  this.cant_cupos_arr = []
+  for(let i=5; i<=30;i++) this.cant_cupos_arr.push(i)
+}
+
+enviarValorFormulario(){
   console.log("crear actividad")
   console.log(this.form_actividad.value)
   this.sendFormActividadValue.emit(this.form_actividad.value)
-  //if(!this.modificar_actividad) this.form_actividad.reset()
+
 }
+
+changeHoraInicio(){
+  const [hora,minutos] = this.form_actividad.value.hora_inicio.split(":")
+  this.form_actividad.controls['hora_fin'].setValue(`${Number(hora)+1}:${Number(minutos)===0? '00':'30'}`)
+}
+
 }

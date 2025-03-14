@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActividadService } from '../actividad.service.js';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { FormularioActividadComponent } from '../formulario-actividad/formulario-actividad.component.js';
 import { IActividad } from '../../shared/entity.interfaces.js';
 
 @Component({
   selector: 'app-mostrar-actividad',
   standalone: true,
-  imports: [NgFor,FormularioActividadComponent],
+  imports: [NgFor,FormularioActividadComponent, NgIf],
   templateUrl: './mostrar-actividad.component.html',
   styleUrl: './mostrar-actividad.component.css'
 })

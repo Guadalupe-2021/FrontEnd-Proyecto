@@ -22,7 +22,7 @@ export interface IActividad{
     dia_de_la_semana: string;
     hora_inicio:      string;
     hora_fin:         string;
-    locacion:         string;
+    cod_sector:         string;
     cant_cupos:       number;
 }
 
