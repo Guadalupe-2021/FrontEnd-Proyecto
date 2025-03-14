@@ -1,7 +1,6 @@
 
 import { Routes } from '@angular/router';
 import { LogInComponent } from './log-in/log-in.component.js';
-import { MenuSentenciaComponent } from './menu/menu-sentencia/menu-sentencia.component.js';
 
 
 //Guardias
@@ -36,7 +35,7 @@ import { FinalizarTurnosComponent } from './sector/finalizar-turnos/finalizar-tu
 import { MenuComponent } from './menu/menu.component.js';
 import { MenuGuardiaComponent } from './guardias/menu-guardia/menu-guardia.component.js';
 import { MenuReclusosComponent } from './reclusos/menu-reclusos/menu-reclusos.component.js';
-import { MenuActividadComponent } from './menu/menu-actividad/menu-actividad.component.js';
+import { MenuActividadComponent } from './actividades/menu-actividad/menu-actividad.component.js';
 import { MenuTallerComponent } from './menu/menu-taller/menu-taller.component.js';
 import { MenuTurnosComponent } from './sector/menu-turnos/menu-turnos.component.js';
 import { MenuIlegalComponent } from './menu/menu-ilegal/menu-ilegal.component.js';

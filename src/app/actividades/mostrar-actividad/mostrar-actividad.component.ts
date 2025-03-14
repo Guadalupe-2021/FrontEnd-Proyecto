@@ -3,6 +3,7 @@ import { ActividadService } from '../actividad.service.js';
 import { NgFor, NgIf } from '@angular/common';
 import { FormularioActividadComponent } from '../formulario-actividad/formulario-actividad.component.js';
 import { IActividad } from '../../shared/entity.interfaces.js';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-mostrar-actividad',
@@ -22,13 +23,12 @@ diasXActividades:{dia:string,actividades:IActividad[]}[] = [
   { dia: 'Sabado', actividades:[] },
   { dia: 'Domingo', actividades:[] },
 ]
-  constructor (public _service_actividad : ActividadService){}
+  constructor (public _service_actividad : ActividadService, private toastr:ToastrService){}
 
   ngOnInit(){
     this._service_actividad.getActividades().subscribe({
       next:(data)=>{
-          console.log("Actividades Encontradas:" , data.data)
-          data.data.forEach((actividad:IActividad)=>{
+          data.forEach((actividad:IActividad)=>{
             this.diasXActividades.forEach((diaXact)=>{
               if(diaXact.dia.toLowerCase()===actividad.dia_de_la_semana){
                 diaXact.actividades.push(actividad)
@@ -37,6 +37,7 @@ diasXActividades:{dia:string,actividades:IActividad[]}[] = [
           })
       },
       error:(e)=>{
+        this.toastr.error(e.message)
         if(e.status === 404){
           console.log("Actividades NO Encontradas:",e)
         }

@@ -41,6 +41,7 @@ export class FormularioActividadComponent implements OnInit{
 ngOnInit(): void {
   this.actividad!=undefined? this.modificar_actividad=true : this.modificar_actividad=false
   if(this.actividad!=undefined){
+    console.log(this.actividad)
     //this.form_actividad.get('hora_inicio')?.reset();
     //this.form_actividad.get('hora_fin')?.reset();
     this.form_actividad.controls['nombre'].setValue(this.actividad.nombre)

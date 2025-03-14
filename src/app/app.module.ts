@@ -5,7 +5,7 @@ import {BrowserAnimationsModule, provideAnimations} from "@angular/platform-brow
 import { AltaGuardiaComponent } from './guardias/alta-guardia/alta-guardia.component.js';
 import { AppComponent } from './app.component.js';
 import { BrowserModule } from '@angular/platform-browser';
-import { MenuActividadComponent } from './menu/menu-actividad/menu-actividad.component.js';
+import { MenuActividadComponent } from './actividades/menu-actividad/menu-actividad.component.js';
 import { MenuGuardiaComponent } from './guardias/menu-guardia/menu-guardia.component.js';
 import { FormsModule, NgModel } from '@angular/forms';
 import { BuscarReclusosComponent } from './reclusos/buscar-reclusos/buscar-reclusos.component.js';

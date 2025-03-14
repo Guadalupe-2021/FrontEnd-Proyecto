@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IActividad } from '../shared/entity.interfaces.js';
+import { IActividad, IServerResponse } from '../shared/entity.interfaces.js';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,16 +14,20 @@ readonly ilegal_url = 'https://jsonplaceholder.typicode.com/todos/'
 constructor(private http: HttpClient) {}
 
 
-getActividades() {
-  return this.http.get<any | JSON>("http://localhost:8080/actividades")
+getActividades():Observable<IActividad[]> {
+  return this.http.get<IActividad[]>("http://localhost:8080/actividades")
 }
-getOneActividad(id:any) {
-  return this.http.get<any | JSON>("http://localhost:8080/actividades/"+`${id}`)
+
+getOneActividad(id:number):Observable<IActividad> {
+  return this.http.get<IActividad>("http://localhost:8080/actividades/"+`${id}`)
 }
+
 postActividad(nueva_actividad:IActividad){
-  return this.http.post<any| JSON>("http://localhost:8080/actividades",nueva_actividad)
+  return this.http.post<IServerResponse>("http://localhost:8080/actividades",nueva_actividad)
 }
-putActividad(id:any,uActual:any){
-  return this.http.put<any| JSON>("http://localhost:8080/actividades/"+`${id}`,uActual)
+
+putActividad(id:number,actividad_modificada:IActividad){
+  return this.http.put<IServerResponse>("http://localhost:8080/actividades/"+`${id}`,actividad_modificada)
 }
+
 }
