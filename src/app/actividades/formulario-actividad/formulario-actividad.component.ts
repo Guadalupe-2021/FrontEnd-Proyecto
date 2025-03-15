@@ -14,6 +14,8 @@ export class FormularioActividadComponent implements OnInit{
 
 @Input() actividad!: IActividad
 @Output() sendFormActividadValue: EventEmitter<IActividad> = new EventEmitter<IActividad>()
+@Output() deleteActividad: EventEmitter<number> = new EventEmitter<number>()
+
 
 
   form_actividad:FormGroup
@@ -21,6 +23,7 @@ export class FormularioActividadComponent implements OnInit{
   hora_fin_arr:string[] = []
   cant_cupos_arr:number[] =[]
   modificar_actividad!:boolean
+
   hora_inicio!:string
   hora_fin!:string
 
@@ -103,6 +106,14 @@ enviarValorFormulario(){
 changeHoraInicio(){
   const [hora,minutos] = this.form_actividad.value.hora_inicio.split(":")
   this.form_actividad.controls['hora_fin'].setValue(`${Number(hora)+1}:${Number(minutos)===0? '00':'30'}`)
+}
+
+editarActividad(){
+  this.form_actividad.enable()
+}
+eliminarActividad(){
+  console.log("eliminar actividad")
+  this.deleteActividad.emit(this.actividad.cod_actividad)
 }
 
 }

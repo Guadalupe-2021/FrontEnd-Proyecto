@@ -2,7 +2,7 @@
 
 <div class="actividad">
   <h5 *ngIf="!modificar_actividad">Nueva Actividad</h5>
-  <h5 *ngIf="modificar_actividad">{{actividad.nombre}}</h5>
+  <h6 *ngIf="modificar_actividad">Cod. {{actividad.cod_actividad}}</h6>
   <form [formGroup]="form_actividad" (submit)="enviarValorFormulario()">
     <fieldset class="fielset-nombre">
       <label>Nombre</label>
@@ -52,6 +52,12 @@
     </fieldset>
     <button class="btn-save" [disabled]="form_actividad.invalid">Guardar</button>
   </form>
+    <div class="edit" (click)="editarActividad()" title="Editar" *ngIf="modificar_actividad">
+      <i class="bi bi-pencil-square edit-icon"></i>
+    </div>
+    <div class="delete" (click)="eliminarActividad()" title="Eliminar" *ngIf="modificar_actividad">
+      <i class="bi bi-x delete-icon"></i>
+    </div>
 
 </div>
 </body>

@@ -17,6 +17,7 @@ export interface IRecluso {
     pena?: IPena;
 }
 export interface IActividad{
+    cod_actividad?:    number;
     nombre:           string;
     descripcion:      string;
     dia_de_la_semana: string;

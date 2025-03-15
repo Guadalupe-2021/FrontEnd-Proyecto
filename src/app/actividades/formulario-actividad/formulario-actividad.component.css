@@ -23,6 +23,44 @@
   bottom: 0.5em;
 }
 
+.edit {
+  display: inline-flex;
+  position: absolute;
+  font-size: 1.25em;
+  top: 1px;
+  right: 2.3em;
+}
+.edit-icon{
+  display: inline-flex;
+  margin-top: 0.35em;
+}
+
+.edit-icon:hover {
+  color: green;
+  font-size: 1.05em;
+  cursor: pointer;
+}
+.delete {
+  position: absolute;
+  font-size: 1.25em;
+  top: 1px;
+  right: 5px;
+  font-weight: bold;
+}
+.delete-icon{
+  display: inline-flex;
+  font-size: 1.7em;
+  margin-top: 0;
+  padding-top: 0;
+  height: 1em;
+}
+.delete-icon:hover {
+  color: red;
+  font-size: 1.75em;
+  cursor: pointer;
+}
+
+
 p {
   font-family: Verdana;
 }

@@ -8,7 +8,8 @@
     <div *ngIf="(dia.actividades.length>0)">
       <h5>{{dia.dia}}</h5>
       <div class="actividad" *ngFor="let actividad of dia.actividades">
-          <app-formulario-actividad [actividad]="actividad"></app-formulario-actividad>
+          <app-modificar-actividad [actividad]="actividad" (update)="actualizarArrayActividades($event)"
+          (delete)="deleteActividad($event)"></app-modificar-actividad>
       </div>
     </div>
   </div>

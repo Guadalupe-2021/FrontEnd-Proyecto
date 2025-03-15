@@ -30,4 +30,8 @@ putActividad(id:number,actividad_modificada:IActividad){
   return this.http.put<IServerResponse>("http://localhost:8080/actividades/"+`${id}`,actividad_modificada)
 }
 
+deleteActividad(id:number):Observable<IServerResponse>{
+  return this.http.delete<IServerResponse>("http://localhost:8080/actividades/"+`${id}`)
+}
+
 }
