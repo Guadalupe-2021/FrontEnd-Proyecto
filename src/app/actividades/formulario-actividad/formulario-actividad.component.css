@@ -22,6 +22,11 @@
   right:0.5em;
   bottom: 0.5em;
 }
+.btn-inscripcion {
+  position: absolute;
+  left: 0.5em;
+  bottom: 0.5em;
+}
 
 .edit {
   display: inline-flex;

@@ -40,6 +40,7 @@ import { MenuTallerComponent } from './menu/menu-taller/menu-taller.component.js
 import { MenuTurnosComponent } from './sector/menu-turnos/menu-turnos.component.js';
 import { MenuIlegalComponent } from './menu/menu-ilegal/menu-ilegal.component.js';
 import { DetalleSectorComponent } from './sector/detalle-sector/detalle-sector.component.js';
+import { DetalleActividadComponent } from './actividades/detalle-actividad/detalle-actividad.component.js';
 
 export const routes: Routes = [
     //log in
@@ -70,6 +71,8 @@ export const routes: Routes = [
     {path: 'menu/actividad/alta-actividad', component: AltaActividadComponent},
     {path: 'menu/actividad/modificar-actividad', component: ModificarActividadComponent},
     {path: 'menu/actividad/mostrar-actividad', component: MostrarActividadComponent},
+    {path: 'menu/actividad/:id/detalle-actividad', component: DetalleActividadComponent},
+
     //taller
     {path: 'menu/taller', component: MenuTallerComponent},
     {path: 'menu/taller/alta-taller', component: AltaTallerComponent},

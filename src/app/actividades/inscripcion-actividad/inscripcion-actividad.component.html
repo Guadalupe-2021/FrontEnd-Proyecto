@@ -1,0 +1,19 @@
+<body>
+  <div class="reclusos-inscriptos" *ngIf="(actividad!=undefined)">
+    <button (click)="inscribirRecluso()">Inscribir Nuevo</button>
+    <div class="recluso-inscripto" *ngFor="let recluso of actividad.reclusos">
+      {{recluso.apellido}},{{recluso.nombre}},{{recluso.cod_recluso}}
+      <div class="delete" (click)="eliminarInscripcion(recluso.cod_recluso)" title="Eliminar">
+        <i class="bi bi-x delete-icon"></i>
+      </div>
+    </div>
+  
+      <div class="recluso-inscripto" *ngFor="let recluso of actividad.reclusos">
+        {{recluso.apellido}},{{recluso.nombre}},{{recluso.cod_recluso}}
+        <div class="delete" (click)="eliminarInscripcion(recluso.cod_recluso)" title="Eliminar">
+          <i class="bi bi-x delete-icon"></i>
+        </div>
+      </div>
+  </div>
+  <div *ngIf="(actividad===undefined)"> No Hay Inscriptos</div>
+</body>

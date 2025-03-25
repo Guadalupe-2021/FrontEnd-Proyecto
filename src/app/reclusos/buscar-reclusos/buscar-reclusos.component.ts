@@ -32,7 +32,7 @@ this.form_buscar_recluso = this.formb.group({
 ngOnInit(){
   this.definirIdentificador()
 }
-  reclusos:{cod_recluso?:number,nombre:string,apellido:string, dni:number, fecha_nac:Date}[]=[]
+
   
 definirIdentificador():void{
   this.identificador = (document.getElementById("selectorID") as HTMLInputElement).value

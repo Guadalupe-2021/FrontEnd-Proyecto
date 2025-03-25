@@ -25,6 +25,7 @@ export interface IActividad{
     hora_fin:         string;
     cod_sector:         string;
     cant_cupos:       number;
+    reclusos:         IRecluso[];   
 }
 
 export interface ICondena {

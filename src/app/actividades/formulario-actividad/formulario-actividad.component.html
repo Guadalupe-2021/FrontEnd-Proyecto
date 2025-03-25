@@ -50,7 +50,9 @@
         <option *ngFor="let cupo of cant_cupos_arr" [value]="cupo">{{cupo}}</option>
       </select>
     </fieldset>
+    <button class="btn-inscripcion" (click)="irAInscripcion()">Inscripcion</button>
     <button class="btn-save" [disabled]="form_actividad.invalid">Guardar</button>
+
   </form>
     <div class="edit" (click)="editarActividad()" title="Editar" *ngIf="modificar_actividad">
       <i class="bi bi-pencil-square edit-icon"></i>

@@ -2,6 +2,8 @@ import { NgFor, NgIf } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { IActividad } from '../../shared/entity.interfaces.js';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ActividadService } from '../actividad.service.js';
 
 @Component({
   selector: 'app-formulario-actividad',
@@ -28,7 +30,9 @@ export class FormularioActividadComponent implements OnInit{
   hora_fin!:string
 
 
-  constructor(private formb:FormBuilder){
+  constructor(private formb:FormBuilder,private router:Router,private route:ActivatedRoute,
+    private _service_actividad:ActividadService
+  ){
     this.form_actividad= this.formb.group({
       nombre:['',Validators.required],
       descripcion:[''],
@@ -115,5 +119,12 @@ eliminarActividad(){
   console.log("eliminar actividad")
   this.deleteActividad.emit(this.actividad.cod_actividad)
 }
+
+irAInscripcion(){
+  this._service_actividad.setActividad(this.actividad)
+  this.router.navigate([`${this.actividad.cod_actividad}`,'detalle-actividad'],{relativeTo:this.route})
+}
+
+
 
 }
