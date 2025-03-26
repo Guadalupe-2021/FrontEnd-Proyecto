@@ -6,7 +6,10 @@
     </button>
   </div>
     <div class="buscar-recluso-container">
-      <app-buscar-reclusos></app-buscar-reclusos>
+      <app-buscar-reclusos (sendRecluso)="mostrarReclusoEncontrado($event)"></app-buscar-reclusos>
+      <div *ngIf="(recluso!=undefined)" class="recluso-buscado">
+        <app-modificar-recluso [recluso]="recluso"></app-modificar-recluso>
+      </div>
     </div>
     <app-mostrar-reclusos></app-mostrar-reclusos>
 </body>

@@ -1,4 +1,12 @@
 <body>
+  <div class="buscar-recluso">
+    <app-buscar-reclusos (sendRecluso)="mostrarRecluso($event)"></app-buscar-reclusos>
+    <div class="recluso" *ngIf="mostrar_recluso" title="Inscribir Recluso" (click)="inscribirRecluso()">
+      <p class="recluso-data">{{recluso_buscado.apellido | titlecase}},
+      {{recluso_buscado.nombre | titlecase}}
+      &nbsp;&nbsp;{{recluso_buscado.cod_recluso}}</p>
+    </div>
+  </div>
   <div class="reclusos-inscriptos" *ngIf="(actividad!=undefined)">
     <button (click)="inscribirRecluso()">Inscribir Nuevo</button>
     <div class="recluso-inscripto" *ngFor="let recluso of actividad.reclusos">

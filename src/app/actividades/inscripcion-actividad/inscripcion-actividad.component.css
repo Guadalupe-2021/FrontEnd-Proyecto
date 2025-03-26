@@ -1,0 +1,15 @@
+.recluso-data{
+  padding: 0.5em;
+  background-color: rgb(199, 194, 194);
+  color: black;
+  width: 15em;
+  border-radius: 5%;
+}
+.recluso-data:hover{
+  background-color: grey;
+  cursor:pointer;
+  
+}
+p{
+  display: inline;
+}

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ReclusosService } from '../reclusos.service.js';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { DatePipe, NgIf } from '@angular/common';
@@ -14,6 +14,7 @@ import { ModificarReclusoComponent } from '../modificar-recluso/modificar-reclus
   styleUrl: './buscar-reclusos.component.css'
 })
 export class BuscarReclusosComponent implements OnInit {
+  @Output() sendRecluso:EventEmitter<IRecluso> = new EventEmitter<IRecluso>()
 
 form_buscar_recluso:FormGroup
 unRecluso!:IRecluso
@@ -55,6 +56,7 @@ definirIdentificador():void{
     next:(data)=> {
       this.recluso_encontrado = true
       this.unRecluso = data
+      this.enviarRecluso(data)
     },
     error: (e)=>{console.log(e)
       this.recluso_encontrado = false
@@ -67,5 +69,8 @@ definirIdentificador():void{
  }
   }
   
+enviarRecluso(recluso_encontrado:IRecluso){
+    this.sendRecluso.emit(recluso_encontrado)
+}
 
 }
