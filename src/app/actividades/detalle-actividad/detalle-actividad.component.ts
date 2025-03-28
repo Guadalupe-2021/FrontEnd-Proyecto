@@ -3,6 +3,7 @@ import { InscripcionActividadComponent } from '../inscripcion-actividad/inscripc
 import { IActividad } from '../../shared/entity.interfaces.js';
 import { ActividadService } from '../actividad.service.js';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-detalle-actividad',
@@ -14,9 +15,20 @@ import { ActivatedRoute } from '@angular/router';
 export class DetalleActividadComponent {
   actividad!:IActividad
   
-  constructor(private _service_actividad:ActividadService,private route:ActivatedRoute){
-    this.actividad = this._service_actividad.getActividad() //otra forma seria usando params de la url para mandar get actividad al server
-  console.log(this.actividad)
+  constructor(private _service_actividad:ActividadService,private route:ActivatedRoute,
+    private toastr:ToastrService
+  ){
+  this.route.params.subscribe(params => {
+    const id = Number(params['id']); // Get the route parameter 'id'
+    this._service_actividad.getOneActividad(id).subscribe({
+      next:(data)=>{
+        this.actividad = data
+        console.log(data)
+      }, error:(e)=>{
+        this.toastr.error('Actividad No Encontrada')
+      }
+    })
+});
   }
 
 

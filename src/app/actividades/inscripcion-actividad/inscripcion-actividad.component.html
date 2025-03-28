@@ -2,25 +2,21 @@
   <div class="buscar-recluso">
     <app-buscar-reclusos (sendRecluso)="mostrarRecluso($event)"></app-buscar-reclusos>
     <div class="recluso" *ngIf="mostrar_recluso" title="Inscribir Recluso" (click)="inscribirRecluso()">
-      <p class="recluso-data">{{recluso_buscado.apellido | titlecase}},
+      <p class="recluso-data">{{recluso_buscado.apellido | titlecase}},&nbsp;
       {{recluso_buscado.nombre | titlecase}}
-      &nbsp;&nbsp;{{recluso_buscado.cod_recluso}}</p>
+      &nbsp;&nbsp;&nbsp;Cod.&nbsp;{{recluso_buscado.cod_recluso}}</p>
     </div>
   </div>
   <div class="reclusos-inscriptos" *ngIf="(actividad!=undefined)">
     <button (click)="inscribirRecluso()">Inscribir Nuevo</button>
-    <div class="recluso-inscripto" *ngFor="let recluso of actividad.reclusos">
-      {{recluso.apellido}},{{recluso.nombre}},{{recluso.cod_recluso}}
-      <div class="delete" (click)="eliminarInscripcion(recluso.cod_recluso)" title="Eliminar">
-        <i class="bi bi-x delete-icon"></i>
-      </div>
-    </div>
-  
+
       <div class="recluso-inscripto" *ngFor="let recluso of actividad.reclusos">
-        {{recluso.apellido}},{{recluso.nombre}},{{recluso.cod_recluso}}
-        <div class="delete" (click)="eliminarInscripcion(recluso.cod_recluso)" title="Eliminar">
-          <i class="bi bi-x delete-icon"></i>
-        </div>
+        <p class="recluso-data">
+          {{recluso.apellido | titlecase}},&nbsp;{{recluso.nombre | titlecase}}
+          &nbsp;&nbsp;&nbsp;Cod.&nbsp;{{recluso.cod_recluso}}
+          <i class="bi bi-x delete-icon delete" (click)="eliminarInscripcion(recluso.cod_recluso)"
+           title="Eliminar"></i>
+        </p>
       </div>
   </div>
   <div *ngIf="(actividad===undefined)"> No Hay Inscriptos</div>

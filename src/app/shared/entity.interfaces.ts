@@ -15,6 +15,7 @@ export interface IRecluso {
     fecha_nac: Date;
     condenas?: ICondena[];
     pena?: IPena;
+    actividades?:IActividad[];
 }
 export interface IActividad{
     cod_actividad?:    number;
@@ -25,7 +26,7 @@ export interface IActividad{
     hora_fin:         string;
     cod_sector:         string;
     cant_cupos:       number;
-    reclusos:         IRecluso[];   
+    reclusos?:         IRecluso[];   
 }
 
 export interface ICondena {

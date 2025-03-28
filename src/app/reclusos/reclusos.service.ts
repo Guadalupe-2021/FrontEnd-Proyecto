@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IRecluso, IServerResponse, ICondena } from '../shared/entity.interfaces.js';
+import { IRecluso, IServerResponse, ICondena, IActividad } from '../shared/entity.interfaces.js';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -43,6 +43,11 @@ getOneCelda(id:number) {
 }
 getCelda() {
   return this.http.get<any[] | JSON>(this.api_celda)
+}
+
+// INSCRIPCIONES A ACTIVIDADES
+inscripcionActividad(id:number|undefined, obj:{actividad_data:IActividad,eliminar:boolean}):Observable<IServerResponse>{
+  return this.http.put<IServerResponse>("http://localhost:8080/reclusos/"+ `${id}`+'/inscripcion',obj)
 }
 
 

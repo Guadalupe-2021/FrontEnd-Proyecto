@@ -1,15 +1,36 @@
+body{
+  justify-content: center;
+  justify-items: center;
+}
 .recluso-data{
-  padding: 0.5em;
+  display: block;
+  position: relative;
+  padding: 1em;
+  padding-right: 1.4em;
   background-color: rgb(199, 194, 194);
   color: black;
   width: 15em;
   border-radius: 5%;
+  margin-bottom:1em;
 }
 .recluso-data:hover{
-  background-color: grey;
+  background-color: rgb(156, 154, 154);
   cursor:pointer;
   
 }
+
+.delete-icon {
+  position:absolute;
+  top:0;
+  right: 0;
+  font-size: 1.2em;
+}
+.delete-icon:hover{
+font-size: 1.3em;
+color: red;
+}
+
+
 p{
   display: inline;
 }

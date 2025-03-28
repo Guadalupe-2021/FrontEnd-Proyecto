@@ -41,30 +41,49 @@ ngOnInit(){
 
 eliminarInscripcion(cod:number|undefined){
   console.log("eliminar inscripcion de reclusos")
-  this.actividad.reclusos = this.actividad.reclusos.filter((x:IRecluso)=>x.cod_recluso===cod)
+  this.actividad.reclusos?.forEach((rec,idx)=>{
+    if(rec.cod_recluso===cod){
+      //eliminar del back
+      this._service_recluso.inscripcionActividad(rec.cod_recluso,
+        {actividad_data:this.actividad,eliminar:true}).subscribe({
+          next:(data)=>{
+            this.toastr.success('Inscripcion Eliminada')
+            this.actividad.reclusos?.splice(idx,1) // eliminar en front
+            console.log(data)
+          },error:(e)=>{
+            console.log(e)
+            this.toastr.error(e.error.message)
+          }
+        })
+    }
+    })
+  //this.actividad.reclusos?.filter((x:IRecluso)=>x.cod_recluso===cod)
 }
 
 inscribirRecluso(){
   if(this.actividad!=undefined){
-  console.log("actividad not undefined good")
-  const recluso_inscripto = this.actividad.reclusos.find((recluso)=>recluso.cod_recluso===this.recluso_buscado.cod_recluso)
+  const recluso_inscripto = this.actividad.reclusos?.find((recluso)=>recluso.cod_recluso===this.recluso_buscado.cod_recluso)
+  
   if(recluso_inscripto){
     this.toastr.error('Recluso ya inscripto')
   }else{
-  console.log("agrega relcuso")
-
-    this.actividad.reclusos.push(this.recluso_buscado)
-    this._service_actividad.putActividad(this.actividad.cod_actividad as number, this.actividad).subscribe({
+    // agregar en back
+    this._service_recluso.inscripcionActividad(this.recluso_buscado.cod_recluso as number,
+       {actividad_data:this.actividad, eliminar:false}).subscribe({
       next: (data)=>{
         this.toastr.success('Recluso Inscripto')
+        this.actividad.reclusos?.push(this.recluso_buscado)  // agregar en front
       },error: (e)=>{
-        this.toastr.error(e.error.message)
+        this.toastr.error(e)
+        console.log(e)
       }
     })
   }
 }
 console.log(this.actividad)
 }
+
+
 
 mostrarRecluso( recluso:IRecluso){
   if(recluso!=undefined){

@@ -10,7 +10,7 @@ export class ActividadService {
 
 readonly api_url ='https://jsonplaceholder.typicode.com/todos/'
 readonly ilegal_url = 'https://jsonplaceholder.typicode.com/todos/'
-actividad!:IActividad
+actividadd!:IActividad
 
 constructor(private http: HttpClient) {}
 
@@ -31,6 +31,10 @@ putActividad(id:number,actividad_modificada:IActividad){
   return this.http.put<IServerResponse>("http://localhost:8080/actividades/"+`${id}`,actividad_modificada)
 }
 
+inscripcion(id:number,actividad_modificada:IActividad){
+  return this.http.put<IServerResponse>("http://localhost:8080/actividades/"+`${id}`+'/inscripcion',actividad_modificada)
+}
+
 deleteActividad(id:number):Observable<IServerResponse>{
   return this.http.delete<IServerResponse>("http://localhost:8080/actividades/"+`${id}`)
 }
@@ -41,10 +45,11 @@ deleteActividad(id:number):Observable<IServerResponse>{
 
 
 setActividad(act:IActividad){
-  this.actividad = act
+  console.log("actividad seteada")
+  this.actividadd = act
 }
 getActividad(){
-  return this.actividad
+  return this.actividadd
 }
 
 }
