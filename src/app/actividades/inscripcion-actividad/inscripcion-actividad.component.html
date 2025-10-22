@@ -1,5 +1,13 @@
 <body>
-  <div class="buscar-recluso">
+  <button title="Inscribir Nuevo Recluso" class="btn-buscar-recluso"
+  data-bs-toggle="collapse" data-bs-target="#collapseBuscador" aria-expanded="false" aria-controls="collapseBuscador" 
+  (click)="mostrarBuscador()"
+  >
+  <i class="bi bi-plus-lg alta-actividad-icono" *ngIf="!mostrar_buscador"></i>
+  <i class="bi bi-dash-lg alta-actividad-icono" *ngIf="mostrar_buscador"></i>
+</button>
+  
+  <div class="buscar-recluso collapse" id="collapseBuscador">
     <app-buscar-reclusos (sendRecluso)="mostrarRecluso($event)"></app-buscar-reclusos>
     <div class="recluso" *ngIf="mostrar_recluso" title="Inscribir Recluso" (click)="inscribirRecluso()">
       <p class="recluso-data">{{recluso_buscado.apellido | titlecase}},&nbsp;
@@ -7,9 +15,10 @@
       &nbsp;&nbsp;&nbsp;Cod.&nbsp;{{recluso_buscado.cod_recluso}}</p>
     </div>
   </div>
-  <div class="reclusos-inscriptos" *ngIf="(actividad!=undefined)">
-    <button (click)="inscribirRecluso()">Inscribir Nuevo</button>
 
+
+  <div class="reclusos-inscriptos-container" *ngIf="(actividad!=undefined)">
+      <h5>Inscriptos</h5>
       <div class="recluso-inscripto" *ngFor="let recluso of actividad.reclusos">
         <p class="recluso-data">
           {{recluso.apellido | titlecase}},&nbsp;{{recluso.nombre | titlecase}}

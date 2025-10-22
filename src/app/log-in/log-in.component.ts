@@ -4,12 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { RouterLink, Router, ActivatedRoute} from '@angular/router';
 import { LogInService } from './log-in.service.js';
 import { ToastrService } from 'ngx-toastr';
+import { RecaptchaModule } from "ng-recaptcha";
 
 
 @Component({
   selector: 'app-log-in',
   standalone: true,
-  imports: [FormsModule,ReactiveFormsModule,RouterLink],
+  imports: [FormsModule,ReactiveFormsModule,RouterLink,RecaptchaModule],
   templateUrl: './log-in.component.html',
   styleUrl: './log-in.component.css'
 })
@@ -17,6 +18,8 @@ export class LogInComponent{
     form_logIn: FormGroup;
     message = '';
     noEncontrado: boolean | undefined;
+    captchaToken = '';
+
 constructor (private _logIn_service : LogInService , private router:Router,
   private formb:FormBuilder, private route: ActivatedRoute, private toastr:ToastrService){
 
@@ -55,6 +58,10 @@ irAlMenu():void{
    if (!this.noEncontrado) {this.router.navigate(['../menu'], { relativeTo: this.route });}
 }
 
+  onCaptchaResolved(token: any): void {
+    console.log('Captcha token:', token);
+    this.captchaToken = token;
+  }
 
 
 }

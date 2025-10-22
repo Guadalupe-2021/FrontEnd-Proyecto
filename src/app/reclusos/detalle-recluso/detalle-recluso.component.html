@@ -26,12 +26,12 @@
       <app-modificar-condena [condena]="condena"></app-modificar-condena>
     </div>
   </div>
-  <!--
-    <div *ngIf="selected_value===Actividades">
-      <div *ngFor="let cactividad of recluso.actividades" class="actividad-constainer">
-
-      </div>
+  <div *ngIf="selected_value==='actividades'">
+    <div *ngFor="let actividad of recluso.actividades" class="actividad-constainer">
+      <app-formulario-actividad [actividad]="actividad"></app-formulario-actividad>
     </div>
+  </div>
+  <!--
       <div *ngIf="selected_value===Talleres">
         <div *ngFor="let taller of recluso.talleres" class="taller-constainer">
 

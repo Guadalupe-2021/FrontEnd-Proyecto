@@ -5,11 +5,12 @@ import { IRecluso } from '../../shared/entity.interfaces.js';
 import { ModificarReclusoComponent } from '../modificar-recluso/modificar-recluso.component.js';
 import { NgFor, NgIf } from '@angular/common';
 import { ModificarCondenaComponent } from '../../condena/modificar-condena/modificar-condena.component.js';
+import { FormularioActividadComponent } from '../../actividades/formulario-actividad/formulario-actividad.component.js';
 
 @Component({
   selector: 'app-detalle-recluso',
   standalone: true,
-  imports: [ModificarReclusoComponent,NgIf,NgFor,ModificarCondenaComponent],
+  imports: [ModificarReclusoComponent,NgIf,NgFor,ModificarCondenaComponent,FormularioActividadComponent],
   templateUrl: './detalle-recluso.component.html',
   styleUrl: './detalle-recluso.component.css'
 })

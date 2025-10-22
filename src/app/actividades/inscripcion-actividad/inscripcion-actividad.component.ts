@@ -19,6 +19,7 @@ export class InscripcionActividadComponent implements OnInit{
   reclusos!:IRecluso[]
   mostrar_recluso = false
   recluso_buscado !: IRecluso
+  mostrar_buscador = false
 
   constructor(
     private _service_recluso:ReclusosService,
@@ -47,7 +48,7 @@ eliminarInscripcion(cod:number|undefined){
       this._service_recluso.inscripcionActividad(rec.cod_recluso,
         {actividad_data:this.actividad,eliminar:true}).subscribe({
           next:(data)=>{
-            this.toastr.success('Inscripcion Eliminada')
+            this.toastr.info('Recluso Eliminado de Actividad')
             this.actividad.reclusos?.splice(idx,1) // eliminar en front
             console.log(data)
           },error:(e)=>{
@@ -57,7 +58,6 @@ eliminarInscripcion(cod:number|undefined){
         })
     }
     })
-  //this.actividad.reclusos?.filter((x:IRecluso)=>x.cod_recluso===cod)
 }
 
 inscribirRecluso(){
@@ -73,6 +73,7 @@ inscribirRecluso(){
       next: (data)=>{
         this.toastr.success('Recluso Inscripto')
         this.actividad.reclusos?.push(this.recluso_buscado)  // agregar en front
+        this.mostrar_recluso = false
       },error: (e)=>{
         this.toastr.error(e)
         console.log(e)
@@ -80,7 +81,7 @@ inscribirRecluso(){
     })
   }
 }
-console.log(this.actividad)
+
 }
 
 
@@ -92,6 +93,10 @@ mostrarRecluso( recluso:IRecluso){
   }else{
     this.toastr.error('Recluso No Encontrado')
   }
+}
+
+mostrarBuscador(){
+  this.mostrar_buscador = !this.mostrar_buscador
 }
 
 
