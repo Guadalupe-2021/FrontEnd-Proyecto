@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { InscripcionActividadComponent } from '../inscripcion-actividad/inscripcion-actividad.component.js';
+import { InscripcionActividadComponent } from '../inscripcion-actividad/inscripcion-actividad.component';
 import { IActividad } from '../../shared/entity.interfaces.js';
-import { ActividadService } from '../actividad.service.js';
+import { ActividadService } from '../actividad.service';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 

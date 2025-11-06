@@ -3,8 +3,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { GuardiasService } from '../guardias.service.js';
-import { IGuardia } from '../../shared/entity.interfaces.js';
+import { GuardiasService } from '../guardias.service';
+import { IGuardia } from '../../shared/entity.interfaces';
 
 @Component({
   selector: 'app-formulario-guardia',

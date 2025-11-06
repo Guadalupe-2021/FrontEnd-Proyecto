@@ -1,10 +1,10 @@
 import { NgFor, NgIf, TitleCasePipe } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { IActividad, IRecluso } from '../../shared/entity.interfaces.js';
-import { ReclusosService } from '../../reclusos/reclusos.service.js';
+import { ReclusosService } from '../../reclusos/reclusos.service';
 import { ToastrService } from 'ngx-toastr';
-import { BuscarReclusosComponent } from '../../reclusos/buscar-reclusos/buscar-reclusos.component.js';
-import { ActividadService } from '../actividad.service.js';
+import { BuscarReclusosComponent } from '../../reclusos/buscar-reclusos/buscar-reclusos.component';
+import { ActividadService } from '../actividad.service';
 
 @Component({
   selector: 'app-inscripcion-actividad',

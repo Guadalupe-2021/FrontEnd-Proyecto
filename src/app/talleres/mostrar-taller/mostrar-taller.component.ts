@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TallerService } from '../taller.service.js';
+import { TallerService } from '../taller.service';
 
 
 @Component({

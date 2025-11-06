@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { TallerService } from '../taller.service.js';
+import { TallerService } from '../taller.service';
 
 
 @Component({

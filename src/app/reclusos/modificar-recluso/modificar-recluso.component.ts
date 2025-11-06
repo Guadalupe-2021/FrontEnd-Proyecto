@@ -1,8 +1,8 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { IRecluso } from '../../shared/entity.interfaces.js';
+import { IRecluso } from '../../shared/entity.interfaces';
 import { ToastrService } from 'ngx-toastr';
-import { ReclusosService } from '../reclusos.service.js';
-import { FormularioReclusoComponent } from '../formulario-recluso/formulario-recluso.component.js';
+import { ReclusosService } from '../reclusos.service';
+import { FormularioReclusoComponent } from '../formulario-recluso/formulario-recluso.component';
 import { NgFor } from '@angular/common';
 
 @Component({

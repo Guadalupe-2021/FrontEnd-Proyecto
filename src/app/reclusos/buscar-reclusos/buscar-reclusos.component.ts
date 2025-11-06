@@ -1,10 +1,10 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { ReclusosService } from '../reclusos.service.js';
+import { ReclusosService } from '../reclusos.service';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { DatePipe, NgIf } from '@angular/common';
 import { IRecluso } from '../../shared/entity.interfaces.js';
 import { ToastrService } from 'ngx-toastr';
-import { ModificarReclusoComponent } from '../modificar-recluso/modificar-recluso.component.js';
+import { ModificarReclusoComponent } from '../modificar-recluso/modificar-recluso.component';
 
 @Component({
   selector: 'app-buscar-reclusos',

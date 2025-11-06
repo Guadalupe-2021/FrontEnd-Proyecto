@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AltaActividadComponent } from './alta-actividad.component';
+import { FormularioActividadComponent } from '../formulario-actividad/formulario-actividad.component';
 
 describe('AltaActividadComponent', () => {
   let component: AltaActividadComponent;
@@ -8,7 +9,7 @@ describe('AltaActividadComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AltaActividadComponent]
+      imports: [AltaActividadComponent,FormularioActividadComponent]
     })
     .compileComponents();
 

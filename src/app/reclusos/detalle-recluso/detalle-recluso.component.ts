@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ReclusosService } from '../reclusos.service.js';
+import { ReclusosService } from '../reclusos.service';
 import { ActivatedRoute } from '@angular/router';
 import { IRecluso } from '../../shared/entity.interfaces.js';
-import { ModificarReclusoComponent } from '../modificar-recluso/modificar-recluso.component.js';
+import { ModificarReclusoComponent } from '../modificar-recluso/modificar-recluso.component';
 import { NgFor, NgIf } from '@angular/common';
-import { ModificarCondenaComponent } from '../../condena/modificar-condena/modificar-condena.component.js';
-import { FormularioActividadComponent } from '../../actividades/formulario-actividad/formulario-actividad.component.js';
+import { ModificarCondenaComponent } from '../../condena/modificar-condena/modificar-condena.component';
+import { FormularioActividadComponent } from '../../actividades/formulario-actividad/formulario-actividad.component';
 
 @Component({
   selector: 'app-detalle-recluso',

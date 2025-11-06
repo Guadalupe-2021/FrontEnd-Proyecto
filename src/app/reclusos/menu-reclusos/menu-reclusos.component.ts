@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { BuscarReclusosComponent } from '../buscar-reclusos/buscar-reclusos.component.js';
-import { MostrarReclusosComponent } from '../mostrar-reclusos/mostrar-reclusos.component.js';
+import { BuscarReclusosComponent } from '../buscar-reclusos/buscar-reclusos.component';
+import { MostrarReclusosComponent } from '../mostrar-reclusos/mostrar-reclusos.component';
 import { IRecluso } from '../../shared/entity.interfaces.js';
 import { NgIf } from '@angular/common';
-import { ModificarReclusoComponent } from '../modificar-recluso/modificar-recluso.component.js';
+import { ModificarReclusoComponent } from '../modificar-recluso/modificar-recluso.component';
 
 @Component({
   selector: 'app-menu-reclusos',

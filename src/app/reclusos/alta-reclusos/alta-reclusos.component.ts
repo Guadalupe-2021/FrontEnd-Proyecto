@@ -1,10 +1,10 @@
 import { Component, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import {  FormGroup, FormsModule, ReactiveFormsModule, Validators,FormBuilder } from '@angular/forms';
-import { ReclusosService } from '../reclusos.service.js';
+import { ReclusosService } from '../reclusos.service';
 
 import { CommonModule, NgFor } from '@angular/common';
-import { FormularioReclusoComponent } from '../formulario-recluso/formulario-recluso.component.js';
-import { FormularioCondenaComponent } from '../../condena/formulario-condena/formulario-condena.component.js';
+import { FormularioReclusoComponent } from '../formulario-recluso/formulario-recluso.component';
+import { FormularioCondenaComponent } from '../../condena/formulario-condena/formulario-condena.component';
 import { ICondena, IRecluso } from '../../shared/entity.interfaces.js';
 import { ToastrService } from 'ngx-toastr';
 

@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { ToastrService } from 'ngx-toastr';
 import { DatePipe, NgIf } from '@angular/common';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { ReclusosService } from '../reclusos.service.js';
+import { ReclusosService } from '../reclusos.service';
 
 @Component({
   selector: 'app-formulario-recluso',

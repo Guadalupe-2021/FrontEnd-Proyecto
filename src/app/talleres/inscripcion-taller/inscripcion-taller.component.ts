@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { TallerService } from '../taller.service.js';
+import { TallerService } from '../taller.service';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ReclusosService } from '../../reclusos/reclusos.service.js';
+import { ReclusosService } from '../../reclusos/reclusos.service';
 
 @Component({
   selector: 'app-inscripcion-taller',

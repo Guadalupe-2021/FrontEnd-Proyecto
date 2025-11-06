@@ -1,11 +1,11 @@
 import { Component, Input, OnInit} from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { GuardiasService } from '../guardias.service.js';
+import { GuardiasService } from '../guardias.service';
 import { IGuardia } from '../../shared/entity.interfaces.js';
 import { ToastrService } from 'ngx-toastr';
 import {  Router } from '@angular/router';
 import { DatePipe, NgFor, NgIf } from '@angular/common';
-import { FormularioGuardiaComponent } from '../formulario-guardia/formulario-guardia.component.js';
+import { FormularioGuardiaComponent } from '../formulario-guardia/formulario-guardia.component';
 
 @Component({
   selector: 'app-modificar-guardia',

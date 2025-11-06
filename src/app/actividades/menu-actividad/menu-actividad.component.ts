@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { AltaActividadComponent } from '../alta-actividad/alta-actividad.component.js';
-import { MostrarActividadComponent } from '../mostrar-actividad/mostrar-actividad.component.js';
+import { AltaActividadComponent } from '../alta-actividad/alta-actividad.component';
+import { MostrarActividadComponent } from '../mostrar-actividad/mostrar-actividad.component';
 
 @Component({
   selector: 'app-menu-actividad',

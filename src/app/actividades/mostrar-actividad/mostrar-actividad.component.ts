@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActividadService } from '../actividad.service.js';
+import { ActividadService } from '../actividad.service';
 import { NgFor, NgIf } from '@angular/common';
-import { FormularioActividadComponent } from '../formulario-actividad/formulario-actividad.component.js';
+import { FormularioActividadComponent } from '../formulario-actividad/formulario-actividad.component';
 import { IActividad } from '../../shared/entity.interfaces.js';
 import { ToastrService } from 'ngx-toastr';
-import { ModificarActividadComponent } from '../modificar-actividad/modificar-actividad.component.js';
+import { ModificarActividadComponent } from '../modificar-actividad/modificar-actividad.component';
 
 @Component({
   selector: 'app-mostrar-actividad',

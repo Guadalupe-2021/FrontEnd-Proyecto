@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { ModificarReclusoComponent } from '../modificar-recluso/modificar-recluso.component.js';
+import { ModificarReclusoComponent } from '../modificar-recluso/modificar-recluso.component';
 import { NgFor } from '@angular/common';
-import { IRecluso } from '../../shared/entity.interfaces.js';
-import { ReclusosService } from '../reclusos.service.js';
+import { IRecluso } from '../../shared/entity.interfaces';
+import { ReclusosService } from '../reclusos.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({

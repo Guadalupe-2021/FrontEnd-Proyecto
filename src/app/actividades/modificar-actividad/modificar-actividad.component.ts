@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild, viewChild } from '@angular/core';
-import { FormularioActividadComponent } from '../formulario-actividad/formulario-actividad.component.js';
+import { FormularioActividadComponent } from '../formulario-actividad/formulario-actividad.component';
 import { IActividad } from '../../shared/entity.interfaces.js';
-import { ActividadService } from '../actividad.service.js';
+import { ActividadService } from '../actividad.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({

@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ICondena } from '../../shared/entity.interfaces.js';
-import { CondenasService } from '../condenas.service.js';
+import { CondenasService } from '../condenas.service';
 import { ToastrService } from 'ngx-toastr';
-import { FormularioCondenaComponent } from '../formulario-condena/formulario-condena.component.js';
+import { FormularioCondenaComponent } from '../formulario-condena/formulario-condena.component';
 
 @Component({
   selector: 'app-modificar-condena',

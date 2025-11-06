@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SectorService } from '../../sector/sector.service.js';
+import { SectorService } from '../../sector/sector.service';
 import { RouterLink , ActivatedRoute, Router} from '@angular/router';
 
 @Component({

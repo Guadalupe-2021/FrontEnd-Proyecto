@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SectorService } from '../sector.service.js';
+import { SectorService } from '../sector.service';
 import { ActivatedRoute } from '@angular/router';
 
 

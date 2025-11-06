@@ -1,9 +1,9 @@
 import {  Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { MenuTurnosComponent } from '../menu-turnos/menu-turnos.component.js';
-import { MostrarCeldasComponent } from '../mostrar-celdas/mostrar-celdas.component.js';
+import { MenuTurnosComponent } from '../menu-turnos/menu-turnos.component';
+import { MostrarCeldasComponent } from '../mostrar-celdas/mostrar-celdas.component';
 import { NgIf } from '@angular/common';
-import { BotonAtrasComponent } from '../../boton-atras/boton-atras.component.js';
+import { BotonAtrasComponent } from '../../boton-atras/boton-atras.component';
 
 @Component({
   selector: 'app-detalle-sector',

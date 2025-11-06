@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterOutlet} from '@angular/router';
-import { BotonAtrasComponent } from './boton-atras/boton-atras.component.js';
-import { NavBarComponent } from './nav-bar/nav-bar.component.js';
+import { BotonAtrasComponent } from './boton-atras/boton-atras.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { NgIf } from '@angular/common';
 
 @Component({

@@ -3,7 +3,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { IActividad } from '../../shared/entity.interfaces.js';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ActividadService } from '../actividad.service.js';
+import { ActividadService } from '../actividad.service';
 
 @Component({
   selector: 'app-formulario-actividad',

@@ -2,7 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FormsModule } from '@angular/forms'; 
 import { RouterLink, Router, ActivatedRoute} from '@angular/router';
-import { LogInService } from './log-in.service.js';
+import { LogInService } from './log-in.service';
 import { ToastrService } from 'ngx-toastr';
 import { RecaptchaModule } from "ng-recaptcha";
 

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { GuardiasService } from '../guardias.service.js';
+import { GuardiasService } from '../guardias.service';
 import { IGuardia } from '../../shared/entity.interfaces.js';
 import { DatePipe, NgFor, NgIf } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
-import { ModificarGuardiaComponent } from '../modificar-guardia/modificar-guardia.component.js';
+import { ModificarGuardiaComponent } from '../modificar-guardia/modificar-guardia.component';
 
 
 

@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ActividadService } from '../actividad.service.js';
-import { FormularioActividadComponent } from '../formulario-actividad/formulario-actividad.component.js';
+import { ActividadService } from '../actividad.service';
+import { FormularioActividadComponent } from '../formulario-actividad/formulario-actividad.component';
 import { IActividad } from '../../shared/entity.interfaces.js';
 import { NgIf } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';

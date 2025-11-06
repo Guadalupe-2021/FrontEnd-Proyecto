@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { BuscarGuardiaComponent } from '../buscar-guardia/buscar-guardia.component.js';
-import { AltaGuardiaComponent } from '../alta-guardia/alta-guardia.component.js';
-import { MostrarGuardiaComponent } from '../mostrar-guardia/mostrar-guardia.component.js';
+import { BuscarGuardiaComponent } from '../buscar-guardia/buscar-guardia.component';
+import { AltaGuardiaComponent } from '../alta-guardia/alta-guardia.component';
+import { MostrarGuardiaComponent } from '../mostrar-guardia/mostrar-guardia.component';
 
 @Component({
   selector: 'app-menu-guardia',

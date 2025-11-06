@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { GuardiasService } from '../guardias.service.js';
+import { GuardiasService } from '../guardias.service';
 import { IGuardia } from '../../shared/entity.interfaces.js';
 import { ToastrService} from 'ngx-toastr';
-import { FormularioGuardiaComponent } from '../formulario-guardia/formulario-guardia.component.js';
+import { FormularioGuardiaComponent } from '../formulario-guardia/formulario-guardia.component';
 import { DatePipe, NgIf } from '@angular/common';
 @Component({
   selector: 'app-alta-guardia',

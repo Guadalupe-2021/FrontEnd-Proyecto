@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { GuardiasService } from '../guardias.service.js';
+import { GuardiasService } from '../guardias.service';
 import { IGuardia } from '../../shared/entity.interfaces.js';
 import { DatePipe, NgIf } from '@angular/common';
-import { ModificarGuardiaComponent } from '../modificar-guardia/modificar-guardia.component.js';
+import { ModificarGuardiaComponent } from '../modificar-guardia/modificar-guardia.component';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
