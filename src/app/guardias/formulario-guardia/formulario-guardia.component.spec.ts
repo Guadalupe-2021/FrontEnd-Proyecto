@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FormularioGuardiaComponent } from './formulario-guardia.component';
+import { DatePipe } from '@angular/common';
 
 describe('FormularioGuardiaComponent', () => {
   let component: FormularioGuardiaComponent;
@@ -8,7 +9,8 @@ describe('FormularioGuardiaComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FormularioGuardiaComponent]
+      imports: [FormularioGuardiaComponent],
+      providers:[DatePipe]
     })
     .compileComponents();
 

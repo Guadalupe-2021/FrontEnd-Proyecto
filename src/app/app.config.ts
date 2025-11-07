@@ -13,6 +13,6 @@ export const appConfig: ApplicationConfig = {
      provideClientHydration(),provideHttpClient(),provideToastr({}),provideAnimations(),
       provideHttpClient(
     withInterceptors([authorizationInterceptor]),
-  )]
+  )],
 };
 

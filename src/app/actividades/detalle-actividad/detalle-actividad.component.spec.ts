@@ -8,7 +8,7 @@ describe('DetalleActividadComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DetalleActividadComponent]
+      providers: [DetalleActividadComponent]
     })
     .compileComponents();
 

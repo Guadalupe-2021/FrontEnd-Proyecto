@@ -24,20 +24,14 @@ describe('GuardiasService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
-   it('service.getOne(id) shoud return an obserbable with an IGuardia object',async (done: DoneFn) => {
-  const guardia_service$ = service.getOne('string');
+   it('service.getOne(id) shoud return an obserbable with an IGuardia object',async () => {
+  const guardia_service$ = service.getOne('1');
   const httpTesting = TestBed.inject(HttpTestingController);
   const servicePromise = firstValueFrom(guardia_service$);
   mock_guardia =  {cod_guardia: 1,nombre: 'John',apellido: 'Deep',dni: 44332212,fecha_ini_contrato: doDate('2014-04-03'),fecha_fin_contrato: undefined}
-  const req = httpTesting.expectOne('http://localhost:8080/guardias/', 'Request to get one Guardia');
-  const id_test = 'id_string'
+  const req = httpTesting.expectOne('http://localhost:8080/guardias/1', 'Request to get one Guardia');
   expect(req.request.method).toBe('GET');
   req.flush(mock_guardia);
   expect(await servicePromise).toEqual(mock_guardia);
   httpTesting.verify();
-  /*
-     service.getOne(id_test).subscribe((value) => {
-        expect(value).toBe(mock_guardia);
-        done();
-  });*/
 })})
