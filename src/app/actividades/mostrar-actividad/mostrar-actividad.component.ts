@@ -30,6 +30,7 @@ diasXActividades:{dia:string,actividades:IActividad[]}[] = [
   ngOnInit(){
     this._service_actividad.getActividades().subscribe({
       next:(data)=>{
+        console.log(data)
           data.forEach((actividad:IActividad)=>{
             this.addActividad(actividad)
           })

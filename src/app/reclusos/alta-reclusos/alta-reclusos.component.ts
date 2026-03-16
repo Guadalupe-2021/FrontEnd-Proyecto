@@ -66,7 +66,7 @@ addCondena(nueva_condena:ICondena){
 
 altaRecluso(){
   if(this.condenas.length===0){
-    this.toastr.error("Error: Para dar de alta el Recluso necesita almenos una condena")
+    this.toastr.error("Error: Para dar de alta el Recluso necesita al menos una condena")
   }else{
   this._service_recluso.postReclusoYCondenas(this.nuevo_recluso,this.condenas).subscribe({
     next: (data)=>{

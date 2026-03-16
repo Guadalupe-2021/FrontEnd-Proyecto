@@ -38,6 +38,9 @@ color: red;
 }
 
 .reclusos-inscriptos-container{
+  width: 20em;
+  justify-items: center;
+  justify-content: center;
   padding: 0.3em;
   background-color: rgb(230, 221, 221);
   border: 1px solid rgb(206, 198, 198);

@@ -46,6 +46,7 @@ export class FormularioActividadComponent implements OnInit{
 
   }
 ngOnInit(): void {
+  console.log("FORMULARIO ACTIVIDAD")
   this.actividad!=undefined? this.modificar_actividad=true : this.modificar_actividad=false
   if(this.actividad!=undefined){
     console.log(this.actividad)

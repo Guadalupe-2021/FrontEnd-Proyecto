@@ -30,6 +30,7 @@ ngOnInit(){
   this._service_recluso.getAllReclusos().subscribe({
     next: (data)=>{
       this.reclusos = data
+      console.log(this.reclusos)
     },
     error: (e)=>{
       console.log("error: ",e)
@@ -72,6 +73,7 @@ inscribirRecluso(){
        {actividad_data:this.actividad, eliminar:false}).subscribe({
       next: (data)=>{
         this.toastr.success('Recluso Inscripto')
+        console.log(this.actividad)
         this.actividad.reclusos?.push(this.recluso_buscado)  // agregar en front
         this.mostrar_recluso = false
       },error: (e)=>{

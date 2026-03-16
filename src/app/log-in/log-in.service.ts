@@ -9,14 +9,8 @@ export class LogInService {
 
 constructor(private http: HttpClient) {}  
 
-getUsuarios(){
-  return this.http.get<any | JSON>("http://localhost:8080/administradores")
-}
-getOneUsuario(id:any) {
-  return this.http.get<any | JSON>("http://localhost:8080/administradores/"+`${id}`)
-}
-postAdministradorLogIn(usuarioLogIn:{cod_administrador:number, contrasenia:string}){
-  return this.http.post<IServerResponse>("http://localhost:8080/administradores/logIn", usuarioLogIn)
+postLogIn(usuarioLogIn:{cod_administrador:number, contrasenia:string}){
+  return this.http.post<IServerResponse>("http://localhost:8080/log-in", usuarioLogIn)
 }
 
 }

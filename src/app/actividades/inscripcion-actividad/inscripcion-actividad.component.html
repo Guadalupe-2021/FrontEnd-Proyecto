@@ -1,4 +1,5 @@
 <body>
+  <div class="btn-nuevo-contaner">
   <button title="Inscribir Nuevo Recluso" class="btn-buscar-recluso"
   data-bs-toggle="collapse" data-bs-target="#collapseBuscador" aria-expanded="false" aria-controls="collapseBuscador" 
   (click)="mostrarBuscador()"
@@ -6,7 +7,7 @@
   <i class="bi bi-plus-lg alta-actividad-icono" *ngIf="!mostrar_buscador"></i>
   <i class="bi bi-dash-lg alta-actividad-icono" *ngIf="mostrar_buscador"></i>
 </button>
-  
+  </div>
   <div class="buscar-recluso collapse" id="collapseBuscador">
     <app-buscar-reclusos (sendRecluso)="mostrarRecluso($event)"></app-buscar-reclusos>
     <div class="recluso" *ngIf="mostrar_recluso" title="Inscribir Recluso" (click)="inscribirRecluso()">
@@ -18,7 +19,9 @@
 
 
   <div class="reclusos-inscriptos-container" *ngIf="(actividad!=undefined)">
-      <h5>Inscriptos</h5>
+      <h5>Inscriptos a {{actividad.nombre}} </h5>
+        <h5>Dia {{actividad.dia_de_la_semana.toUpperCase()}}</h5>
+        <h5>De {{actividad.hora_inicio}} hs. a {{actividad.hora_fin}} hs.</h5>
       <div class="recluso-inscripto" *ngFor="let recluso of actividad.reclusos">
         <p class="recluso-data">
           {{recluso.apellido | titlecase}},&nbsp;{{recluso.nombre | titlecase}}
@@ -27,6 +30,8 @@
            title="Eliminar"></i>
         </p>
       </div>
+      <h5>___________________________</h5>
+      <h5 *ngIf="(actividad.reclusos!=undefined)">Cupos Restantes {{(actividad.cant_cupos - actividad.reclusos.length)}}</h5>
   </div>
   <div *ngIf="(actividad===undefined)"> No Hay Inscriptos</div>
 </body>

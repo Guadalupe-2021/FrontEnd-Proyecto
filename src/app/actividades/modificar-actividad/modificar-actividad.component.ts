@@ -26,7 +26,6 @@ ngOnInit(): void {
 modificarActividad(actividad_modificada:IActividad){
   this._service_actividad.putActividad(this.actividad.cod_actividad as number,actividad_modificada).subscribe({
     next:(data)=>{
-      console.log(data)
       this.toastr.success(data.message)
       this.update.emit({id:this.actividad.cod_actividad,dia:this.form_actividad_comp.form_actividad.value.dia_de_la_semana})
     },

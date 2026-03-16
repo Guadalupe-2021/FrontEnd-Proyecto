@@ -3,10 +3,12 @@
   
 
 <div *ngIf="recluso_encontrado" class="recluso-all-container">
-  <div class="detalles-pena">
-    <h5>Recluso {{recluso.cod_recluso}}</h5>
-    <h5>{{recluso.pena?.fecha_ini}}</h5>
-    <h5>{{recluso.pena?.fecha_fin_real}}</h5>
+  <div class="detalles-pena" *ngIf="recluso.penas!=undefined">
+    <h5>Recluso {{recluso.cod_recluso}}: {{recluso.apellido}}, {{recluso.nombre}}</h5>
+    <h5 *ngIf="recluso.penas[recluso.penas.length-1]?.fecha_ini!=undefined">
+      {{recluso.penas[recluso.penas.length-1].fecha_ini}}</h5>
+    <h5 *ngIf="recluso.penas[recluso.penas.length-1]?.fecha_fin_estimada!=undefined">
+      {{recluso.penas[recluso.penas.length-1].fecha_fin_estimada}}</h5>
   </div>
   <div class="recluso-container">
     <app-modificar-recluso [recluso]="recluso"></app-modificar-recluso>
