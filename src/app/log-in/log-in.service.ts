@@ -9,7 +9,7 @@ export class LogInService {
 
 constructor(private http: HttpClient) {}  
 
-postLogIn(usuarioLogIn:{cod_administrador:number, contrasenia:string}){
+postLogIn(usuarioLogIn:{user_name:string, password:string}){
   return this.http.post<IServerResponse>("http://localhost:8080/log-in", usuarioLogIn)
 }
 

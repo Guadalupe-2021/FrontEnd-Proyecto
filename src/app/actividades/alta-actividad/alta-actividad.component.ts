@@ -26,10 +26,12 @@ export class AltaActividadComponent {
       next:(data)=>{
         this.toastr.success(data.message)
         this.form_actividad_comp.form_actividad.reset()
+        this.form_actividad_comp.form_actividad.enable()
       },
       error:(e)=>{
         if(e.status===409)this.toastr.error(e.error.message)
         if(e.status===500)this.toastr.error(e.message)
+        this.form_actividad_comp.form_actividad.enable()
       }
     })
   }

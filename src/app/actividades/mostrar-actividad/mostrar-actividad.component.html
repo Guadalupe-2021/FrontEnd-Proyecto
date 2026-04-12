@@ -6,7 +6,7 @@
 <body>
   <div class="dia_semana" *ngFor="let dia of diasXActividades">
     <div *ngIf="(dia.actividades.length>0)">
-      <h5>{{dia.dia}}</h5>
+      <h5 class="dia-semana">{{dia.dia}}</h5>
       <div class="actividad" *ngFor="let actividad of dia.actividades">
           <app-modificar-actividad [actividad]="actividad" (update)="actualizarArrayActividades($event)"
           (delete)="deleteActividad($event)"></app-modificar-actividad>

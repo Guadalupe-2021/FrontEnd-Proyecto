@@ -105,7 +105,7 @@ enviarValorFormulario(){
   console.log("crear actividad")
   console.log(this.form_actividad.value)
   this.sendFormActividadValue.emit(this.form_actividad.value)
-
+  this.form_actividad.disable()
 }
 
 changeHoraInicio(){
@@ -117,7 +117,6 @@ editarActividad(){
   this.form_actividad.enable()
 }
 eliminarActividad(){
-  console.log("eliminar actividad")
   this.deleteActividad.emit(this.actividad.cod_actividad)
 }
 

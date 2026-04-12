@@ -27,6 +27,11 @@ getAll():Observable<IGuardia[]> {
   console.log(headers.get("authorization"))
   return this.http.get<IGuardia[]>("http://localhost:8080/guardias/",{headers})
 }
+
+getAllGuardiasSinTurnoEnFecha(fecha:string):Observable<IGuardia[]> {
+  return this.http.get<IGuardia[]>("http://localhost:8080/guardias/turnos/"+`${fecha}`)
+}
+
 getOne(id:string):Observable<IGuardia> {
   return this.http.get<IGuardia>("http://localhost:8080/guardias/"+`${id}`)
 }
@@ -44,12 +49,3 @@ putFinalizarGuardia(x:any){
 }
 
 }
-
-
-
-
-const today = new Date();
-const day = today.getDate();
-const month = today.getMonth() + 1;
-let year = today.getFullYear();
-let finalDate = `${year}-${month}-${day}`

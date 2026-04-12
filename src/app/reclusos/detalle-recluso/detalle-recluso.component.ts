@@ -3,14 +3,15 @@ import { ReclusosService } from '../reclusos.service';
 import { ActivatedRoute } from '@angular/router';
 import { IRecluso } from '../../shared/entity.interfaces.js';
 import { ModificarReclusoComponent } from '../modificar-recluso/modificar-recluso.component';
-import { NgFor, NgIf } from '@angular/common';
+import { DatePipe, NgFor, NgIf } from '@angular/common';
 import { ModificarCondenaComponent } from '../../condena/modificar-condena/modificar-condena.component';
 import { FormularioActividadComponent } from '../../actividades/formulario-actividad/formulario-actividad.component';
 
 @Component({
   selector: 'app-detalle-recluso',
   standalone: true,
-  imports: [ModificarReclusoComponent,NgIf,NgFor,ModificarCondenaComponent,FormularioActividadComponent],
+  imports: [ModificarReclusoComponent,NgIf,NgFor,ModificarCondenaComponent,
+    FormularioActividadComponent, DatePipe],
   templateUrl: './detalle-recluso.component.html',
   styleUrl: './detalle-recluso.component.css'
 })

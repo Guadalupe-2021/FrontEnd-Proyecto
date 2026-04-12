@@ -1,33 +1,56 @@
+body{
+  border-radius:10px;
+  color: white;
+}
 .actividad {
   position: relative;
-  background-color: rgb(219, 215, 215);
+  background-color: black;
   text-align: center;
   width: 20em;
   margin-top: 0.2em;
   padding-bottom: 2.5em;
-  border-radius: 4%;
+  border-radius: 10px;
   border-width: 1px;
   border-style: solid;
   border-color: gray;
+  overflow: hidden;
 }
 .decripcion{
   display: flex;
+}
+
+.actividad:has(input:disabled){
+  opacity: 0.8;
 }
 
 .fielset-nombre{
   width: 70%;
 }
 .btn-save{
-  position:absolute;
   right:0.5em;
-  bottom: 0.5em;
 }
 .btn-inscripcion {
-  position: absolute;
   left: 0.5em;
-  bottom: 0.5em;
 }
-
+button{
+  border: 2px solid white;
+  position: absolute;
+  bottom: 0.5em;
+  border-radius: 20px;
+  background-color: black;
+  color: white;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-weight: 500;
+}
+button:hover:not(:disabled){
+  /*filter: invert(1);*/
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+select:hover{
+cursor: pointer;
+}
 .edit {
   display: inline-flex;
   position: absolute;
@@ -97,20 +120,18 @@ label {
   text-align: left;
 }
 
-input[type="text"],
-textarea,input,select {
-  background-color: rgb(219, 215, 215);
-}
-input[type="text"]{
-  border:none;
-  border: 0.5px solid grey;
-}
 input[type="text"]:focus {
-  outline: none;
-  border:none;
-  border-bottom: 2px solid grey;
+  border: 2px solid rgb(71, 121, 168);
 
 }
 textarea{
   height: 5em;
+  padding:8px;
+}
+
+input,textarea,select{
+      background-color: #040316;
+      color: #ffffff;
+      border: 1.2px solid #2a6de9;
+      border-radius: 6px;
 }

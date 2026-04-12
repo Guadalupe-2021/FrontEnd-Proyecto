@@ -5,6 +5,7 @@ export interface IGuardia {
   dni: number,
   fecha_ini_contrato: Date,
   fecha_fin_contrato?: Date,
+  turnos?: ITurno[];
 }
 
 export interface IRecluso {
@@ -54,11 +55,20 @@ export interface ICelda {
   }
 
 export interface ISector{
-    cod_sector:   number,
-    nombre:   string,
-    descripcion:  string,
+    cod_sector:   string;
+    nombre:   string;
+    descripcion:  string;
+    turnos ?: ITurno[];
   }
-
+export interface ITurno{
+    cod_turno?:number
+    fecha:   string,
+    tipo_turno:  string,
+    sector?:ISector;
+    guardia?:IGuardia;
+    cod_sector?:string;
+    cod_guardia?:number;
+  }
 
   export interface IServerResponse{
     status:number,

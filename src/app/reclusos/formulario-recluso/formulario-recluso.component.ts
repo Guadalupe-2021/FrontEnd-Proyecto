@@ -93,6 +93,10 @@ enviarFormValueForFreedom(){
 
 
 editarRecluso(){ 
+  if(this.recluso_liberado){
+    this.toastr.info("El recluso ya fue liberado. No se permiten notificaciones")
+    return
+  }
   console.log("editar recluso")
   if(this.recluso.penas!=undefined && this.recluso.penas[this.recluso.penas.length-1]?.fecha_fin_real!=undefined){
   this.form_recluso.enable()

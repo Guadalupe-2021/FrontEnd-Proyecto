@@ -24,8 +24,8 @@ constructor (private _logIn_service : LogInService , private router:Router,
   private formb:FormBuilder, private route: ActivatedRoute, private toastr:ToastrService){
 
   this.form_logIn = this.formb.group({
-    cod_administrador:["",Validators.required],
-    contrasenia:["",Validators.required],
+    user_name:["",Validators.required],
+    password:["",Validators.required],
  })
 }
 
@@ -42,12 +42,14 @@ validarUsuarios(){
       }
     },
     error: (e)=> {
+      console.log(e)
       this.noEncontrado = true
       if(e.status==404){
         this.toastr.error('Usuario no Encontrado')
       }
       if(e.status == 401){
-        this.toastr.error('Contraseña Invalida')
+        this.toastr.error(e.error.message)
+        console.log(e)
       }
     }
   });

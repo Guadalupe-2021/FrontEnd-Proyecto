@@ -2,6 +2,9 @@
 @import 'ngx-toastr/toastr';
 
 
+body{
+  background-color: #003453;
+}
 
 
 

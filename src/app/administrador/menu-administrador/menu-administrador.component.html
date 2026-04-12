@@ -1,0 +1,83 @@
+<p>menu-administrador works!</p>
+
+<div class="turnos-container"> <h6>Turnos</h6>
+<div class="turnos turno-maniana" (click)="selected()">M</div>
+<div class="turnos turno-tarde">T</div>
+<div class="turnos turno-noche">N</div>
+</div>
+<h2 class="titulo-cronograma-turnos">Cronograma de Turnos</h2>
+<table class="table table-dark" cdkDropList>
+  <thead>
+    <tr class="text-center align-middle">
+      <th scope="col">
+        <select class="form-select"
+         aria-label="multiple select"
+         [(ngModel)]="selectedDate" (change)="onDateChange($event)">
+          <option *ngFor="let date of dates" [value]="date">
+            {{ date }}
+          </option>
+        </select>
+      </th>
+      <th scope="col">Mañana</th>
+      <th scope="col">Tarde</th>
+      <th scope="col">Noche</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let sector of sectores_custom">
+      <th scope="row" class="text-center align-middle"><div class="sector-data">
+        {{sector.nombre}}</div></th>
+    <td class="row-data"
+    cdkDropList (cdkDropListDropped)="drop($event)"
+      [id]="'sector-' + sector.cod_sector + '-M'"
+      [cdkDropListData]="sector.guardiasTurnoManana"
+      >
+      <div class="guardia turno-data-guardia"
+      *ngFor="let guardia of sector.guardiasTurnoManana">
+        <div class="delete"
+         (click)="eliminarTurno(guardia.cod_guardia,sector.cod_sector,'M')"
+          title="Eliminar">
+          <i class="bi bi-x delete-icon"></i>
+        </div>
+      {{guardia.apellido}}, {{guardia.nombre}}
+      </div>
+    </td>
+
+      <td cdkDropList     class="row-data"    
+          cdkDropList (cdkDropListDropped)="drop($event)"
+          [id]="'sector-' + sector.cod_sector + '-T'"
+          [cdkDropListData]="sector.guardiasTurnoTarde"
+          class="cell ">
+      <div class="guardia turno-data-guardia" *ngFor="let guardia of sector.guardiasTurnoTarde">
+          {{guardia.apellido}}, {{guardia.nombre}}
+        <div class="delete" (click)="eliminarTurno(guardia.cod_guardia,sector.cod_sector,'T')" title="Eliminar">
+          <i class="bi bi-x delete-icon"></i>
+        </div>
+      </div>
+        </td>
+      <td cdkDropList class="row-data"
+      [id]="'sector-' + sector.cod_sector + '-N'"
+      [cdkDropListData]="sector.guardiasTurnoNoche"
+      (cdkDropListDropped)="drop($event)">
+      <div class="guardia turno-data-guardia" *ngFor="let guardia of sector.guardiasTurnoNoche">
+        {{guardia.apellido}}, {{guardia.nombre}}
+        <div class="delete" (click)="eliminarTurno(guardia.cod_guardia,sector.cod_sector,'N')" title="Eliminar">
+          <i class="bi bi-x delete-icon"></i>
+        </div>
+      </div>
+    </td>
+    </tr>
+  </tbody>
+</table>
+<h6 *ngIf="!(this.guardias.length===0)" class="sub-titulo-guardias"> Guardias Disponibles</h6>
+<h6 *ngIf="(this.guardias.length===0)" style="justify-self: center; color:azure;">
+   No Hay Guardias Disponibles</h6>
+<div class="guardias"
+  cdkDropList
+  id="guardias-list"
+  [cdkDropListData]="guardias"
+  [cdkDropListConnectedTo]="guardiasList"
+ (cdkDropListDropped)="drop($event)">
+<div class="guardia guardia-disponible" *ngFor="let guardia of guardias" cdkDrag >
+  {{guardia.apellido}}, {{guardia.nombre}}</div>
+</div>

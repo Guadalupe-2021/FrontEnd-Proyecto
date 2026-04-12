@@ -1,5 +1,6 @@
 body {
   font-family: cursive;
+  border-radius: 10px;
 }
 
 
@@ -9,4 +10,5 @@ body {
   text-align: center;
   width: 26em;
   margin-top: 0.2em;
+  border-radius:10px;
 }

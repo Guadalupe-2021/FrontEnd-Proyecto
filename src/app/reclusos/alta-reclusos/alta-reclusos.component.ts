@@ -76,11 +76,8 @@ altaRecluso(){
         this.resetForms()
     }
     ,error: (e)=>{
-      if(e.status == 409 ){
-        this.toastr.error("Conflict: Recluso ya Existe")
-      }else{
-        this.toastr.error(e.message)}
-        console.log(e)   
+      this.toastr.error(e.error.message)
+      console.log(e)
     }
   })
   }

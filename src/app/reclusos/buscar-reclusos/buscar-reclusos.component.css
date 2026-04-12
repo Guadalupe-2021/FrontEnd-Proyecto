@@ -4,6 +4,7 @@ body {
   justify-content: left;
   font-family: cursive;
   margin-bottom:0;
+  background-color: inherit;
 }
 
 .recluso-container{

@@ -3,8 +3,6 @@
 </head>
 
 <body>
-
-
   <div class="guardia">
     <form [formGroup]="form_guardia">
       <p *ngIf="guardia!=undefined">Cod. {{guardia.cod_guardia}}</p>
@@ -38,8 +36,8 @@
       </button>
 
       <button [disabled]="form_guardia.invalid || contrato_finalizado || form_guardia.disabled"
-      class="send-icon-container" (click)="enviarFormValue()" title="Enviar">
-        <i class="bi bi-send send-icon"></i>
+      class="btn-save" (click)="enviarFormValue()" title="Guardar">
+        Guardar
       </button>
       
     </form>

@@ -1,0 +1,166 @@
+body{
+  height: 100%;
+}
+.turnos-continer{
+  display: inline-block;
+  color: white;
+}
+.turnos{
+  border: 0.5px solid black;
+  border-radius:10px;
+  padding: .7em;
+  margin:1em;
+  font-weight: bold;
+}
+div{
+    display: inline-block;
+      color: white;
+}
+.guardia:hover{
+  cursor:pointer;
+}
+
+
+.turnos {
+  position: relative;
+  /* very important */
+  border: 0.5px solid black;
+  border-radius: 10px;
+  padding: 0.7em;
+  margin: 1em;
+  font-weight: bold;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.turnos::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 128, 0, 0);
+  /* invisible by default */
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.turnos:hover::after {
+  background-color: rgba(10, 173, 10, 0.25);
+  /* green tint */
+}
+
+/*
+div:hover {
+  background-color: rgba(0, 128, 0, 0.2);
+}
+
+div:hover {
+  border-color: #2e7d32;
+  box-shadow: 0 0 6px rgba(46, 125, 50, 0.6);
+}
+div:hover {
+  filter: hue-rotate(90deg);
+}
+  */
+
+
+td:hover{
+  background-color: rgb(83, 77, 77);
+}
+
+  .guardia{
+    border:.5px solid grey;
+    border-radius: 20px;
+    padding-left:.5em;
+    padding-right: 1.5em;
+    margin-bottom: 2px;
+      font-size: small;
+      overflow: hidden;
+  }
+
+
+ .row-data{
+    height: 4.6em;
+    max-height: 4.6em;
+    overflow: hidden;
+  }
+
+  .turno-data-guardia{
+    display:block;
+    max-width: 10em;
+  }
+    table {
+      table-layout: fixed;
+      width: 100%;
+    }
+    .sector-data{
+      justify-self: center;
+    }
+
+
+
+
+
+.turno-data-guardia{
+  position: relative;
+}
+.delete {
+  position: absolute;
+  font-size: 1.25em;
+  margin-top: 0;
+  padding-top: 0;
+    right: 0;
+    top:0;
+  font-weight: bold;
+  opacity:0;
+}
+
+.delete-icon {
+  display: inline-flex;
+  font-size: 1em;
+  margin-top: 0;
+  padding-top: 0;
+  height: 1em;
+  color: rgb(211, 208, 208);
+  cursor:pointer;
+}
+
+.delete-icon:hover {
+  color: red;
+  font-size: 1.1em;
+  cursor: pointer;
+}
+
+.turno-data-guardia:hover .delete{
+  opacity:1;
+}
+
+.titulo-cronograma-turnos{
+  color: azure;
+  justify-self: center;
+  margin-bottom: 1em;
+}
+.sub-titulo-guardias{
+  color:azure;
+  justify-self: center;
+}
+.guardias{
+  display: grid;
+  justify-content: center;
+  justify-self: center;
+}
+.guardia-disponible{
+  margin: 3px;
+}
+
+
+
+select{
+  background-color: #9cbbbb;
+  font-weight: 600;
+  border: none;
+}
+.form-select:focus{
+  outline: none;
+  box-shadow: 0 0 0 2px black;
+}

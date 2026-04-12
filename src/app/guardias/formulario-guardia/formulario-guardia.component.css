@@ -1,17 +1,22 @@
 
 body{
   font-size: 1em;
+  border-radius: 10px;
 }
 
-.send-icon-container{
+.btn-save{
 position: absolute;
 right: 15%;
 bottom: 0.5px;
+margin-bottom: 1px;
 width: 30%;
+border-radius: 20px;
+border:1px solid black;
+    font-weight: 500;
+    transition: background-color 1s ease; 
 }
-
-.send-icon{
-  font-size: 1.2em;
+.btn-save:not(:disabled):hover {
+  background-color: rgb(164 150 175 / 53%);
 }
 
 .endContract-icon-container{
@@ -19,11 +24,14 @@ position: absolute;
   left: 15%;
   bottom: 0.5px;
   width: 30%;
+border: 1px solid black;
+  margin-bottom: 1px;
+  border-radius: 20px;
+    transition: background-color 1s ease;
 }
-.endContract-icon{
-  font-size: 1.2em;
+.endContract-icon-container:not(:disabled):hover {
+  background-color: rgb(164 150 175 / 53%);
 }
-
 .edit {
   position: absolute;
   font-size: 1.25em;
@@ -44,6 +52,8 @@ position: absolute;
   width: 26em;
   margin-top: 0.2em;
   padding-bottom:1.5em;
+  border-radius:10px;
+  border: 1.5px solid grey;
 }
 
 i{

@@ -26,19 +26,21 @@
       </p>
 
 
-      <button class="plus-circle-icon-container" *ngIf="modificar_recluso && notClicked" (click)="mostrarDetalles()">
-        Detalles <i class="bi bi-plus-circle plus-circle-icon"></i>
+
+      <button *ngIf="modificar_recluso && notClicked" class="btn-detalles"
+        (click)="mostrarDetalles()" title="Detalles del recluso">
+        Detalles
       </button>
 
-      <button class="plus-circle-icon-container" *ngIf="modificar_recluso && !notClicked" 
+      <button class="btn-detalles" *ngIf="modificar_recluso && !notClicked" 
       (click)="enviarFormValueForFreedom()" [disabled]="recluso_liberado" title="Liberar Recluso">
         <i class="bi bi-lock-fill" *ngIf="!recluso_liberado"></i>
         <i class="bi bi-unlock" *ngIf="recluso_liberado"></i>
       </button>
 
       <button [disabled]="form_recluso.invalid || recluso_liberado || form_recluso.disabled"
-        class="send-icon-container" (click)="enviarFormReclusoValue()" title="Enviar Cambios">
-        <i class="bi bi-send send-icon"></i>
+        class="btn-save" (click)="enviarFormReclusoValue()" title="Enviar Cambios">
+        Guardar
       </button>
 
     </form>

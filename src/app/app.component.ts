@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterOutlet} from '@angular/router';
+import { NavigationEnd, Router, RouterOutlet} from '@angular/router';
 import { BotonAtrasComponent } from './boton-atras/boton-atras.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { NgIf } from '@angular/common';
@@ -14,8 +14,18 @@ import { NgIf } from '@angular/common';
 export class AppComponent implements OnInit{
   isLoginPage = false
   title = 'Libertadnt-FrontEnd'
-
-  constructor(private router:Router){}
+  constructor(private router:Router){
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        document.body.className = '';
+       console.log(event.url)
+        if (event.url.includes('login')) {
+          //document.body.classList.add('login-bg');
+          console.log(" in login")
+        }
+      }
+    });
+  }
 
 ngOnInit(){
   this.router.events.subscribe(()=>{

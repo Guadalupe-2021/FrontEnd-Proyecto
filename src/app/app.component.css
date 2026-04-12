@@ -1,3 +1,7 @@
+
 .toast-top-right {
   position: fixed !important;
+}
+.router-outlet{
+  background-color: #003453;
 }

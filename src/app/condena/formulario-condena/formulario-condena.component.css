@@ -1,3 +1,6 @@
+body{
+  border-radius:10px;
+}
 .condena {
   position: relative;
   background-color: rgb(219, 215, 215);
@@ -5,12 +8,8 @@
   width: 26em;
   /*margin-top: 0.2em;*/
   padding-bottom: 1.5em;
-  border-radius: 4%;
-  border-top-left-radius:0;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+  border-radius: 10px;
   border-width: 1px;
-  border-left-width: 0;
   border-style: solid;
   border-color: gray;
   margin-bottom: 0px;

@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ISector, IServerResponse, ITurno } from '../shared/entity.interfaces.js';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SectorService {
 
-  // readonly api_url ='https://jsonplaceholder.typicode.com/posts'
-  // readonly celda_url ='https://jsonplaceholder.typicode.com/users/'
 messageService: any;
 sectores:any
 sector:any
@@ -41,22 +41,20 @@ getCeldasDSeSector(id:any) {
 
 
 // TURNOS
-getTurnosDeSector(cod_sector:any) {
-  return this.http.get<any | JSON>("http://localhost:8080/sectores/" + `${cod_sector}` + "/turnos/")
+getAllSectoresConTurnosPorFecha(fecha_turnos:string = (new Date()).toISOString().split("T")[0])
+:Observable<ISector[]> {
+  console.log("Fecha Turnos: ", fecha_turnos)
+  return this.http.get<ISector[]>("http://localhost:8080/sectores/" + `${fecha_turnos}/`)
 }
-deleteOneTurno(cod_sector:any) {
-  return this.http.delete<any | JSON>("http://localhost:8080/turnos/"+`${cod_sector}`)
-}
-postTurno(uActual:any){
-  return this.http.post<any| JSON>("http://localhost:8080/turnos",uActual)
-}
-putBajaTurno(cod_guardia:any,cod_sector:any,turno:any){
-  let respuesta={
-    cod_guardia: cod_guardia,
-    cod_sector: cod_sector,
-    turno: turno}
-  console.log(respuesta)
-  return this.http.put<any | JSON>("http://localhost:8080/turnos",respuesta)
+  getAllTurnosBySectorAndDate(fecha:string = new Date().toISOString()):Observable<ITurno[]>{
+    return this.http.get<ITurno[]>("http://localhost:8080/turnos/"+`cod_sector/`+`fecha`)
+  }
+
+
+// asistencia del guardia para el turno
+
+postTurno(turno:ITurno):Observable<IServerResponse>{
+  return this.http.post<IServerResponse>("http://localhost:8080/turnos",turno)
 }
 
 

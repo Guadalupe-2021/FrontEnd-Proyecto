@@ -1,5 +1,9 @@
+body{
+  background-color: #003453;
+}
 .alta-actividad-container{
   margin-top: 0.8em;
+  background-color: #003453;
 }
 
 .mostrar-actividades-container {

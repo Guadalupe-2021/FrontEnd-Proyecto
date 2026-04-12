@@ -8,10 +8,6 @@ import { Observable } from 'rxjs';
 })
 export class ReclusosService {
 
-  readonly api_recluso="https://jsonplaceholder.typicode.com/todos/"
-  readonly api_condena="https://jsonplaceholder.typicode.com/todos/"
-  readonly api_celda="https://jsonplaceholder.typicode.com/todos/"
-
 constructor(private http: HttpClient) {}  
 
 getAllReclusos():Observable<IRecluso[]>{
@@ -38,12 +34,6 @@ putLiberarRecluso(id:number,recluso_editado:IRecluso){
 }
 
 
-getOneCelda(id:number) {
-  return this.http.get<any | JSON>(this.api_celda+`${id}`);
-}
-getCelda() {
-  return this.http.get<any[] | JSON>(this.api_celda)
-}
 
 // INSCRIPCIONES A ACTIVIDADES
 inscripcionActividad(id:number|undefined, obj:{actividad_data:IActividad,eliminar:boolean}):Observable<IServerResponse>{

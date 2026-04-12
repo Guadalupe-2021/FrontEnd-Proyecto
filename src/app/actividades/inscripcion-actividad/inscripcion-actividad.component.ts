@@ -64,20 +64,23 @@ eliminarInscripcion(cod:number|undefined){
 inscribirRecluso(){
   if(this.actividad!=undefined){
   const recluso_inscripto = this.actividad.reclusos?.find((recluso)=>recluso.cod_recluso===this.recluso_buscado.cod_recluso)
-  
   if(recluso_inscripto){
     this.toastr.error('Recluso ya inscripto')
   }else{
+    if(this.actividad.reclusos!=undefined){
+      const cupos_disponibles = this.actividad.cant_cupos - this.actividad.reclusos.length
+      console.log("Cupos Disponibles: ", cupos_disponibles)
+      if(cupos_disponibles <= 0){this.toastr.info("No hay mas cupos disponibles"); return;} 
+    }
     // agregar en back
     this._service_recluso.inscripcionActividad(this.recluso_buscado.cod_recluso as number,
        {actividad_data:this.actividad, eliminar:false}).subscribe({
       next: (data)=>{
         this.toastr.success('Recluso Inscripto')
-        console.log(this.actividad)
         this.actividad.reclusos?.push(this.recluso_buscado)  // agregar en front
         this.mostrar_recluso = false
       },error: (e)=>{
-        this.toastr.error(e)
+        this.toastr.error(e.error.message)
         console.log(e)
       }
     })
