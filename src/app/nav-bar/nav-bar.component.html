@@ -7,25 +7,35 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" routerLink="menu/administrador">Admin</a>
-        <a class="nav-link" routerLink="menu/recluso">Reclusos</a>
-      <!--  
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" routerLink="menu/recluso"role="button"
-         data-bs-toggle="dropdown" aria-expanded="false">Reclusos</a>
-         
-        <ul class="dropdown-menu dropdown-menu-dark">
-          <li><a class="dropdown-item" routerLink="menu/recluso/alta-recluso">Alta</a></li>
-          <li><a class="dropdown-item" routerLink="menu/recluso/modificar-recluso">Modificar</a></li>
-          <li><a class="dropdown-item" routerLink="menu/recluso/liberar-recluso">Liberar</a></li>
-        </ul>
-      </li>
-      -->
-        <a class="nav-link" routerLink="menu/guardias">Guardias</a>
-        <a class="nav-link" routerLink="menu/turnos">Turnos</a>
-        <a class="nav-link" routerLink="menu/sector">Sectores</a>
-        <a class="nav-link" routerLink="menu/actividad">Actividades</a>
-        <a class="nav-link" (click)="logOut()">Log Out</a>
+        <a class="nav-link active" aria-current="page" routerLink="menu/administrador">
+          <i class="bi bi-person-gear"></i>
+          Administrador
+        </a>
+        
+        <a class="nav-link" routerLink="menu/recluso">
+          <i class="bi bi-person-lock"></i>
+          Reclusos
+        </a>
+        <a class="nav-link" routerLink="menu/guardias">
+          <i class="bi bi-shield-check"></i>
+          Guardias
+        </a>
+        <a class="nav-link" routerLink="menu/turnos">
+          <i class="bi bi-clock-history"></i>
+          Turnos
+        </a>
+        <a class="nav-link" routerLink="menu/sector">
+          <i class="bi bi-grid-3x3-gap-fill"></i>
+          Sectores
+        </a>
+        <a class="nav-link" routerLink="menu/actividad">
+          <i class="bi bi-person-arms-up"></i>
+          Actividades
+        </a>
+        <a class="nav-link" (click)="logOut()">
+          <i class="bi bi-box-arrow-right"></i>
+          Log Out
+        </a>
       </div>
     </div>
   </div>

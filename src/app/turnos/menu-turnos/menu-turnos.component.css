@@ -1,6 +1,40 @@
-*{
-  background-color: #003453;
-}
+
 body{
   background-color: #003453;
+}
+.turnos-continer {
+  display: inline-block;
+  color: white;
+}
+
+div {
+  display: inline-block;
+  color: white;
+}
+
+.turnos {
+  position: relative;
+  /* very important */
+  border: 0.5px solid black;
+  border-radius: 10px;
+  padding: 0.7em;
+  margin: 1em;
+  font-weight: bold;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.turnos::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 128, 0, 0);
+  /* invisible by default */
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.turnos:hover::after {
+  background-color: rgba(10, 173, 10, 0.25);
 }

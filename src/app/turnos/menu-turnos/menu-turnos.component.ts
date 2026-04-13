@@ -8,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './menu-turnos.component.css'
 })
 export class MenuTurnosComponent {
-
+selected(){
+  console.log("selected")
+}
 }

@@ -57,7 +57,7 @@ validarUsuarios(){
 }
 
 irAlMenu():void{
-   if (!this.noEncontrado) {this.router.navigate(['../menu'], { relativeTo: this.route });}
+   if (!this.noEncontrado) {this.router.navigate(['../menu/adminstrador'], { relativeTo: this.route });}
 }
 
   onCaptchaResolved(token: any): void {

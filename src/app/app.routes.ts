@@ -23,13 +23,12 @@ import { MostrarActividadComponent } from './actividades/mostrar-actividad/mostr
 import { MenuTurnosComponent } from './turnos/menu-turnos/menu-turnos.component.js';
 
 
-import { MenuSectorComponent } from './menu/menu-sector/menu-sector.component.js';
+import { MenuSectorComponent } from './sector/menu-sector/menu-sector.component.js';
 
 
 import { CrearTurnosComponent } from './sector/crear-turnos/crear-turnos.component.js';
 
 // MENU
-import { MenuComponent } from './menu/menu.component.js';
 import { MenuGuardiaComponent } from './guardias/menu-guardia/menu-guardia.component.js';
 import { MenuReclusosComponent } from './reclusos/menu-reclusos/menu-reclusos.component.js';
 import { MenuActividadComponent } from './actividades/menu-actividad/menu-actividad.component.js';
@@ -43,8 +42,7 @@ export const routes: Routes = [
     //log in
     {path: '',redirectTo: 'log-in',pathMatch:'full'},
     {path: 'log-in', component: LogInComponent},
-    //menu
-    {path: 'menu', component: MenuComponent},
+
     //usuario
   
 
