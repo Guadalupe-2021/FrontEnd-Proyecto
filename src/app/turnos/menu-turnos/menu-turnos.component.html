@@ -1,8 +1,37 @@
 <p>menu-administrador works!</p>
 
-<div class="turnos-container">
+<div class="div-selector-container turnos-container">
   <h6>Turnos</h6>
-  <div class="turnos turno-maniana" (click)="selected()">M</div>
-  <div class="turnos turno-tarde">T</div>
-  <div class="turnos turno-noche">N</div>
+  <div class="div-selector turnos turno-maniana"
+  [class.selected]="selectedTurno==='M'" (click)="selectTurno('M')">M</div>
+  <div class="div-selector turnos turno-tarde"
+  [class.selected]="selectedTurno==='T'" (click)="selectTurno('T')">T</div>
+  <div class="div-selector turnos turno-noche"
+  [class.selected]="selectedTurno==='N'" (click)="selectTurno('N')">N</div>
+</div>
+<div class="div-selector-container dias-semana-container">
+  <h6>Dias</h6>
+  <div class="div-selector dia-semana lunes"  title="Lunes"
+   (click)="selectWeekDays(1)" [class.selected]="selectedDays.includes(1)">L</div>
+  <div class="div-selector dia-semana martes" title="Martes" 
+  (click)="selectWeekDays(2)" [class.selected]="selectedDays.includes(2)">M</div>
+  <div class="div-selector dia-semana miercoles" title="Miercoles" 
+  (click)="selectWeekDays(3)" [class.selected]="selectedDays.includes(3)">M</div>
+  <div class="div-selector dia-semana jueves" title="Jueves" 
+  (click)="selectWeekDays(4)" [class.selected]="selectedDays.includes(4)">J</div>
+  <div class="div-selector dia-semana viernes" title="Viernes" 
+  (click)="selectWeekDays(5)" [class.selected]="selectedDays.includes(5)">V</div>
+  <div class="div-selector dia-semana sabado" title="Sabado" 
+  (click)="selectWeekDays(6)" [class.selected]="selectedDays.includes(6)">S</div>
+  <div class="div-selector dia-semana domingo" title="Domingo" 
+  (click)="selectWeekDays(0)" [class.selected]="selectedDays.includes(0)">D</div>
+</div>
+<div class="div-selector-container sectores-container">
+  <h6>Sectores</h6>
+  <div class="div-selector sector" *ngFor="let sector of sectores"
+  [title]="sector.nombre"
+   (click)="selectSector('sectot.cod_sector')">
+    {{sector.cod_sector}}
+  </div>
+  <button class="btn-crear-turnos">Crear Turnos</button>
 </div>

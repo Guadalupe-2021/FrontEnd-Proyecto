@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, effect, OnInit } from '@angular/core';
 import { ActividadService } from '../actividad.service';
 import { NgFor, NgIf } from '@angular/common';
 import { FormularioActividadComponent } from '../formulario-actividad/formulario-actividad.component';
@@ -25,9 +25,22 @@ diasXActividades:{dia:string,actividades:IActividad[]}[] = [
   { dia: 'Sabado', actividades:[] },
   { dia: 'Domingo', actividades:[] },
 ]
-  constructor (public _service_actividad : ActividadService, private toastr:ToastrService){}
 
+constructor (public  _service_actividad: ActividadService, private toastr:ToastrService){
+  effect(() => {
+    this._service_actividad.refresh();
+    this.cargarActividades();
+  });
+}
+  
   ngOnInit(){
+    console.log("initialized")
+  }
+  
+  cargarActividades(){
+    this.diasXActividades.forEach((dxa=>{
+      dxa.actividades = []
+    }))
     this._service_actividad.getActividades().subscribe({
       next:(data)=>{
         console.log(data)
@@ -42,10 +55,10 @@ diasXActividades:{dia:string,actividades:IActividad[]}[] = [
         }
       }
     })
-
+    
   }
-
-addActividad(actividad:IActividad){
+  
+  addActividad(actividad:IActividad){
   this.diasXActividades.forEach((diaXact)=>{
     if(diaXact.dia.toLowerCase()===actividad.dia_de_la_semana){
        diaXact.actividades.push(actividad)
@@ -71,4 +84,7 @@ deleteActividad(id:number,dia?:string){
 
 }
   
+
+
+
 }

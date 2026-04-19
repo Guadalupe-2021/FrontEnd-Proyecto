@@ -9,9 +9,8 @@ div{
   cursor:pointer;
 }
 
-
 td:hover{
-  background-color: rgb(83, 77, 77);
+  background-color: rgb(63, 64, 70);
 }
 
 .guardia{
@@ -33,7 +32,10 @@ td:hover{
 
 .turno-data-guardia{
   display:block;
-  max-width: 10em;
+  padding: 2px;
+  max-width: 15em;
+  width: 100%;
+  border-radius: 15px;
 }
 table {
   table-layout: fixed;
@@ -45,31 +47,36 @@ table {
 
 .turno-data-guardia{
   position: relative;
+  text-align: center;
+  justify-self: center;
+}
+.turno-data-guardia:hover {
+font-weight: 500;
+border:0.6px solid white;
 }
 .delete {
   position: absolute;
   font-size: 1.25em;
   margin-top: 0;
   padding-top: 0;
-    right: 0;
-    top:0;
+  right: 0;
+  top:0;
   font-weight: bold;
   opacity:0;
 }
 
 .delete-icon {
   display: inline-flex;
-  font-size: 1em;
+  font-size: 1.1em;
   margin-top: 0;
   padding-top: 0;
-  height: 1em;
-  color: rgb(211, 208, 208);
+filter: drop-shadow(0 0 0.5px currentColor);
+  color: #e38686;
   cursor:pointer;
 }
 
 .delete-icon:hover {
   color: red;
-  font-size: 1.1em;
   cursor: pointer;
 }
 
@@ -81,6 +88,7 @@ table {
   color: azure;
   justify-self: center;
   margin-bottom: 1em;
+  margin-top:1.1em;
 }
 .sub-titulo-guardias{
   color:azure;
@@ -98,9 +106,10 @@ table {
 
 
 select{
-  background-color: #9cbbbb;
+  background-color: #9cbbbb; /*#9fc2d7;*/
   font-weight: 600;
   border: none;
+  cursor: pointer;
 }
 .form-select:focus{
   outline: none;

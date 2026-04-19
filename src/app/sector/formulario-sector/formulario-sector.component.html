@@ -1,0 +1,31 @@
+<div class="row form-container alta-sector" [formGroup]="form_sector">
+  <h6 class="alta-sector-titulo">{{crear_o_editar}} SECTOR</h6>
+  <div class="col-md-2  input-container">
+    <input type="text" class="form-control codigo-sector" formControlName="cod_sector"
+      placeholder="Codigo" required [readonly]="isReadonly">
+    <div class="invalid-feedback invalid-cod_sector"
+     *ngIf="control_cod_sector.invalid && control_cod_sector.touched" style="font-size:0.5em;"
+      style="display: block;">
+      *Obligatorio: cada codigo posee 1-2 letras
+    </div>
+  </div>
+  <div class="col-md-3 input-container">
+    <input type="text" class="form-control nombre-sector" formControlName="nombre"
+      placeholder="Nombre del Sector"
+      required>
+    <div class="invalid-feedback invalid-nombre_sector"
+     *ngIf="control_nombre_sector.invalid && control_nombre_sector.touched" style="font-size:0.5em;"
+      style="display: block;">
+      *Obligatorio
+    </div>
+  </div>
+  <div class="col-md-3">
+    <textarea type="text" class="form-control" formControlName="descripcion"
+      placeholder="Descripción del Sector"
+      required></textarea>
+  </div>
+  <button class="btn-crear-sector" [disabled]="form_sector.invalid || form_sector.disabled"
+  [title]="btn_action" (click)="guardarSector()">
+    <i class="bi bi-plus-lg"></i>
+  </button>
+</div>

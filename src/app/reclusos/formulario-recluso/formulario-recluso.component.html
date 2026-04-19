@@ -6,7 +6,7 @@
 
   <div #elRecluso class="recluso">
     <form [formGroup]="form_recluso">
-      <p *ngIf="recluso!=undefined">Cod. {{recluso.cod_recluso}}</p>
+      <p *ngIf="recluso!=undefined" style="font-weight:600;">Cod. {{recluso.cod_recluso}}</p>
       <h5 *ngIf="recluso===undefined">Nuevo Recluso</h5>
       <p>
         <label>Nombre: </label>
@@ -28,12 +28,14 @@
 
 
       <button *ngIf="modificar_recluso && notClicked" class="btn-detalles"
-        (click)="mostrarDetalles()" title="Detalles del recluso">
+        (click)="mostrarDetalles()" title="Detalles del recluso"
+        [disabled]="form_recluso.invalid || form_recluso.disabled">
         Detalles
       </button>
 
       <button class="btn-detalles" *ngIf="modificar_recluso && !notClicked" 
-      (click)="enviarFormValueForFreedom()" [disabled]="recluso_liberado" title="Liberar Recluso">
+      (click)="enviarFormValueForFreedom()" [disabled]="recluso_liberado" title="Liberar Recluso"
+      [disabled]="form_recluso.invalid || form_recluso.disabled">
         <i class="bi bi-lock-fill" *ngIf="!recluso_liberado"></i>
         <i class="bi bi-unlock" *ngIf="recluso_liberado"></i>
       </button>

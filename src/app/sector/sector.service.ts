@@ -1,39 +1,47 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ISector, IServerResponse, ITurno } from '../shared/entity.interfaces.js';
+import { isPlatformServer } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SectorService {
 
-messageService: any;
-sectores:any
-sector:any
-celdas:any
-celda:any
-server_response:any
-constructor(private http: HttpClient) {
-  this.sector={nombre:String,cod_sector:Number,descipcion:String}
-  this.sectores= []
-  this.celda={capacidad:Number,cod_celda:Number,descipcion:String}
-  this.celdas= []
+constructor(private http: HttpClient) {}  
+sector!:ISector
+selectedSector = signal<ISector | null>(null);
+refresh = signal(0);
+sectorAgregado() {
+  this.refresh.update(v => v + 1);
+}
 
- }  
-private log(message: string) {
-  this.messageService.add(`GuaridaService: ${message}`);
+setSector(sector:ISector){
+  this.sector = sector
 }
-getSectores() {
-  return this.http.get<any | JSON>("http://localhost:8080/sectores")
+
+getSector(){
+  return this.sector
 }
+
+
+getAll():Observable<ISector[]> {
+  return this.http.get<ISector[]>("http://localhost:8080/sectores")
+}
+deleteOne(cod_sector:string):Observable<IServerResponse>{
+  return this.http.delete<IServerResponse>("http://localhost:8080/sectores/"+ cod_sector)
+}
+
 getOneSector(id:any) {
   return this.http.get<any | JSON>("http://localhost:8080/sectores/"+`${id}`)
 }
-postSector(uActual:any){
-  return this.http.post<any| JSON>("http://localhost:8080/sectores",uActual)
+postSector(sector:ISector):Observable<IServerResponse>{
+  return this.http.post<IServerResponse>("http://localhost:8080/sectores",sector)
 }
-
+putSector(sector:ISector, cod_sector:string):Observable<IServerResponse>{
+  return this.http.post<IServerResponse>("http://localhost:8080/sectores/"+cod_sector,sector)
+}
 // CELDAS
 getCeldasDSeSector(id:any) {
   return this.http.get<any | JSON>("http://localhost:8080/sectores/" + `${id}` + "/celdas/")
@@ -43,7 +51,6 @@ getCeldasDSeSector(id:any) {
 // TURNOS
 getAllSectoresConTurnosPorFecha(fecha_turnos:string = (new Date()).toISOString().split("T")[0])
 :Observable<ISector[]> {
-  console.log("Fecha Turnos: ", fecha_turnos)
   return this.http.get<ISector[]>("http://localhost:8080/sectores/" + `${fecha_turnos}/`)
 }
   getAllTurnosBySectorAndDate(fecha:string = new Date().toISOString()):Observable<ITurno[]>{

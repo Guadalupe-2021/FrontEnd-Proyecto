@@ -1,0 +1,109 @@
+body{
+  background-color: inherit;
+  color: white;
+}
+.sectores-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.sector{
+  position: relative;
+  border: 0.6px solid white;
+  border-radius: 5px;
+  display: inline-grid;
+  width: 14em;
+  height: 12em;
+  margin: 2em;
+  padding: 2em;
+  text-align: center;
+  color: aliceblue;
+  overflow: hidden;
+  justify-items: center;
+}
+
+.sector:hover{
+  color: white;
+  box-shadow: 0 0 0 0.6px white;
+  cursor: pointer;
+}
+.cod_sector{
+  position: absolute;
+  left: .4em;
+  top: .1em;
+}
+.delete{
+  position: absolute;
+  top: -5px;
+  right: 0;
+}
+.delete-icon {
+  font-size: x-large;
+}
+.delete-icon:hover{
+  color:red
+}
+
+.edit {
+  position: absolute;
+  top:2px;
+  right: 1.5em;
+}
+
+.edit-icon {
+  font-size: medium;
+}
+
+.edit-icon:hover {
+  color: green;
+  cursor: pointer;
+}
+
+p{
+  margin: 0;
+}
+h6{
+  font-size: 1.2em;
+}
+
+.mas-informacion {
+  position: absolute;
+  bottom: -10%;
+  /* start hidden below */
+  left: 0;
+  width: 100%;
+  height: 0;
+  background: rgba(9, 7, 27, 0.7);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: bottom 0.3s ease;
+  transition: height .5s cubic-bezier(0.83, 1.35, 0.3, 1.25);
+}
+
+/* hover effect */
+.sector:hover .mas-informacion {
+  bottom: 0;
+  height: 30%;
+  background-color: #556a89;
+  opacity: 0.7;
+  /* slide up */
+}
+
+.sector:hover .mas-informacion:hover{
+  opacity: 0.9;
+}
+
+i{
+  font-size:2.3em;
+  color: #2a47b7;
+  /*color: #3e529f;#445bb3*/
+}
+
+h6{
+  width: fit-content;
+  font-size: 1em;
+}

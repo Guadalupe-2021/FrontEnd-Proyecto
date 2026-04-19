@@ -2,6 +2,12 @@
 body{
   background-color: #003453;
 }
+.div-selector-container{
+  display: block;
+  margin-bottom: 1em;
+  margin-left: 1.5em;
+}
+
 .turnos-continer {
   display: inline-block;
   color: white;
@@ -12,7 +18,7 @@ div {
   color: white;
 }
 
-.turnos {
+.div-selector{
   position: relative;
   /* very important */
   border: 0.5px solid black;
@@ -22,9 +28,11 @@ div {
   font-weight: bold;
   color: white;
   transition: all 0.3s ease;
+  width: 2.5em;
+  text-align: center;
 }
 
-.turnos::after {
+.div-selector::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -35,6 +43,27 @@ div {
   cursor: pointer;
 }
 
-.turnos:hover::after {
+.div-selector:hover::after {
   background-color: rgba(10, 173, 10, 0.25);
+}
+
+.selected{
+  background-color: rgba(10, 173, 10, 0.4);
+  color: rgb(186, 255, 212);
+}
+
+.btn-crear-turnos{
+  border-radius: 20px;
+  border: 2px solid aliceblue;
+  background-color: inherit;
+  color: aliceblue;
+  font-weight: bold;
+  transition: background-color 0.5s ease,color 0.5s ease;
+}
+.btn-crear-turnos:hover {
+  border: 2px solid rgb(255, 255, 255);
+  background-color: inherit;
+  color: white;
+  color: black;
+  background-color: white;
 }

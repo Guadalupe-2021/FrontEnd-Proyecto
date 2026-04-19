@@ -12,6 +12,7 @@ label {
   line-height: 2.0rem;
   display: block;
   font-weight:600;
+  color: #4a4a57;
 }
 
 
@@ -37,8 +38,8 @@ input{
   justify-self: center;
   justify-items: center;
   justify-content: center;
-  border: 0.6px solid rgb(131, 165, 252);
-  border-radius: 1%;
+  border: 2px solid rgb(131, 165, 252);
+  border-radius: 3%;
   display: block;
   width: 20em;
   height: 21em;

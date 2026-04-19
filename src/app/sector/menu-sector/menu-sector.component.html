@@ -1,14 +1,25 @@
 <body>
-    
-
-<h2>Sectores:</h2>
-<div>
-    @for (sector of service.sectores.data; track $index) {
+    <app-formulario-sector></app-formulario-sector>
+<div class="sectores-container">
+    <div class="sector" *ngFor="let sector of sectores">
+        <h6>{{sector.nombre}}</h6>
+        <h6 class="cod_sector">{{sector.cod_sector}}</h6>
         <p></p>
-        <p>nombre: {{sector.nombre}}<br>descripcion: {{sector.descripcion}}<br>codigo de sector: {{sector.cod_sector}}<br></p>
+        <p>{{sector.descripcion}}</p>
+        <p *ngIf="sector.descripcion===null"> Sin Descripción</p>
         <p></p>
-        <button (click)="verDetalleSector(sector.cod_sector)">Mas Informacion</button>
-    }
+        <div class="delete" (click)="eliminarSector(sector.cod_sector)"
+         title="Eliminar">
+            <i class="bi bi-x delete-icon"></i>
+        </div>
+        <div class="edit" (click)="editarSector(sector)" title="Editar">
+            <i class="bi bi-pencil-square edit-icon"></i>
+        </div>
+        <div class="mas-informacion" (click)="verDetalleSector(sector.cod_sector)">
+            Mas Informacion
+        </div>
+    </div>
 </div>
+
 
 </body>

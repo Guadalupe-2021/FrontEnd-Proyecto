@@ -2,6 +2,7 @@
 body{
   justify-content: center;
   justify-items: center;
+  background-color: inherit;
 }
 
 .alta-recluso-btn-container{

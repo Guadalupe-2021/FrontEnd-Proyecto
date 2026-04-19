@@ -49,10 +49,15 @@ ngOnInit(){
     const d = new Date(today);
     d.setDate(today.getDate() + i);
     this.dates.push(d.toISOString().split('T')[0]); // yyyy-mm-dd
-    if(new Date().toISOString().split('T')[0] === this.dates[i]){
-      this.dates[i] = this.dates[i]+ ' (Hoy)'
-    }
+    //if(new Date().toISOString().split('T')[0] === this.dates[i]){
+    //  this.dates[i] = this.dates[i]+ ' (Hoy)'
+    //}
   }
+  for (let index = 0; index < this.dates.length; index++) {
+    const [year,month,day] = this.dates[index].split("-")
+    this.dates[index] = day + '-' + month + '-' + year
+  }
+  this.dates[10] = this.dates[10] + ' (Hoy)'
   this.selectedDate = this.dates[10]
 
     // sectores con guardias y turnos
@@ -128,9 +133,9 @@ drop(event: CdkDragDrop<any[]>) {
 
 onDateChange(event:Event){
   let fecha = (event.target as HTMLInputElement).value
-  this.fecha_cronograma = fecha
+  this.fecha_cronograma = this.formatDate(fecha)
   this.sectores_custom = []
-  this.getSectores(fecha)
+  this.getSectores(this.fecha_cronograma)
   this.getGuardias()
 }
 
@@ -173,18 +178,21 @@ eliminarTurno(cod_guardia:number|undefined,cod_sector:string|undefined,
         if(tipo_turno === 'M'){
           console.log("Turno mañana")
           sector.guardiasTurnoManana = sector.guardiasTurnoManana.filter(
-            (guardia)=>{ this.guardias.push(guardia)
+            (guardia)=>{ 
+              if(guardia.cod_guardia===cod_guardia)this.guardias.push(guardia)
               return guardia.cod_guardia!=cod_guardia } )
           
         }
         if(tipo_turno === 'T'){
           sector.guardiasTurnoTarde = sector.guardiasTurnoTarde.filter(
-            (guardia)=>{ this.guardias.push(guardia)
+            (guardia)=>{ 
+              if(guardia.cod_guardia===cod_guardia)this.guardias.push(guardia)
               return guardia.cod_guardia!=cod_guardia } )
         }
         if(tipo_turno === 'N'){
           sector.guardiasTurnoNoche = sector.guardiasTurnoNoche.filter(
-            (guardia)=>{ this.guardias.push(guardia)
+            (guardia)=>{ 
+              if(guardia.cod_guardia===cod_guardia)this.guardias.push(guardia)
               return guardia.cod_guardia!=cod_guardia } )
         }
       }
@@ -214,6 +222,13 @@ crearTurno(fecha:string,tipo_turno:string,cod_sector:string,cod_guardia:number){
     }
   })
 }
+
+formatDate(dateStr:string) {
+  if(dateStr.split(' ')[1]=' (Hoy)') dateStr = dateStr.split(' ')[0]
+  const [day, month, year] = dateStr.split('-');
+  return `${year}-${month}-${day}`;
+}
+
 
 }
 

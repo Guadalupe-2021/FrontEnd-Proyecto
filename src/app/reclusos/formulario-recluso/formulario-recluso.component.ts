@@ -53,7 +53,9 @@ ngOnInit() {
   console.log('recluso: ',this.recluso)
   if(this.recluso!=undefined){
   this.modificar_recluso = true
-  if(this.recluso.penas!=null && this.recluso.penas[this.recluso.penas.length-1]?.fecha_fin_real !=undefined) this.recluso_liberado=true
+  if(this.recluso.penas!=null && this.recluso.penas[0]?.fecha_fin_real !=null){
+    this.recluso_liberado=true
+  } 
   this.form_recluso.controls['nombre'].setValue(this.recluso.nombre)
   this.form_recluso.controls['apellido'].setValue(this.recluso.apellido)
   this.form_recluso.controls['dni'].setValue(this.recluso.dni)
@@ -93,15 +95,15 @@ enviarFormValueForFreedom(){
 
 
 editarRecluso(){ 
+  console.log(this.recluso_liberado)
   if(this.recluso_liberado){
     this.toastr.info("El recluso ya fue liberado. No se permiten notificaciones")
     return
   }
-  console.log("editar recluso")
-  if(this.recluso.penas!=undefined && this.recluso.penas[this.recluso.penas.length-1]?.fecha_fin_real!=undefined){
+  if(this.recluso.penas!=undefined && this.recluso.penas[0]?.fecha_fin_real===null){
   this.form_recluso.enable()
   }else{
-    this.toastr.error("El Recluso Ya Fue Liberado, No Es Posible Modificar")
+    this.toastr.error("Error Inesperado")
     console.log(this.recluso.penas)
   }
 

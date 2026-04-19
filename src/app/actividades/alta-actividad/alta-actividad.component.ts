@@ -18,7 +18,8 @@ export class AltaActividadComponent {
   mostrar_actividad = false
   @ViewChild(FormularioActividadComponent) form_actividad_comp!:FormularioActividadComponent
 
-  constructor (private _service_actividad : ActividadService, private toastr:ToastrService){}
+  constructor (private _service_actividad : ActividadService,
+     private toastr:ToastrService){}
 
   crearActividad(nueva_actividad:IActividad){
     console.log(nueva_actividad)
@@ -27,7 +28,8 @@ export class AltaActividadComponent {
         this.toastr.success(data.message)
         this.form_actividad_comp.form_actividad.reset()
         this.form_actividad_comp.form_actividad.enable()
-      },
+        this._service_actividad.actividadAgregada()
+      }, 
       error:(e)=>{
         if(e.status===409)this.toastr.error(e.error.message)
         if(e.status===500)this.toastr.error(e.message)
