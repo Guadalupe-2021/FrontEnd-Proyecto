@@ -1,37 +1,70 @@
-<p>menu-administrador works!</p>
-
+<div class="buscar-guardia-container">
+<app-buscar-guardia-dinamico></app-buscar-guardia-dinamico>
+</div>
+<div class="div-selector-container guardias-container">
+  <div class="categoria guardia-categoria">
+    <h6 *ngIf="selectedGuardias.length!==0">Guardias</h6>
+    <h6 *ngIf="selectedGuardias.length===0">Sin Guardias Seleccionados</h6>
+  </div>
+  <div class="options">
+    <div class="guardia" *ngFor="let guardia of selectedGuardias"
+      [class.selected]="true">
+      {{guardia.nombre}} {{guardia.apellido}} Cod. {{guardia.cod_guardia}}
+    </div>
+  </div>
+</div>
 <div class="div-selector-container turnos-container">
-  <h6>Turnos</h6>
-  <div class="div-selector turnos turno-maniana"
-  [class.selected]="selectedTurno==='M'" (click)="selectTurno('M')">M</div>
-  <div class="div-selector turnos turno-tarde"
-  [class.selected]="selectedTurno==='T'" (click)="selectTurno('T')">T</div>
-  <div class="div-selector turnos turno-noche"
-  [class.selected]="selectedTurno==='N'" (click)="selectTurno('N')">N</div>
+  <div class="categoria turno-categoria">
+    <h6>Turnos</h6><i id="example"
+    class="bi bi-info-circle" data-bs-toggle="tooltip"
+    data-bs-html="true"
+   title="
+    Turno Mañana: de 6:00 a 14:00 hs. <br>
+Turno Tarde: de 14:00 a 22:00 hs. <br>
+Turno Noche: de 22:00 a 6:00 hs."></i>
+  </div>
+  <div class="options">
+    <div class="div-selector turnos turno-maniana" title="Turno Mañana"
+    [class.selected]="selectedTurno==='M'" (click)="selectTurno('M')">M</div>
+    <div class="div-selector turnos turno-tarde" title="Turno Tarde"
+    [class.selected]="selectedTurno==='T'" (click)="selectTurno('T')">T</div>
+    <div class="div-selector turnos turno-noche" title="Turno Noche"
+    [class.selected]="selectedTurno==='N'" (click)="selectTurno('N')">N</div>
+  </div>
 </div>
 <div class="div-selector-container dias-semana-container">
-  <h6>Dias</h6>
-  <div class="div-selector dia-semana lunes"  title="Lunes"
-   (click)="selectWeekDays(1)" [class.selected]="selectedDays.includes(1)">L</div>
-  <div class="div-selector dia-semana martes" title="Martes" 
-  (click)="selectWeekDays(2)" [class.selected]="selectedDays.includes(2)">M</div>
-  <div class="div-selector dia-semana miercoles" title="Miercoles" 
-  (click)="selectWeekDays(3)" [class.selected]="selectedDays.includes(3)">M</div>
-  <div class="div-selector dia-semana jueves" title="Jueves" 
-  (click)="selectWeekDays(4)" [class.selected]="selectedDays.includes(4)">J</div>
-  <div class="div-selector dia-semana viernes" title="Viernes" 
-  (click)="selectWeekDays(5)" [class.selected]="selectedDays.includes(5)">V</div>
-  <div class="div-selector dia-semana sabado" title="Sabado" 
-  (click)="selectWeekDays(6)" [class.selected]="selectedDays.includes(6)">S</div>
-  <div class="div-selector dia-semana domingo" title="Domingo" 
-  (click)="selectWeekDays(0)" [class.selected]="selectedDays.includes(0)">D</div>
+  <div class="categoria turno-categoria">
+    <h6>Dias</h6><i class="bi bi-info-circle" data-bs-toggle="tooltip"
+    title="Seleccionar 5 días"></i>
+  </div>
+  <div class="options">
+    <div class="div-selector dia-semana lunes"  title="Lunes"
+    (click)="selectWeekDays(1)" [class.selected]="selectedDays.includes(1)">L</div>
+    <div class="div-selector dia-semana martes" title="Martes" 
+    (click)="selectWeekDays(2)" [class.selected]="selectedDays.includes(2)">M</div>
+    <div class="div-selector dia-semana miercoles" title="Miercoles" 
+    (click)="selectWeekDays(3)" [class.selected]="selectedDays.includes(3)">M</div>
+    <div class="div-selector dia-semana jueves" title="Jueves" 
+    (click)="selectWeekDays(4)" [class.selected]="selectedDays.includes(4)">J</div>
+    <div class="div-selector dia-semana viernes" title="Viernes" 
+    (click)="selectWeekDays(5)" [class.selected]="selectedDays.includes(5)">V</div>
+    <div class="div-selector dia-semana sabado" title="Sabado" 
+    (click)="selectWeekDays(6)" [class.selected]="selectedDays.includes(6)">S</div>
+    <div class="div-selector dia-semana domingo" title="Domingo" 
+    (click)="selectWeekDays(0)" [class.selected]="selectedDays.includes(0)">D</div>
+  </div>
 </div>
 <div class="div-selector-container sectores-container">
-  <h6>Sectores</h6>
-  <div class="div-selector sector" *ngFor="let sector of sectores"
-  [title]="sector.nombre"
-   (click)="selectSector('sectot.cod_sector')">
-    {{sector.cod_sector}}
+  <div class="categoria turno-categoria">
+  <h6>Sectores</h6><i class="bi bi-info-circle" data-bs-toggle="tooltip"
+   title="De no encontrarse lugar en el sector especificado, se buscará en otro respetando el turno"></i>
   </div>
-  <button class="btn-crear-turnos">Crear Turnos</button>
+   <div class="options">
+    <div class="div-selector sector" *ngFor="let sector of sectores"
+    [title]="sector.nombre" [class.selected]="selectedSector===sector.cod_sector"
+    (click)="selectSector(sector.cod_sector)">
+      {{sector.cod_sector}}
+    </div>
+  </div>
 </div>
+<button class="btn-crear-turnos" (click)="crearTurnos()">Crear Turnos</button>

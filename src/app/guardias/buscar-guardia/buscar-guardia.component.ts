@@ -35,13 +35,13 @@ definirIdentificador():void{
   this.identificador = (document.getElementById("selectorID") as HTMLInputElement).value
   if(this.identificador==='dni'){
     this.pattern = /^\d{8,}$/
-    this.title = "Please enter at least 8 digits"
+    this.title = "Ingresar al menos 8 digitos"
     this.form_buscar_guardia.setControl('id',this.formb.control('',[Validators.required]));
       
     }else if(this.identificador==='cod'){
       this.form_buscar_guardia.setControl('id',this.formb.control('', [Validators.required]));
         this.pattern = /^\d{1,7}$/
-        this.title = "Please enter between 1 and 7 digits"
+        this.title = "Ingesar entre 1 y 7 digitos"
       }
 }
 

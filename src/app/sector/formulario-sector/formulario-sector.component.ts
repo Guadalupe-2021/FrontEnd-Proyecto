@@ -1,9 +1,8 @@
 import { NgFor, NgIf } from '@angular/common';
-import { Component, effect, signal } from '@angular/core';
+import { Component, effect} from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SectorService } from '../sector.service.js';
 import { ToastrService } from 'ngx-toastr';
-import { ISector } from '../../shared/entity.interfaces.js';
 
 @Component({
   selector: 'app-formulario-sector',
@@ -17,12 +16,13 @@ export class FormularioSectorComponent {
   crear_o_editar = "NUEVO"
   isReadonly = false
   btn_action = "Crear Nuevo Sector"
-  constructor(private formb:FormBuilder,
+  constructor(
+    private formb:FormBuilder,
     private _service_sector:SectorService,
-  private toastr:ToastrService){
+    private toastr:ToastrService){
       this.form_sector = this.formb.group({
       cod_sector:["",[Validators.required,Validators.pattern(/^[a-zA-Z]+$/),
-        Validators.minLength(1),Validators.maxLength(2)]],
+                      Validators.minLength(1),Validators.maxLength(2)]],
       nombre:["",Validators.required],
       descripcion:["",Validators.required]
      })

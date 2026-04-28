@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IServerResponse, ITurno } from '../shared/entity.interfaces.js';
+import { IGuardia, IServerResponse, ITurno } from '../shared/entity.interfaces.js';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +17,10 @@ export class TurnosService {
   }
   postTurno(turno:ITurno):Observable<ITurno>{
     return this.http.post<ITurno>("http://localhost:8080/turnos",turno)
+  }
+  postTurnosBatch(turno_data:{cod_sector:string,dias:number[],tipo_turno:string,guardias:IGuardia[]})
+    :Observable<IServerResponse>{
+    return this.http.post<any>("http://localhost:8080/turnos/batch",turno_data)
   }
 deleteTurno(cod_turno:string)
 :Observable<IServerResponse> {

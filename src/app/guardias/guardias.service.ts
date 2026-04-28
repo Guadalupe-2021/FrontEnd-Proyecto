@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IGuardia, IServerResponse } from '../shared/entity.interfaces.js';
@@ -13,7 +13,11 @@ export class GuardiasService {
   token = localStorage.getItem('jwtToken')
   headers = new HttpHeaders({'Authorization': `${this.token}`,})
 
-  constructor(private http: HttpClient) {}  
+constructor(private http: HttpClient) {}  
+
+selectedGuardia = signal<IGuardia | null>(null);
+refresh = signal(0);
+
 
 setGuardia(gard:IGuardia){
   this.guardia = gard
