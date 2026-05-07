@@ -1,11 +1,19 @@
 body{
   display:grid;
-
+  background-color: inherit;
+  color: white;
   padding: 1em 1em;
   display: flex;
 }
+
+.informacion-recluso-container{
+  margin-left: 1em;
+}
 select{
   width: 7em;
+  border: 2px solid black;
+    border-radius: 10PX;
+    cursor: pointer;
 }
 .seleccion{
   display: inline-flex;
@@ -31,3 +39,4 @@ h5{
 .detalles-pena{
   position: absolute;
 }
+

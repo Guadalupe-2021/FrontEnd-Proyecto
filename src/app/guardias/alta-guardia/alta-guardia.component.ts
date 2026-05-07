@@ -29,6 +29,7 @@ altaGuardia(form_guardia_value: IGuardia){
         if(data.status === 201) this.toastr.success("Guardia Creado Con Exito")
         },
       error:(e)=>{
+        if(e.status === 400) this.toastr.error(e.error.message)
         if(e.status === 409) this.toastr.error("ERROR: El Guardia Ya Existe")
         if(e.status === 500) this.toastr.error("Error Inesperado")
       }})

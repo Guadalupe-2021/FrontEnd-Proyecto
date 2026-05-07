@@ -40,7 +40,7 @@ modificarGuardia(guard:IGuardia){
 
 
 finalizarContrato(guard:IGuardia){
-    this._service_guard.putGuardia(this.guardia.cod_guardia,guard).subscribe({
+    this._service_guard.finalizarContrato(guard,this.guardia.cod_guardia as number).subscribe({
       next:(serverResponse)=>{
       this.toastr.success("Contrato Finalizado")
       console.log(serverResponse.data)

@@ -24,7 +24,7 @@ ngOnInit(){
     this._service_guardia.getAll().subscribe({
     next: (data)=>{
       this.guardias = data
-      this.guardias[0].nombre = 'Carlos'
+      //this.guardias[0].nombre = 'Carlos'
     },
     error: (e)=>{
       console.log(e)
@@ -34,7 +34,7 @@ ngOnInit(){
 
 buscar(event: Event): void {
   this.guardias_html = []
-  const searchTerm = (event.target as HTMLInputElement).value;
+  const searchTerm = (event.target as HTMLInputElement).value.toLowerCase();
   if(searchTerm.trim()==='') return
     this.filtered_guardias = this.guardias.filter((g)=>{
       g.nombre = this.titleCase.transform(g.nombre);

@@ -48,8 +48,9 @@ postGuardia(guardia:IGuardia):Observable<IServerResponse>{
   return this.http.post<IServerResponse>("http://localhost:8080/guardias/",guardia);
 }
 
-putFinalizarGuardia(x:any){
-  return this.http.put<any | JSON>("http://localhost:8080/guardias/finalizarContrato",x);
+finalizarContrato(guardia:IGuardia,id:number):Observable<IServerResponse>{
+  return this.http.put<IServerResponse>(
+    "http://localhost:8080/guardias/"+ `${id}`+"finalizar_contrato",guardia);
 }
 
 }
